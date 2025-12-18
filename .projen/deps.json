@@ -1,11 +1,6 @@
 {
   "dependencies": [
     {
-      "name": "@stylistic/eslint-plugin",
-      "version": "^2",
-      "type": "build"
-    },
-    {
       "name": "@types/jest",
       "type": "build"
     },
@@ -29,8 +24,20 @@
       "type": "build"
     },
     {
+      "name": "commitizen",
+      "type": "build"
+    },
+    {
       "name": "constructs",
       "version": "^10.0.0",
+      "type": "build"
+    },
+    {
+      "name": "cz-customizable",
+      "type": "build"
+    },
+    {
+      "name": "eslint-config-prettier",
       "type": "build"
     },
     {
@@ -39,6 +46,10 @@
     },
     {
       "name": "eslint-plugin-import",
+      "type": "build"
+    },
+    {
+      "name": "eslint-plugin-prettier",
       "type": "build"
     },
     {
@@ -76,6 +87,10 @@
     {
       "name": "jsii",
       "version": "~5.9.0",
+      "type": "build"
+    },
+    {
+      "name": "prettier",
       "type": "build"
     },
     {
