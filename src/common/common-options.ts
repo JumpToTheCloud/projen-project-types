@@ -26,6 +26,7 @@ export class CommonOptionsConfig {
 
   /**
    * Configures common components like VSCode settings and extensions
+   * If project has parent, configures VSCode in parent project instead of subproject
    * @param project - The project instance to configure
    */
   static withCommonComponents(
@@ -33,17 +34,29 @@ export class CommonOptionsConfig {
     options: TypeScriptProjectOptions,
   ): void {
     if (options.vscode !== false) {
-      const vscode = new VsCode(project);
+      // Determine target project: use parent if it's a subproject, otherwise use current project
+      const targetProject = project.parent ?? project;
+
+      // Try to find existing VsCode component by type in target project
+      let vscode = targetProject.node.children.find(
+        (child) => child instanceof VsCode,
+      ) as VsCode;
+
+      if (!vscode) {
+        vscode = new VsCode(targetProject);
+      }
+
       vscode.settings.addSettings(this.VSCODE_SETTINGS);
       vscode.extensions.addRecommendations(...this.VSCODE_EXTENSIONS);
     }
   }
+
   /**
    * Default prettier configurations that will always be applied
    */
   private static readonly DEFAULT_PRETTIER_OPTIONS: PrettierOptions = {
     settings: {
-      trailingComma: TrailingComma.ES5,
+      trailingComma: TrailingComma.ALL,
       singleQuote: true,
       bracketSpacing: true,
       semi: true,

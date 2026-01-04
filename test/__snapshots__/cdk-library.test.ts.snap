@@ -6,7 +6,7 @@ exports[`CdkLibrary Combined Configuration should handle both prettier and vscod
   "overrides": [],
   "semi": true,
   "singleQuote": true,
-  "trailingComma": "es5",
+  "trailingComma": "all",
 }
 `;
 
@@ -47,7 +47,7 @@ exports[`CdkLibrary Prettier Configuration should configure prettier with defaul
   "overrides": [],
   "semi": true,
   "singleQuote": true,
-  "trailingComma": "es5",
+  "trailingComma": "all",
 }
 `;
 
