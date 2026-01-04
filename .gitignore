@@ -40,8 +40,6 @@ junit.xml
 !/.github/workflows/release.yml
 !/.github/workflows/upgrade-main.yml
 !/.github/pull_request_template.md
-!/.prettierignore
-!/.prettierrc.json
 !/test/
 !/tsconfig.dev.json
 !/src/
@@ -51,6 +49,8 @@ junit.xml
 .jsii
 tsconfig.json
 !/API.md
+!/.prettierignore
+!/.prettierrc.json
 !/.github/workflows/deploy-docs.yml
 site
 !/.projenrc.ts

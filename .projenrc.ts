@@ -6,6 +6,7 @@ import {
 } from 'projen/lib/github/workflows-model';
 import {
   NpmAccess,
+  Prettier,
   TrailingComma,
   UpgradeDependenciesSchedule,
 } from 'projen/lib/javascript';
@@ -19,15 +20,6 @@ const project = new cdk.JsiiProject({
   name: 'projen-project-types',
   projenrcTs: true,
   repositoryUrl: 'git@github.com:JumpToTheCloud/projen-project-types.git',
-  prettier: true,
-  prettierOptions: {
-    settings: {
-      trailingComma: TrailingComma.ES5,
-      singleQuote: true,
-      bracketSpacing: true,
-      semi: true,
-    },
-  },
   autoMerge: false,
   mergify: false,
   autoApproveUpgrades: true,
@@ -71,11 +63,24 @@ const project = new cdk.JsiiProject({
       },
     },
   },
-  // deps: [],
+  deps: ['projen'],
   // description: undefined,
-  devDeps: ['commitizen', 'cz-customizable'],
+  devDeps: ['projen', 'constructs@^10.4.4', 'commitizen', 'cz-customizable'],
+  peerDeps: ['projen', 'constructs@^10.4.4'],
   packageName: '@jttc/projen-project-types',
   npmAccess: NpmAccess.PUBLIC,
+});
+
+new Prettier(project, {
+  settings: {
+    trailingComma: TrailingComma.ES5,
+    singleQuote: true,
+    bracketSpacing: true,
+    semi: true,
+  },
+  ignoreFileOptions: {
+    ignorePatterns: ['*.md'],
+  },
 });
 
 project.addTask('commit', {
