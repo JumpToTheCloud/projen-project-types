@@ -2,10 +2,7 @@ import {
   AwsCdkConstructLibrary,
   AwsCdkConstructLibraryOptions,
 } from 'projen/lib/awscdk';
-import {
-  CommonOptionsConfig,
-  //configureCommonComponents,
-} from '../common/common-options';
+import { CommonOptionsConfig } from '../common/common-options';
 
 /**
  * CDK Construct Library Project
@@ -20,7 +17,6 @@ export class CdkLibrary extends AwsCdkConstructLibrary {
     super({
       ...opts,
     });
-
-    //configureCommonComponents(this, opts);
+    CommonOptionsConfig.withCommonComponents(this, opts);
   }
 }
