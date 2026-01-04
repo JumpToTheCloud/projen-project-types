@@ -29,7 +29,26 @@ While projen provides excellent base project types, real-world projects often re
 
 ## Getting Started
 
-More detailed documentation and project types will be added as features are developed. Stay tuned for updates!
+Choose from our available project types:
+
+### 🏗️ [CDK Library Project](project-types/cdk-library.md)
+
+Create AWS CDK construct libraries with opinionated configurations:
+
+- Pre-configured Prettier settings
+- VSCode workspace setup with recommended extensions
+- Best practices for CDK library development
+- Fully customizable while maintaining sensible defaults
+
+```bash linenums="1" title="Create new CDK Library project"
+# Create a new CDK Library project
+npx projen new --from @jttc/projen-project-types cdk-library
+```
+
+!!! tip "Getting Started"
+    After running the command above, follow the interactive prompts to configure your project, then customize further by editing `.projenrc.ts`
+
+More project types are planned for future releases!
 
 ## Contributing
 

@@ -4,6 +4,10 @@ repo_url: https://github.com/JumpToTheCloud/projen-project-types
 nav:
   - Homepage:
       - index.md
+  - Project Types:
+      - CDK Library: project-types/cdk-library.md
+  - Configuration:
+      - Default Configurations: default-configurations.md
 theme:
   name: material
   font:
