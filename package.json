@@ -44,7 +44,7 @@
     "@typescript-eslint/parser": "^8",
     "commit-and-tag-version": "^12",
     "commitizen": "^4.3.1",
-    "constructs": "^10.0.0",
+    "constructs": "10.4.4",
     "cz-customizable": "^7.5.1",
     "eslint": "^9",
     "eslint-import-resolver-typescript": "^4.4.4",
@@ -61,6 +61,13 @@
     "ts-jest": "^29.4.6",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "constructs": "^10.4.4",
+    "projen": "^0.98.30"
+  },
+  "dependencies": {
+    "projen": "^0.98.30"
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",

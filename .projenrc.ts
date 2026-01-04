@@ -63,9 +63,10 @@ const project = new cdk.JsiiProject({
       },
     },
   },
-  // deps: [],
+  deps: ['projen'],
   // description: undefined,
-  devDeps: ['commitizen', 'cz-customizable'],
+  devDeps: ['projen', 'constructs@^10.4.4', 'commitizen', 'cz-customizable'],
+  peerDeps: ['projen', 'constructs@^10.4.4'],
   packageName: '@jttc/projen-project-types',
   npmAccess: NpmAccess.PUBLIC,
 });
