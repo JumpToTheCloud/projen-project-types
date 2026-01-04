@@ -73,7 +73,7 @@ const project = new cdk.JsiiProject({
 
 new Prettier(project, {
   settings: {
-    trailingComma: TrailingComma.ES5,
+    trailingComma: TrailingComma.ALL,
     singleQuote: true,
     bracketSpacing: true,
     semi: true,
