@@ -7,6 +7,8 @@ nav:
   - Project Types:
       - CDK Library: project-types/cdk-library.md
       - CDK App: project-types/cdk-app.md
+  - Components:
+      - CDK8s Component: components/cdk8s.md
   - Configuration:
       - Default Configurations: default-configurations.md
 theme:
