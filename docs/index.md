@@ -29,26 +29,87 @@ While projen provides excellent base project types, real-world projects often re
 
 ## Getting Started
 
-Choose from our available project types:
+Choose from our available project types and components:
 
-### 🏗️ [CDK Library Project](project-types/cdk-library.md)
+### 📦 Project Types
 
-Create AWS CDK construct libraries with opinionated configurations:
+| Project Type | Description | Use Case | Quick Start |
+|--------------|-------------|----------|-------------|
+| **[CDK Library](project-types/cdk-library.md)** | AWS CDK construct libraries | Creating reusable CDK constructs | `npx projen new --from @jttc/projen-project-types cdk-library` |
+| **[CDK App](project-types/cdk-app.md)** | AWS CDK applications | Building deployable AWS infrastructure | `npx projen new --from @jttc/projen-project-types cdk-app` |
+| **[CDK8s Library](project-types/cdk8s-library.md)** | CDK8s construct libraries with Kubernetes support | Creating reusable Kubernetes constructs | `npx projen new --from @jttc/projen-project-types cdk8s-library` |
 
-- Pre-configured Prettier settings
-- VSCode workspace setup with recommended extensions
-- Best practices for CDK library development
-- Fully customizable while maintaining sensible defaults
+### 🧩 Components
 
-```bash linenums="1" title="Create new CDK Library project"
-# Create a new CDK Library project
-npx projen new --from @jttc/projen-project-types cdk-library
-```
+| Component | Description | Integration | Documentation |
+|-----------|-------------|-------------|---------------|
+| **[CDK8s Component](components/cdk8s.md)** | Kubernetes manifest generation with CDK8s | Can be added to any project type | [View Details](components/cdk8s.md) |
+
+### ⚙️ Common Features
+
+All project types include:
+
+- **[Prettier Configuration](default-configurations.md#prettier-configuration)** - Consistent code formatting
+- **[VSCode Integration](default-configurations.md#vscode-configuration)** - Optimized editor experience  
+- **TypeScript Setup** - Best practices and configurations
+- **Testing Framework** - Jest with appropriate configurations
+- **CI/CD Ready** - GitHub Actions workflows included
 
 !!! tip "Getting Started"
-    After running the command above, follow the interactive prompts to configure your project, then customize further by editing `.projenrc.ts`
+    After running any project creation command, follow the interactive prompts to configure your project, then customize further by editing `.projenrc.ts`
 
-More project types are planned for future releases!
+## Quick Examples
+
+### CDK Library Example
+```typescript title=".projenrc.ts"
+import { CdkLibrary } from '@jttc/projen-project-types';
+
+const project = new CdkLibrary({
+  name: 'my-awesome-constructs',
+  author: 'Your Name',
+  authorAddress: 'your@email.com',
+  repositoryUrl: 'https://github.com/yourusername/my-awesome-constructs.git',
+  cdkVersion: '2.1.0',
+  defaultReleaseBranch: 'main',
+});
+
+project.synth();
+```
+
+### CDK8s Library Example
+```typescript title=".projenrc.ts"  
+import { Cdk8sLibrary, K8sVersion } from '@jttc/projen-project-types';
+
+const project = new Cdk8sLibrary({
+  name: 'my-k8s-constructs',
+  author: 'Your Name',
+  authorAddress: 'your@email.com',
+  repositoryUrl: 'https://github.com/yourusername/my-k8s-constructs.git',
+  cdkVersion: '2.1.0',
+  defaultReleaseBranch: 'main',
+  k8sVersion: K8sVersion.V1_31,
+});
+
+project.synth();
+```
+
+## Architecture
+
+This project follows a modular architecture:
+
+- **Project Types**: Complete project templates with full configuration
+- **Components**: Reusable functionality that can be added to any project
+- **Common Configurations**: Shared settings applied across all project types
+
+## Roadmap
+
+Future project types and components planned:
+
+- **Next.js Projects** - Full-stack TypeScript applications
+- **Node.js APIs** - REST and GraphQL API templates  
+- **React Libraries** - Component library templates
+- **Terraform Modules** - Infrastructure as Code templates
+- **Docker Components** - Containerization support
 
 ## Contributing
 
