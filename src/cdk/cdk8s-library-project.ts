@@ -14,6 +14,7 @@ export class Cdk8sLibrary extends AwsCdkConstructLibrary {
   constructor(options: Cdk8sLibraryOptions) {
     const opts = CommonOptionsConfig.withCommonOptionsDefaults({
       ...options,
+      sampleCode: false,
     });
 
     super(opts);
