@@ -1,14 +1,14 @@
 import { execSync } from 'child_process';
-import { Cdk8sTypeScriptApp } from 'projen/lib/cdk8s';
+import { TypeScriptProject } from 'projen/lib/typescript';
 import { CommonOptionsConfig } from '../common/common-options';
 import { Cdk8sAppOptions, Cdk8sComponent } from '../components';
 
 /**
- * CDK Construct Library Project
+ * CDK8s Application Project
  *
  * @pjid cdk8s-app
  */
-export class Cdk8App extends Cdk8sTypeScriptApp {
+export class Cdk8App extends TypeScriptProject {
   readonly cdk8s: Cdk8sComponent;
 
   constructor(options: Cdk8sAppOptions) {
@@ -30,8 +30,10 @@ export class Cdk8App extends Cdk8sTypeScriptApp {
 
     super(opts);
 
-    this.cdk8s = new Cdk8sComponent(this, 'cdk8s-component', opts);
+    // Add constructs dependency
     this.addDeps('constructs@^10.4.2');
+
+    this.cdk8s = new Cdk8sComponent(this, 'cdk8s-component', options);
 
     CommonOptionsConfig.withCommonComponents(this, opts);
   }

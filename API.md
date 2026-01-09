@@ -4,7 +4,7 @@
 
 ### Cdk8App <a name="Cdk8App" id="@jttc/projen-project-types.Cdk8App"></a>
 
-CDK Construct Library Project.
+CDK8s Application Project.
 
 #### Initializers <a name="Initializers" id="@jttc/projen-project-types.Cdk8App.Initializer"></a>
 
@@ -723,8 +723,6 @@ When given a project, this it the project itself.
 | <code><a href="#@jttc/projen-project-types.Cdk8App.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
 | <code><a href="#@jttc/projen-project-types.Cdk8App.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
 | <code><a href="#@jttc/projen-project-types.Cdk8App.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
-| <code><a href="#@jttc/projen-project-types.Cdk8App.property.appEntrypoint">appEntrypoint</a></code> | <code>string</code> | The CDK8s app entrypoint. |
-| <code><a href="#@jttc/projen-project-types.Cdk8App.property.cdk8sDeps">cdk8sDeps</a></code> | <code>projen.cdk8s.Cdk8sDeps</code> | *No description.* |
 | <code><a href="#@jttc/projen-project-types.Cdk8App.property.cdk8s">cdk8s</a></code> | <code><a href="#@jttc/projen-project-types.Cdk8sComponent">Cdk8sComponent</a></code> | *No description.* |
 
 ---
@@ -1486,28 +1484,6 @@ public readonly tsconfigEslint: TypescriptConfig;
 ```
 
 - *Type:* projen.javascript.TypescriptConfig
-
----
-
-##### `appEntrypoint`<sup>Required</sup> <a name="appEntrypoint" id="@jttc/projen-project-types.Cdk8App.property.appEntrypoint"></a>
-
-```typescript
-public readonly appEntrypoint: string;
-```
-
-- *Type:* string
-
-The CDK8s app entrypoint.
-
----
-
-##### `cdk8sDeps`<sup>Required</sup> <a name="cdk8sDeps" id="@jttc/projen-project-types.Cdk8App.property.cdk8sDeps"></a>
-
-```typescript
-public readonly cdk8sDeps: Cdk8sDeps;
-```
-
-- *Type:* projen.cdk8s.Cdk8sDeps
 
 ---
 
@@ -6747,20 +6723,6 @@ const cdk8sAppOptions: Cdk8sAppOptions = { ... }
 | <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.tsconfigDevFile">tsconfigDevFile</a></code> | <code>string</code> | The name of the development tsconfig.json file. |
 | <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.tsJestOptions">tsJestOptions</a></code> | <code>projen.typescript.TsJestOptions</code> | Options for ts-jest. |
 | <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sVersion">cdk8sVersion</a></code> | <code>string</code> | Minimum version of the cdk8s to depend on. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sCliVersion">cdk8sCliVersion</a></code> | <code>string</code> | Minimum version of the cdk8s-cli to depend on. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sCliVersionPinning">cdk8sCliVersionPinning</a></code> | <code>boolean</code> | Use pinned version instead of caret version for cdk8s-cli. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sPlus">cdk8sPlus</a></code> | <code>boolean</code> | Include cdk8s-plus. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sPlusVersion">cdk8sPlusVersion</a></code> | <code>string</code> | Minimum version of the cdk8s-plus-XX to depend on. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sPlusVersionPinning">cdk8sPlusVersionPinning</a></code> | <code>boolean</code> | Use pinned version instead of caret version for cdk8s-plus-17. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sVersionPinning">cdk8sVersionPinning</a></code> | <code>boolean</code> | Use pinned version instead of caret version for cdk8s. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.constructsVersion">constructsVersion</a></code> | <code>string</code> | Minimum version of the `constructs` library to depend on. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.constructsVersionPinning">constructsVersionPinning</a></code> | <code>boolean</code> | Use pinned version instead of caret version for constructs. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.k8sMinorVersion">k8sMinorVersion</a></code> | <code>number</code> | The cdk8s-plus library depends of Kubernetes minor version For example, cdk8s-plus-22 targets kubernetes version 1.22.0 cdk8s-plus-21 targets kubernetes version 1.21.0. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.appEntrypoint">appEntrypoint</a></code> | <code>string</code> | The CDK8s app's entrypoint (relative to the source directory, which is "src" by default). |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sImports">cdk8sImports</a></code> | <code>string[]</code> | Import additional specs. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.integrationTestAutoDiscover">integrationTestAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `cdk8s.IntegrationTest` for each `.integ.ts` app in your test directory. If this is disabled, you can manually add an `cdk8s.AutoDiscover` component to your project. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.k8sSpecVersion">k8sSpecVersion</a></code> | <code>string</code> | Import a specific Kubernetes spec version. |
 
 ---
 
@@ -9061,200 +9023,6 @@ TypeScript version to use.
 
 NOTE: Typescript is not semantically versioned and should remain on the
 same minor, so we recommend using a `~` dependency (e.g. `~1.2.3`).
-
----
-
-##### `cdk8sVersion`<sup>Required</sup> <a name="cdk8sVersion" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sVersion"></a>
-
-```typescript
-public readonly cdk8sVersion: string;
-```
-
-- *Type:* string
-- *Default:* "2.3.33"
-
-Minimum version of the cdk8s to depend on.
-
----
-
-##### `cdk8sCliVersion`<sup>Optional</sup> <a name="cdk8sCliVersion" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sCliVersion"></a>
-
-```typescript
-public readonly cdk8sCliVersion: string;
-```
-
-- *Type:* string
-- *Default:* "2.0.28"
-
-Minimum version of the cdk8s-cli to depend on.
-
----
-
-##### `cdk8sCliVersionPinning`<sup>Optional</sup> <a name="cdk8sCliVersionPinning" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sCliVersionPinning"></a>
-
-```typescript
-public readonly cdk8sCliVersionPinning: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Use pinned version instead of caret version for cdk8s-cli.
-
-You can use this to prevent yarn to mix versions for your CDK8s package and to prevent auto-updates.
-If you use experimental features this will let you define the moment you include breaking changes.
-
----
-
-##### `cdk8sPlus`<sup>Optional</sup> <a name="cdk8sPlus" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sPlus"></a>
-
-```typescript
-public readonly cdk8sPlus: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Include cdk8s-plus.
-
----
-
-##### `cdk8sPlusVersion`<sup>Optional</sup> <a name="cdk8sPlusVersion" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sPlusVersion"></a>
-
-```typescript
-public readonly cdk8sPlusVersion: string;
-```
-
-- *Type:* string
-- *Default:* "2.0.0-rc.26"
-
-Minimum version of the cdk8s-plus-XX to depend on.
-
----
-
-##### `cdk8sPlusVersionPinning`<sup>Optional</sup> <a name="cdk8sPlusVersionPinning" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sPlusVersionPinning"></a>
-
-```typescript
-public readonly cdk8sPlusVersionPinning: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Use pinned version instead of caret version for cdk8s-plus-17.
-
-You can use this to prevent yarn to mix versions for your CDK8s package and to prevent auto-updates.
-If you use experimental features this will let you define the moment you include breaking changes.
-
----
-
-##### `cdk8sVersionPinning`<sup>Optional</sup> <a name="cdk8sVersionPinning" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sVersionPinning"></a>
-
-```typescript
-public readonly cdk8sVersionPinning: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Use pinned version instead of caret version for cdk8s.
-
-You can use this to prevent yarn to mix versions for your CDK8s package and to prevent auto-updates.
-If you use experimental features this will let you define the moment you include breaking changes.
-
----
-
-##### `constructsVersion`<sup>Optional</sup> <a name="constructsVersion" id="@jttc/projen-project-types.Cdk8sAppOptions.property.constructsVersion"></a>
-
-```typescript
-public readonly constructsVersion: string;
-```
-
-- *Type:* string
-- *Default:* "10.1.42"
-
-Minimum version of the `constructs` library to depend on.
-
----
-
-##### `constructsVersionPinning`<sup>Optional</sup> <a name="constructsVersionPinning" id="@jttc/projen-project-types.Cdk8sAppOptions.property.constructsVersionPinning"></a>
-
-```typescript
-public readonly constructsVersionPinning: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Use pinned version instead of caret version for constructs.
-
-You can use this to prevent yarn to mix versions for your consructs package and to prevent auto-updates.
-If you use experimental features this will let you define the moment you include breaking changes.
-
----
-
-##### `k8sMinorVersion`<sup>Optional</sup> <a name="k8sMinorVersion" id="@jttc/projen-project-types.Cdk8sAppOptions.property.k8sMinorVersion"></a>
-
-```typescript
-public readonly k8sMinorVersion: number;
-```
-
-- *Type:* number
-- *Default:* 22
-
-The cdk8s-plus library depends of Kubernetes minor version For example, cdk8s-plus-22 targets kubernetes version 1.22.0 cdk8s-plus-21 targets kubernetes version 1.21.0.
-
----
-
-##### `appEntrypoint`<sup>Optional</sup> <a name="appEntrypoint" id="@jttc/projen-project-types.Cdk8sAppOptions.property.appEntrypoint"></a>
-
-```typescript
-public readonly appEntrypoint: string;
-```
-
-- *Type:* string
-- *Default:* "main.ts"
-
-The CDK8s app's entrypoint (relative to the source directory, which is "src" by default).
-
----
-
-##### `cdk8sImports`<sup>Optional</sup> <a name="cdk8sImports" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sImports"></a>
-
-```typescript
-public readonly cdk8sImports: string[];
-```
-
-- *Type:* string[]
-- *Default:* no additional specs imported
-
-Import additional specs.
-
----
-
-##### `integrationTestAutoDiscover`<sup>Optional</sup> <a name="integrationTestAutoDiscover" id="@jttc/projen-project-types.Cdk8sAppOptions.property.integrationTestAutoDiscover"></a>
-
-```typescript
-public readonly integrationTestAutoDiscover: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Automatically adds an `cdk8s.IntegrationTest` for each `.integ.ts` app in your test directory. If this is disabled, you can manually add an `cdk8s.AutoDiscover` component to your project.
-
----
-
-##### `k8sSpecVersion`<sup>Optional</sup> <a name="k8sSpecVersion" id="@jttc/projen-project-types.Cdk8sAppOptions.property.k8sSpecVersion"></a>
-
-```typescript
-public readonly k8sSpecVersion: string;
-```
-
-- *Type:* string
-- *Default:* Use the cdk8s default
-
-Import a specific Kubernetes spec version.
 
 ---
 
