@@ -15,6 +15,17 @@ export class Cdk8sLibrary extends AwsCdkConstructLibrary {
     const opts = CommonOptionsConfig.withCommonOptionsDefaults({
       ...options,
       sampleCode: false,
+      eslintOptions: {
+        dirs: ['src', 'test', 'build-tools', 'projenrc', '.projenrc.ts'],
+        ignorePatterns: [
+          '*.js',
+          '*.d.ts',
+          'node_modules/',
+          '*.generated.ts',
+          'coverage',
+          '**/k8s.ts',
+        ],
+      },
     });
 
     super(opts);
