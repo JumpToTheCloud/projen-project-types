@@ -6,6 +6,7 @@ nav:
       - index.md
   - Project Types:
       - CDK Library: project-types/cdk-library.md
+      - CDK App: project-types/cdk-app.md
   - Configuration:
       - Default Configurations: default-configurations.md
 theme:
