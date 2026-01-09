@@ -126,6 +126,51 @@ describe('Cdk8sLibrary', () => {
       expect(packageJson.scripts).toHaveProperty('cdk8s:import');
       expect(packageJson.scripts).not.toHaveProperty('cdk8s:synth');
     });
+
+    test('should use main-library.ts.template for cdk8s-library projects', () => {
+      const options: Cdk8sLibraryOptions = {
+        name: 'test-cdk8s-library',
+        author: 'test-author',
+        authorAddress: 'test@example.com',
+        repositoryUrl: 'https://github.com/test/test-cdk8s-library.git',
+        cdkVersion: '2.1.0',
+        defaultReleaseBranch: 'main',
+      };
+
+      const project = new Cdk8sLibrary(options);
+      const snapshot = Testing.synth(project);
+
+      // Verify main.ts exists
+      expect(snapshot['src/main.ts']).toBeDefined();
+
+      // The main.ts content should NOT contain app instantiation and synth
+      // (library template only exports the Chart class)
+      const mainContent = snapshot['src/main.ts'] as string;
+      expect(mainContent).not.toMatch(/const app = new App/);
+      expect(mainContent).not.toMatch(/app\.synth/);
+      expect(mainContent).toMatch(/export class MyChart/);
+
+      // Snapshot test for main.ts content
+      expect(snapshot['src/main.ts']).toMatchSnapshot();
+    });
+
+    test('should create test file for cdk8s-library projects', () => {
+      const options: Cdk8sLibraryOptions = {
+        name: 'test-cdk8s-library',
+        author: 'test-author',
+        authorAddress: 'test@example.com',
+        repositoryUrl: 'https://github.com/test/test-cdk8s-library.git',
+        cdkVersion: '2.1.0',
+        defaultReleaseBranch: 'main',
+      };
+
+      const project = new Cdk8sLibrary(options);
+      const snapshot = Testing.synth(project);
+
+      // Verify test file exists for cdk8s-library
+      expect(snapshot['test/main.test.ts']).toBeDefined();
+      expect(snapshot['test/main.test.ts']).toMatchSnapshot();
+    });
   });
 
   describe('Cdk8s Configuration Options', () => {

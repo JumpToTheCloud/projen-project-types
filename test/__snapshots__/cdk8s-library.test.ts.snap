@@ -46,9 +46,6 @@ export class MyChart extends Chart {
   }
 }
 
-const app = new App();
-new MyChart(app, 'hello');
-app.synth();
 "
 `;
 
@@ -190,6 +187,52 @@ exports[`Cdk8sLibrary Basic Configuration should create cdk8s library with defau
 }
 `;
 
+exports[`Cdk8sLibrary Basic Configuration should create test file for cdk8s-library projects 1`] = `
+"test('hello', () => {
+  expect(true).toBeTruthy();
+});
+"
+`;
+
+exports[`Cdk8sLibrary Basic Configuration should use main-library.ts.template for cdk8s-library projects 1`] = `
+"import { App, Chart, ChartProps, ApiObject } from 'cdk8s';
+import { Construct } from 'constructs';
+
+export class MyChart extends Chart {
+  constructor(scope: Construct, id: string, props: ChartProps = {}) {
+    super(scope, id, props);
+
+    const label = { app: 'hello-k8s' };
+
+    new ApiObject(this, 'deployment', {
+      apiVersion: 'v1',
+      kind: 'Pod',
+      metadata: {
+        namespace: 'frontend',
+        name: 'nginx',
+        labels: label,
+      },
+      spec: {
+        containers: [
+          {
+            name: 'nginx',
+            image: 'nginx:1.14-alpine',
+            resources: {
+              limits: {
+                memory: '20Mi',
+                cpu: 0.2,
+              },
+            },
+          },
+        ],
+      },
+    });
+  }
+}
+
+"
+`;
+
 exports[`Cdk8sLibrary Cdk8s Configuration Options should configure custom cdk8s options 1`] = `
 "import { App, Chart, ChartProps, ApiObject } from 'cdk8s';
 import { Construct } from 'constructs';
@@ -226,9 +269,6 @@ export class MyChart extends Chart {
   }
 }
 
-const app = new App();
-new MyChart(app, 'hello');
-app.synth();
 "
 `;
 
