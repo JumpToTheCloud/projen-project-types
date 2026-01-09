@@ -52,6 +52,9 @@ export class Cdk8sComponent extends Component {
     project.deps.addDependency('cdk8s-cli', DependencyType.BUILD);
     project.deps.addDependency(cdk8sPlusVersion, DependencyType.RUNTIME);
 
+    // Get pjid from initProject (available in CLI usage and mocked in tests)
+    const pjid = project.initProject?.type.pjid;
+
     project.addTask('cdk8s', {
       description: 'CDK8s command',
       steps: [
@@ -74,16 +77,18 @@ export class Cdk8sComponent extends Component {
       ],
     });
 
-    project.addTask('cdk8s:synth', {
-      description: 'Synthesized cdk8s constructs',
-      steps: [
-        {
-          exec: `cdk8s synth --output ${this.outputPath}`,
-          say: 'Synthesizing kubernetes files',
-          receiveArgs: true,
-        },
-      ],
-    });
+    if (pjid !== 'cdk8s-library') {
+      project.addTask('cdk8s:synth', {
+        description: 'Synthesized cdk8s constructs',
+        steps: [
+          {
+            exec: `cdk8s synth --output ${this.outputPath}`,
+            say: 'Synthesizing kubernetes files',
+            receiveArgs: true,
+          },
+        ],
+      });
+    }
 
     new YamlFile(project, 'cdk8s.yaml', {
       obj: {
@@ -92,8 +97,6 @@ export class Cdk8sComponent extends Component {
         imports: this.imports,
       },
     });
-
-    const pjid = project.root.initProject?.type.pjid;
 
     new SampleFile(project, `${this.appPath}/${this.appFile}`, {
       sourcePath: path.join(__dirname, 'main.ts.template'),

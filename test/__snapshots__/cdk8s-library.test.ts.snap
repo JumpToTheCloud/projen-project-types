@@ -163,7 +163,6 @@ exports[`Cdk8sLibrary Basic Configuration should create cdk8s library with defau
     "bump": "npx projen bump",
     "cdk8s": "npx projen cdk8s",
     "cdk8s:import": "npx projen cdk8s:import",
-    "cdk8s:synth": "npx projen cdk8s:synth",
     "clobber": "npx projen clobber",
     "compat": "npx projen compat",
     "compile": "npx projen compile",
