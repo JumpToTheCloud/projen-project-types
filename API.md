@@ -2,6 +2,1559 @@
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
 
+### Cdk8App <a name="Cdk8App" id="@jttc/projen-project-types.Cdk8App"></a>
+
+CDK Construct Library Project.
+
+#### Initializers <a name="Initializers" id="@jttc/projen-project-types.Cdk8App.Initializer"></a>
+
+```typescript
+import { Cdk8App } from '@jttc/projen-project-types'
+
+new Cdk8App(options: Cdk8sAppOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.Initializer.parameter.options">options</a></code> | <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions">Cdk8sAppOptions</a></code> | *No description.* |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="@jttc/projen-project-types.Cdk8App.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#@jttc/projen-project-types.Cdk8sAppOptions">Cdk8sAppOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.addPackageIgnore">addPackageIgnore</a></code> | Adds patterns to be ignored by npm. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.addTask">addTask</a></code> | Adds a new task to this project. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.annotateGenerated">annotateGenerated</a></code> | Marks the provided file(s) as being generated. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.removeTask">removeTask</a></code> | Removes a task from a project. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.synth">synth</a></code> | Synthesize all project files into `outdir`. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.addBins">addBins</a></code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.addBundledDeps">addBundledDeps</a></code> | Defines bundled dependencies. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.addCompileCommand">addCompileCommand</a></code> | DEPRECATED. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.addDeps">addDeps</a></code> | Defines normal dependencies. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.addDevDeps">addDevDeps</a></code> | Defines development/test dependencies. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.addFields">addFields</a></code> | Directly set fields in `package.json`. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.addKeywords">addKeywords</a></code> | Adds keywords to package.json (deduplicated). |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.addPeerDeps">addPeerDeps</a></code> | Defines peer dependencies. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.addScripts">addScripts</a></code> | Replaces the contents of multiple npm package.json scripts. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.addTestCommand">addTestCommand</a></code> | DEPRECATED. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.hasScript">hasScript</a></code> | Indicates if a script by the name name is defined. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
+
+---
+
+##### `toString` <a name="toString" id="@jttc/projen-project-types.Cdk8App.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="@jttc/projen-project-types.Cdk8App.addExcludeFromCleanup"></a>
+
+```typescript
+public addExcludeFromCleanup(globs: ...string[]): void
+```
+
+Exclude the matching files from pre-synth cleanup.
+
+Can be used when, for example, some
+source files include the projen marker and we don't want them to be erased during synth.
+
+###### `globs`<sup>Required</sup> <a name="globs" id="@jttc/projen-project-types.Cdk8App.addExcludeFromCleanup.parameter.globs"></a>
+
+- *Type:* ...string[]
+
+The glob patterns to match.
+
+---
+
+##### `addGitIgnore` <a name="addGitIgnore" id="@jttc/projen-project-types.Cdk8App.addGitIgnore"></a>
+
+```typescript
+public addGitIgnore(pattern: string): void
+```
+
+Adds a .gitignore pattern.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="@jttc/projen-project-types.Cdk8App.addGitIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+The glob pattern to ignore.
+
+---
+
+##### `addPackageIgnore` <a name="addPackageIgnore" id="@jttc/projen-project-types.Cdk8App.addPackageIgnore"></a>
+
+```typescript
+public addPackageIgnore(pattern: string): void
+```
+
+Adds patterns to be ignored by npm.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="@jttc/projen-project-types.Cdk8App.addPackageIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+The pattern to ignore.
+
+---
+
+##### `addTask` <a name="addTask" id="@jttc/projen-project-types.Cdk8App.addTask"></a>
+
+```typescript
+public addTask(name: string, props?: TaskOptions): Task
+```
+
+Adds a new task to this project.
+
+This will fail if the project already has
+a task with this name.
+
+###### `name`<sup>Required</sup> <a name="name" id="@jttc/projen-project-types.Cdk8App.addTask.parameter.name"></a>
+
+- *Type:* string
+
+The task name to add.
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="@jttc/projen-project-types.Cdk8App.addTask.parameter.props"></a>
+
+- *Type:* projen.TaskOptions
+
+Task properties.
+
+---
+
+##### ~~`addTip`~~ <a name="addTip" id="@jttc/projen-project-types.Cdk8App.addTip"></a>
+
+```typescript
+public addTip(message: string): void
+```
+
+Prints a "tip" message during synthesis.
+
+###### `message`<sup>Required</sup> <a name="message" id="@jttc/projen-project-types.Cdk8App.addTip.parameter.message"></a>
+
+- *Type:* string
+
+The message.
+
+---
+
+##### `annotateGenerated` <a name="annotateGenerated" id="@jttc/projen-project-types.Cdk8App.annotateGenerated"></a>
+
+```typescript
+public annotateGenerated(glob: string): void
+```
+
+Marks the provided file(s) as being generated.
+
+This is achieved using the
+github-linguist attributes. Generated files do not count against the
+repository statistics and language breakdown.
+
+> [https://github.com/github/linguist/blob/master/docs/overrides.md](https://github.com/github/linguist/blob/master/docs/overrides.md)
+
+###### `glob`<sup>Required</sup> <a name="glob" id="@jttc/projen-project-types.Cdk8App.annotateGenerated.parameter.glob"></a>
+
+- *Type:* string
+
+the glob pattern to match (could be a file path).
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="@jttc/projen-project-types.Cdk8App.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after all components are synthesized.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="@jttc/projen-project-types.Cdk8App.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before all components are synthesized.
+
+##### `removeTask` <a name="removeTask" id="@jttc/projen-project-types.Cdk8App.removeTask"></a>
+
+```typescript
+public removeTask(name: string): Task
+```
+
+Removes a task from a project.
+
+###### `name`<sup>Required</sup> <a name="name" id="@jttc/projen-project-types.Cdk8App.removeTask.parameter.name"></a>
+
+- *Type:* string
+
+The name of the task to remove.
+
+---
+
+##### `runTaskCommand` <a name="runTaskCommand" id="@jttc/projen-project-types.Cdk8App.runTaskCommand"></a>
+
+```typescript
+public runTaskCommand(task: Task): string
+```
+
+Returns the shell command to execute in order to run a task.
+
+This will
+typically be `npx projen TASK`.
+
+###### `task`<sup>Required</sup> <a name="task" id="@jttc/projen-project-types.Cdk8App.runTaskCommand.parameter.task"></a>
+
+- *Type:* projen.Task
+
+The task for which the command is required.
+
+---
+
+##### `synth` <a name="synth" id="@jttc/projen-project-types.Cdk8App.synth"></a>
+
+```typescript
+public synth(): void
+```
+
+Synthesize all project files into `outdir`.
+
+1. Call "this.preSynthesize()"
+2. Delete all generated files
+3. Synthesize all subprojects
+4. Synthesize all components of this project
+5. Call "postSynthesize()" for all components of this project
+6. Call "this.postSynthesize()"
+
+##### `tryFindFile` <a name="tryFindFile" id="@jttc/projen-project-types.Cdk8App.tryFindFile"></a>
+
+```typescript
+public tryFindFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and all its subprojects.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@jttc/projen-project-types.Cdk8App.tryFindFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be resolved
+from the root of _this_ project.
+
+---
+
+##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="@jttc/projen-project-types.Cdk8App.tryFindJsonFile"></a>
+
+```typescript
+public tryFindJsonFile(filePath: string): JsonFile
+```
+
+Finds a json file by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@jttc/projen-project-types.Cdk8App.tryFindJsonFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryFindObjectFile` <a name="tryFindObjectFile" id="@jttc/projen-project-types.Cdk8App.tryFindObjectFile"></a>
+
+```typescript
+public tryFindObjectFile(filePath: string): ObjectFile
+```
+
+Finds an object file (like JsonFile, YamlFile, etc.) by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@jttc/projen-project-types.Cdk8App.tryFindObjectFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryRemoveFile` <a name="tryRemoveFile" id="@jttc/projen-project-types.Cdk8App.tryRemoveFile"></a>
+
+```typescript
+public tryRemoveFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and removes it.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@jttc/projen-project-types.Cdk8App.tryRemoveFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be
+resolved from the root of _this_ project.
+
+---
+
+##### `addBins` <a name="addBins" id="@jttc/projen-project-types.Cdk8App.addBins"></a>
+
+```typescript
+public addBins(bins: {[ key: string ]: string}): void
+```
+
+###### `bins`<sup>Required</sup> <a name="bins" id="@jttc/projen-project-types.Cdk8App.addBins.parameter.bins"></a>
+
+- *Type:* {[ key: string ]: string}
+
+---
+
+##### `addBundledDeps` <a name="addBundledDeps" id="@jttc/projen-project-types.Cdk8App.addBundledDeps"></a>
+
+```typescript
+public addBundledDeps(deps: ...string[]): void
+```
+
+Defines bundled dependencies.
+
+Bundled dependencies will be added as normal dependencies as well as to the
+`bundledDependencies` section of your `package.json`.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="@jttc/projen-project-types.Cdk8App.addBundledDeps.parameter.deps"></a>
+
+- *Type:* ...string[]
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### ~~`addCompileCommand`~~ <a name="addCompileCommand" id="@jttc/projen-project-types.Cdk8App.addCompileCommand"></a>
+
+```typescript
+public addCompileCommand(commands: ...string[]): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="@jttc/projen-project-types.Cdk8App.addCompileCommand.parameter.commands"></a>
+
+- *Type:* ...string[]
+
+---
+
+##### `addDeps` <a name="addDeps" id="@jttc/projen-project-types.Cdk8App.addDeps"></a>
+
+```typescript
+public addDeps(deps: ...string[]): void
+```
+
+Defines normal dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="@jttc/projen-project-types.Cdk8App.addDeps.parameter.deps"></a>
+
+- *Type:* ...string[]
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addDevDeps` <a name="addDevDeps" id="@jttc/projen-project-types.Cdk8App.addDevDeps"></a>
+
+```typescript
+public addDevDeps(deps: ...string[]): void
+```
+
+Defines development/test dependencies.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="@jttc/projen-project-types.Cdk8App.addDevDeps.parameter.deps"></a>
+
+- *Type:* ...string[]
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addFields` <a name="addFields" id="@jttc/projen-project-types.Cdk8App.addFields"></a>
+
+```typescript
+public addFields(fields: {[ key: string ]: any}): void
+```
+
+Directly set fields in `package.json`.
+
+###### `fields`<sup>Required</sup> <a name="fields" id="@jttc/projen-project-types.Cdk8App.addFields.parameter.fields"></a>
+
+- *Type:* {[ key: string ]: any}
+
+The fields to set.
+
+---
+
+##### `addKeywords` <a name="addKeywords" id="@jttc/projen-project-types.Cdk8App.addKeywords"></a>
+
+```typescript
+public addKeywords(keywords: ...string[]): void
+```
+
+Adds keywords to package.json (deduplicated).
+
+###### `keywords`<sup>Required</sup> <a name="keywords" id="@jttc/projen-project-types.Cdk8App.addKeywords.parameter.keywords"></a>
+
+- *Type:* ...string[]
+
+The keywords to add.
+
+---
+
+##### `addPeerDeps` <a name="addPeerDeps" id="@jttc/projen-project-types.Cdk8App.addPeerDeps"></a>
+
+```typescript
+public addPeerDeps(deps: ...string[]): void
+```
+
+Defines peer dependencies.
+
+When adding peer dependencies, a devDependency will also be added on the
+pinned version of the declared peer. This will ensure that you are testing
+your code against the minimum version required from your consumers.
+
+###### `deps`<sup>Required</sup> <a name="deps" id="@jttc/projen-project-types.Cdk8App.addPeerDeps.parameter.deps"></a>
+
+- *Type:* ...string[]
+
+Names modules to install.
+
+By default, the the dependency will
+be installed in the next `npx projen` run and the version will be recorded
+in your `package.json` file. You can upgrade manually or using `yarn
+add/upgrade`. If you wish to specify a version range use this syntax:
+`module@^7`.
+
+---
+
+##### `addScripts` <a name="addScripts" id="@jttc/projen-project-types.Cdk8App.addScripts"></a>
+
+```typescript
+public addScripts(scripts: {[ key: string ]: string}): void
+```
+
+Replaces the contents of multiple npm package.json scripts.
+
+###### `scripts`<sup>Required</sup> <a name="scripts" id="@jttc/projen-project-types.Cdk8App.addScripts.parameter.scripts"></a>
+
+- *Type:* {[ key: string ]: string}
+
+The scripts to set.
+
+---
+
+##### ~~`addTestCommand`~~ <a name="addTestCommand" id="@jttc/projen-project-types.Cdk8App.addTestCommand"></a>
+
+```typescript
+public addTestCommand(commands: ...string[]): void
+```
+
+DEPRECATED.
+
+###### `commands`<sup>Required</sup> <a name="commands" id="@jttc/projen-project-types.Cdk8App.addTestCommand.parameter.commands"></a>
+
+- *Type:* ...string[]
+
+---
+
+##### ~~`hasScript`~~ <a name="hasScript" id="@jttc/projen-project-types.Cdk8App.hasScript"></a>
+
+```typescript
+public hasScript(name: string): boolean
+```
+
+Indicates if a script by the name name is defined.
+
+###### `name`<sup>Required</sup> <a name="name" id="@jttc/projen-project-types.Cdk8App.hasScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `removeScript` <a name="removeScript" id="@jttc/projen-project-types.Cdk8App.removeScript"></a>
+
+```typescript
+public removeScript(name: string): void
+```
+
+Removes the npm script (always successful).
+
+###### `name`<sup>Required</sup> <a name="name" id="@jttc/projen-project-types.Cdk8App.removeScript.parameter.name"></a>
+
+- *Type:* string
+
+The name of the script.
+
+---
+
+##### `renderWorkflowSetup` <a name="renderWorkflowSetup" id="@jttc/projen-project-types.Cdk8App.renderWorkflowSetup"></a>
+
+```typescript
+public renderWorkflowSetup(options?: RenderWorkflowSetupOptions): JobStep[]
+```
+
+Returns the set of workflow steps which should be executed to bootstrap a workflow.
+
+###### `options`<sup>Optional</sup> <a name="options" id="@jttc/projen-project-types.Cdk8App.renderWorkflowSetup.parameter.options"></a>
+
+- *Type:* projen.javascript.RenderWorkflowSetupOptions
+
+Options.
+
+---
+
+##### `setScript` <a name="setScript" id="@jttc/projen-project-types.Cdk8App.setScript"></a>
+
+```typescript
+public setScript(name: string, command: string): void
+```
+
+Replaces the contents of an npm package.json script.
+
+###### `name`<sup>Required</sup> <a name="name" id="@jttc/projen-project-types.Cdk8App.setScript.parameter.name"></a>
+
+- *Type:* string
+
+The script name.
+
+---
+
+###### `command`<sup>Required</sup> <a name="command" id="@jttc/projen-project-types.Cdk8App.setScript.parameter.command"></a>
+
+- *Type:* string
+
+The command to execute.
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.isProject">isProject</a></code> | Test whether the given construct is a project. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.of">of</a></code> | Find the closest ancestor project for given construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@jttc/projen-project-types.Cdk8App.isConstruct"></a>
+
+```typescript
+import { Cdk8App } from '@jttc/projen-project-types'
+
+Cdk8App.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@jttc/projen-project-types.Cdk8App.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isProject` <a name="isProject" id="@jttc/projen-project-types.Cdk8App.isProject"></a>
+
+```typescript
+import { Cdk8App } from '@jttc/projen-project-types'
+
+Cdk8App.isProject(x: any)
+```
+
+Test whether the given construct is a project.
+
+###### `x`<sup>Required</sup> <a name="x" id="@jttc/projen-project-types.Cdk8App.isProject.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `of` <a name="of" id="@jttc/projen-project-types.Cdk8App.of"></a>
+
+```typescript
+import { Cdk8App } from '@jttc/projen-project-types'
+
+Cdk8App.of(construct: IConstruct)
+```
+
+Find the closest ancestor project for given construct.
+
+When given a project, this it the project itself.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@jttc/projen-project-types.Cdk8App.of.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.name">name</a></code> | <code>string</code> | Project name. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.projectType">projectType</a></code> | <code>projen.ProjectType</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.autoApprove">autoApprove</a></code> | <code>projen.github.AutoApprove</code> | Auto approve set up for this project. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.devContainer">devContainer</a></code> | <code>projen.vscode.DevContainer</code> | Access for .devcontainer.json (used for GitHub Codespaces). |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.github">github</a></code> | <code>projen.github.GitHub</code> | Access all github components. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.gitpod">gitpod</a></code> | <code>projen.Gitpod</code> | Access for Gitpod. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.vscode">vscode</a></code> | <code>projen.vscode.VsCode</code> | Access all VSCode components. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.allowLibraryDependencies">allowLibraryDependencies</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.artifactsDirectory">artifactsDirectory</a></code> | <code>string</code> | The build output directory. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.artifactsJavascriptDirectory">artifactsJavascriptDirectory</a></code> | <code>string</code> | The location of the npm tarball after build (`${artifactsDirectory}/js`). |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.bundler">bundler</a></code> | <code>projen.javascript.Bundler</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.entrypoint">entrypoint</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.manifest">manifest</a></code> | <code>any</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.npmrc">npmrc</a></code> | <code>projen.javascript.NpmConfig</code> | The .npmrc file. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.package">package</a></code> | <code>projen.javascript.NodePackage</code> | API for managing the node package. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.packageManager">packageManager</a></code> | <code>projen.javascript.NodePackageManager</code> | The package manager to use. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.runScriptCommand">runScriptCommand</a></code> | <code>string</code> | The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager). |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.autoMerge">autoMerge</a></code> | <code>projen.github.AutoMerge</code> | Component that sets up mergify for merging approved pull requests. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.biome">biome</a></code> | <code>projen.javascript.Biome</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.buildWorkflow">buildWorkflow</a></code> | <code>projen.build.BuildWorkflow</code> | The PR build GitHub workflow. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.buildWorkflowJobId">buildWorkflowJobId</a></code> | <code>string</code> | The job ID of the build workflow. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.jest">jest</a></code> | <code>projen.javascript.Jest</code> | The Jest configuration (if enabled). |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.maxNodeVersion">maxNodeVersion</a></code> | <code>string</code> | Maximum node version supported by this package. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.minNodeVersion">minNodeVersion</a></code> | <code>string</code> | The minimum node version required by this package to function. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.npmignore">npmignore</a></code> | <code>projen.IgnoreFile</code> | The .npmignore file. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.prettier">prettier</a></code> | <code>projen.javascript.Prettier</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.publisher">publisher</a></code> | <code>projen.release.Publisher</code> | Package publisher. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.release">release</a></code> | <code>projen.release.Release</code> | Release management. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.upgradeWorkflow">upgradeWorkflow</a></code> | <code>projen.javascript.UpgradeDependencies</code> | The upgrade workflow. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.docsDirectory">docsDirectory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.libdir">libdir</a></code> | <code>string</code> | The directory in which compiled .js files reside. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.srcdir">srcdir</a></code> | <code>string</code> | The directory in which the .ts sources reside. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.testdir">testdir</a></code> | <code>string</code> | The directory in which tests reside. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.tsconfigDev">tsconfigDev</a></code> | <code>projen.javascript.TypescriptConfig</code> | A typescript configuration file which covers all files (sources, tests, projen). |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.watchTask">watchTask</a></code> | <code>projen.Task</code> | The "watch" task. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.docgen">docgen</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.eslint">eslint</a></code> | <code>projen.javascript.Eslint</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.tsconfig">tsconfig</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.tsconfigEslint">tsconfigEslint</a></code> | <code>projen.javascript.TypescriptConfig</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.appEntrypoint">appEntrypoint</a></code> | <code>string</code> | The CDK8s app entrypoint. |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.cdk8sDeps">cdk8sDeps</a></code> | <code>projen.cdk8s.Cdk8sDeps</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.cdk8s">cdk8s</a></code> | <code><a href="#@jttc/projen-project-types.Cdk8sComponent">Cdk8sComponent</a></code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@jttc/projen-project-types.Cdk8App.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `buildTask`<sup>Required</sup> <a name="buildTask" id="@jttc/projen-project-types.Cdk8App.property.buildTask"></a>
+
+```typescript
+public readonly buildTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="@jttc/projen-project-types.Cdk8App.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+
+Whether to commit the managed files by default.
+
+---
+
+##### `compileTask`<sup>Required</sup> <a name="compileTask" id="@jttc/projen-project-types.Cdk8App.property.compileTask"></a>
+
+```typescript
+public readonly compileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `components`<sup>Required</sup> <a name="components" id="@jttc/projen-project-types.Cdk8App.property.components"></a>
+
+```typescript
+public readonly components: Component[];
+```
+
+- *Type:* projen.Component[]
+
+Returns all the components within this project.
+
+---
+
+##### `deps`<sup>Required</sup> <a name="deps" id="@jttc/projen-project-types.Cdk8App.property.deps"></a>
+
+```typescript
+public readonly deps: Dependencies;
+```
+
+- *Type:* projen.Dependencies
+
+Project dependencies.
+
+---
+
+##### `ejected`<sup>Required</sup> <a name="ejected" id="@jttc/projen-project-types.Cdk8App.property.ejected"></a>
+
+```typescript
+public readonly ejected: boolean;
+```
+
+- *Type:* boolean
+
+Whether or not the project is being ejected.
+
+---
+
+##### `files`<sup>Required</sup> <a name="files" id="@jttc/projen-project-types.Cdk8App.property.files"></a>
+
+```typescript
+public readonly files: FileBase[];
+```
+
+- *Type:* projen.FileBase[]
+
+All files in this project.
+
+---
+
+##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="@jttc/projen-project-types.Cdk8App.property.gitattributes"></a>
+
+```typescript
+public readonly gitattributes: GitAttributesFile;
+```
+
+- *Type:* projen.GitAttributesFile
+
+The .gitattributes file for this repository.
+
+---
+
+##### `gitignore`<sup>Required</sup> <a name="gitignore" id="@jttc/projen-project-types.Cdk8App.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+.gitignore.
+
+---
+
+##### `logger`<sup>Required</sup> <a name="logger" id="@jttc/projen-project-types.Cdk8App.property.logger"></a>
+
+```typescript
+public readonly logger: Logger;
+```
+
+- *Type:* projen.Logger
+
+Logging utilities.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="@jttc/projen-project-types.Cdk8App.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Project name.
+
+---
+
+##### `outdir`<sup>Required</sup> <a name="outdir" id="@jttc/projen-project-types.Cdk8App.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+
+Absolute output directory of this project.
+
+---
+
+##### `packageTask`<sup>Required</sup> <a name="packageTask" id="@jttc/projen-project-types.Cdk8App.property.packageTask"></a>
+
+```typescript
+public readonly packageTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="@jttc/projen-project-types.Cdk8App.property.postCompileTask"></a>
+
+```typescript
+public readonly postCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="@jttc/projen-project-types.Cdk8App.property.preCompileTask"></a>
+
+```typescript
+public readonly preCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="@jttc/projen-project-types.Cdk8App.property.projectBuild"></a>
+
+```typescript
+public readonly projectBuild: ProjectBuild;
+```
+
+- *Type:* projen.ProjectBuild
+
+Manages the build process of the project.
+
+---
+
+##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="@jttc/projen-project-types.Cdk8App.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+
+The command to use in order to run the projen CLI.
+
+---
+
+##### `root`<sup>Required</sup> <a name="root" id="@jttc/projen-project-types.Cdk8App.property.root"></a>
+
+```typescript
+public readonly root: Project;
+```
+
+- *Type:* projen.Project
+
+The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="@jttc/projen-project-types.Cdk8App.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
+
+---
+
+##### `tasks`<sup>Required</sup> <a name="tasks" id="@jttc/projen-project-types.Cdk8App.property.tasks"></a>
+
+```typescript
+public readonly tasks: Tasks;
+```
+
+- *Type:* projen.Tasks
+
+Project tasks.
+
+---
+
+##### `testTask`<sup>Required</sup> <a name="testTask" id="@jttc/projen-project-types.Cdk8App.property.testTask"></a>
+
+```typescript
+public readonly testTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="@jttc/projen-project-types.Cdk8App.property.defaultTask"></a>
+
+```typescript
+public readonly defaultTask: Task;
+```
+
+- *Type:* projen.Task
+
+This is the "default" task, the one that executes "projen".
+
+Undefined if
+the project is being ejected.
+
+---
+
+##### `initProject`<sup>Optional</sup> <a name="initProject" id="@jttc/projen-project-types.Cdk8App.property.initProject"></a>
+
+```typescript
+public readonly initProject: InitProject;
+```
+
+- *Type:* projen.InitProject
+
+The options used when this project is bootstrapped via `projen new`.
+
+It
+includes the original set of options passed to the CLI and also the JSII
+FQN of the project type.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="@jttc/projen-project-types.Cdk8App.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+A parent project.
+
+If undefined, this is the root project.
+
+---
+
+##### `projectType`<sup>Required</sup> <a name="projectType" id="@jttc/projen-project-types.Cdk8App.property.projectType"></a>
+
+```typescript
+public readonly projectType: ProjectType;
+```
+
+- *Type:* projen.ProjectType
+
+---
+
+##### `autoApprove`<sup>Optional</sup> <a name="autoApprove" id="@jttc/projen-project-types.Cdk8App.property.autoApprove"></a>
+
+```typescript
+public readonly autoApprove: AutoApprove;
+```
+
+- *Type:* projen.github.AutoApprove
+
+Auto approve set up for this project.
+
+---
+
+##### `devContainer`<sup>Optional</sup> <a name="devContainer" id="@jttc/projen-project-types.Cdk8App.property.devContainer"></a>
+
+```typescript
+public readonly devContainer: DevContainer;
+```
+
+- *Type:* projen.vscode.DevContainer
+
+Access for .devcontainer.json (used for GitHub Codespaces).
+
+This will be `undefined` if devContainer boolean is false
+
+---
+
+##### `github`<sup>Optional</sup> <a name="github" id="@jttc/projen-project-types.Cdk8App.property.github"></a>
+
+```typescript
+public readonly github: GitHub;
+```
+
+- *Type:* projen.github.GitHub
+
+Access all github components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### `gitpod`<sup>Optional</sup> <a name="gitpod" id="@jttc/projen-project-types.Cdk8App.property.gitpod"></a>
+
+```typescript
+public readonly gitpod: Gitpod;
+```
+
+- *Type:* projen.Gitpod
+
+Access for Gitpod.
+
+This will be `undefined` if gitpod boolean is false
+
+---
+
+##### `vscode`<sup>Optional</sup> <a name="vscode" id="@jttc/projen-project-types.Cdk8App.property.vscode"></a>
+
+```typescript
+public readonly vscode: VsCode;
+```
+
+- *Type:* projen.vscode.VsCode
+
+Access all VSCode components.
+
+This will be `undefined` for subprojects.
+
+---
+
+##### ~~`allowLibraryDependencies`~~<sup>Required</sup> <a name="allowLibraryDependencies" id="@jttc/projen-project-types.Cdk8App.property.allowLibraryDependencies"></a>
+
+- *Deprecated:* use `package.allowLibraryDependencies`
+
+```typescript
+public readonly allowLibraryDependencies: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `artifactsDirectory`<sup>Required</sup> <a name="artifactsDirectory" id="@jttc/projen-project-types.Cdk8App.property.artifactsDirectory"></a>
+
+```typescript
+public readonly artifactsDirectory: string;
+```
+
+- *Type:* string
+
+The build output directory.
+
+An npm tarball will be created under the `js`
+subdirectory. For example, if this is set to `dist` (the default), the npm
+tarball will be placed under `dist/js/boom-boom-1.2.3.tg`.
+
+---
+
+##### `artifactsJavascriptDirectory`<sup>Required</sup> <a name="artifactsJavascriptDirectory" id="@jttc/projen-project-types.Cdk8App.property.artifactsJavascriptDirectory"></a>
+
+```typescript
+public readonly artifactsJavascriptDirectory: string;
+```
+
+- *Type:* string
+
+The location of the npm tarball after build (`${artifactsDirectory}/js`).
+
+---
+
+##### `bundler`<sup>Required</sup> <a name="bundler" id="@jttc/projen-project-types.Cdk8App.property.bundler"></a>
+
+```typescript
+public readonly bundler: Bundler;
+```
+
+- *Type:* projen.javascript.Bundler
+
+---
+
+##### ~~`entrypoint`~~<sup>Required</sup> <a name="entrypoint" id="@jttc/projen-project-types.Cdk8App.property.entrypoint"></a>
+
+- *Deprecated:* use `package.entrypoint`
+
+```typescript
+public readonly entrypoint: string;
+```
+
+- *Type:* string
+
+---
+
+##### ~~`manifest`~~<sup>Required</sup> <a name="manifest" id="@jttc/projen-project-types.Cdk8App.property.manifest"></a>
+
+- *Deprecated:* use `package.addField(x, y)`
+
+```typescript
+public readonly manifest: any;
+```
+
+- *Type:* any
+
+---
+
+##### `npmrc`<sup>Required</sup> <a name="npmrc" id="@jttc/projen-project-types.Cdk8App.property.npmrc"></a>
+
+```typescript
+public readonly npmrc: NpmConfig;
+```
+
+- *Type:* projen.javascript.NpmConfig
+
+The .npmrc file.
+
+---
+
+##### `package`<sup>Required</sup> <a name="package" id="@jttc/projen-project-types.Cdk8App.property.package"></a>
+
+```typescript
+public readonly package: NodePackage;
+```
+
+- *Type:* projen.javascript.NodePackage
+
+API for managing the node package.
+
+---
+
+##### ~~`packageManager`~~<sup>Required</sup> <a name="packageManager" id="@jttc/projen-project-types.Cdk8App.property.packageManager"></a>
+
+- *Deprecated:* use `package.packageManager`
+
+```typescript
+public readonly packageManager: NodePackageManager;
+```
+
+- *Type:* projen.javascript.NodePackageManager
+
+The package manager to use.
+
+---
+
+##### `runScriptCommand`<sup>Required</sup> <a name="runScriptCommand" id="@jttc/projen-project-types.Cdk8App.property.runScriptCommand"></a>
+
+```typescript
+public readonly runScriptCommand: string;
+```
+
+- *Type:* string
+
+The command to use to run scripts (e.g. `yarn run` or `npm run` depends on the package manager).
+
+---
+
+##### `autoMerge`<sup>Optional</sup> <a name="autoMerge" id="@jttc/projen-project-types.Cdk8App.property.autoMerge"></a>
+
+```typescript
+public readonly autoMerge: AutoMerge;
+```
+
+- *Type:* projen.github.AutoMerge
+
+Component that sets up mergify for merging approved pull requests.
+
+---
+
+##### `biome`<sup>Optional</sup> <a name="biome" id="@jttc/projen-project-types.Cdk8App.property.biome"></a>
+
+```typescript
+public readonly biome: Biome;
+```
+
+- *Type:* projen.javascript.Biome
+
+---
+
+##### `buildWorkflow`<sup>Optional</sup> <a name="buildWorkflow" id="@jttc/projen-project-types.Cdk8App.property.buildWorkflow"></a>
+
+```typescript
+public readonly buildWorkflow: BuildWorkflow;
+```
+
+- *Type:* projen.build.BuildWorkflow
+
+The PR build GitHub workflow.
+
+`undefined` if `buildWorkflow` is disabled.
+
+---
+
+##### `buildWorkflowJobId`<sup>Optional</sup> <a name="buildWorkflowJobId" id="@jttc/projen-project-types.Cdk8App.property.buildWorkflowJobId"></a>
+
+```typescript
+public readonly buildWorkflowJobId: string;
+```
+
+- *Type:* string
+
+The job ID of the build workflow.
+
+---
+
+##### `jest`<sup>Optional</sup> <a name="jest" id="@jttc/projen-project-types.Cdk8App.property.jest"></a>
+
+```typescript
+public readonly jest: Jest;
+```
+
+- *Type:* projen.javascript.Jest
+
+The Jest configuration (if enabled).
+
+---
+
+##### `maxNodeVersion`<sup>Optional</sup> <a name="maxNodeVersion" id="@jttc/projen-project-types.Cdk8App.property.maxNodeVersion"></a>
+
+```typescript
+public readonly maxNodeVersion: string;
+```
+
+- *Type:* string
+
+Maximum node version supported by this package.
+
+The value indicates the package is incompatible with newer versions.
+
+---
+
+##### `minNodeVersion`<sup>Optional</sup> <a name="minNodeVersion" id="@jttc/projen-project-types.Cdk8App.property.minNodeVersion"></a>
+
+```typescript
+public readonly minNodeVersion: string;
+```
+
+- *Type:* string
+
+The minimum node version required by this package to function.
+
+This value indicates the package is incompatible with older versions.
+
+---
+
+##### `npmignore`<sup>Optional</sup> <a name="npmignore" id="@jttc/projen-project-types.Cdk8App.property.npmignore"></a>
+
+```typescript
+public readonly npmignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+The .npmignore file.
+
+---
+
+##### `prettier`<sup>Optional</sup> <a name="prettier" id="@jttc/projen-project-types.Cdk8App.property.prettier"></a>
+
+```typescript
+public readonly prettier: Prettier;
+```
+
+- *Type:* projen.javascript.Prettier
+
+---
+
+##### ~~`publisher`~~<sup>Optional</sup> <a name="publisher" id="@jttc/projen-project-types.Cdk8App.property.publisher"></a>
+
+- *Deprecated:* use `release.publisher`.
+
+```typescript
+public readonly publisher: Publisher;
+```
+
+- *Type:* projen.release.Publisher
+
+Package publisher.
+
+This will be `undefined` if the project does not have a
+release workflow.
+
+---
+
+##### `release`<sup>Optional</sup> <a name="release" id="@jttc/projen-project-types.Cdk8App.property.release"></a>
+
+```typescript
+public readonly release: Release;
+```
+
+- *Type:* projen.release.Release
+
+Release management.
+
+---
+
+##### `upgradeWorkflow`<sup>Optional</sup> <a name="upgradeWorkflow" id="@jttc/projen-project-types.Cdk8App.property.upgradeWorkflow"></a>
+
+```typescript
+public readonly upgradeWorkflow: UpgradeDependencies;
+```
+
+- *Type:* projen.javascript.UpgradeDependencies
+
+The upgrade workflow.
+
+---
+
+##### `docsDirectory`<sup>Required</sup> <a name="docsDirectory" id="@jttc/projen-project-types.Cdk8App.property.docsDirectory"></a>
+
+```typescript
+public readonly docsDirectory: string;
+```
+
+- *Type:* string
+
+---
+
+##### `libdir`<sup>Required</sup> <a name="libdir" id="@jttc/projen-project-types.Cdk8App.property.libdir"></a>
+
+```typescript
+public readonly libdir: string;
+```
+
+- *Type:* string
+
+The directory in which compiled .js files reside.
+
+---
+
+##### `srcdir`<sup>Required</sup> <a name="srcdir" id="@jttc/projen-project-types.Cdk8App.property.srcdir"></a>
+
+```typescript
+public readonly srcdir: string;
+```
+
+- *Type:* string
+
+The directory in which the .ts sources reside.
+
+---
+
+##### `testdir`<sup>Required</sup> <a name="testdir" id="@jttc/projen-project-types.Cdk8App.property.testdir"></a>
+
+```typescript
+public readonly testdir: string;
+```
+
+- *Type:* string
+
+The directory in which tests reside.
+
+---
+
+##### `tsconfigDev`<sup>Required</sup> <a name="tsconfigDev" id="@jttc/projen-project-types.Cdk8App.property.tsconfigDev"></a>
+
+```typescript
+public readonly tsconfigDev: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+A typescript configuration file which covers all files (sources, tests, projen).
+
+---
+
+##### `watchTask`<sup>Required</sup> <a name="watchTask" id="@jttc/projen-project-types.Cdk8App.property.watchTask"></a>
+
+```typescript
+public readonly watchTask: Task;
+```
+
+- *Type:* projen.Task
+
+The "watch" task.
+
+---
+
+##### `docgen`<sup>Optional</sup> <a name="docgen" id="@jttc/projen-project-types.Cdk8App.property.docgen"></a>
+
+```typescript
+public readonly docgen: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `eslint`<sup>Optional</sup> <a name="eslint" id="@jttc/projen-project-types.Cdk8App.property.eslint"></a>
+
+```typescript
+public readonly eslint: Eslint;
+```
+
+- *Type:* projen.javascript.Eslint
+
+---
+
+##### `tsconfig`<sup>Optional</sup> <a name="tsconfig" id="@jttc/projen-project-types.Cdk8App.property.tsconfig"></a>
+
+```typescript
+public readonly tsconfig: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `tsconfigEslint`<sup>Optional</sup> <a name="tsconfigEslint" id="@jttc/projen-project-types.Cdk8App.property.tsconfigEslint"></a>
+
+```typescript
+public readonly tsconfigEslint: TypescriptConfig;
+```
+
+- *Type:* projen.javascript.TypescriptConfig
+
+---
+
+##### `appEntrypoint`<sup>Required</sup> <a name="appEntrypoint" id="@jttc/projen-project-types.Cdk8App.property.appEntrypoint"></a>
+
+```typescript
+public readonly appEntrypoint: string;
+```
+
+- *Type:* string
+
+The CDK8s app entrypoint.
+
+---
+
+##### `cdk8sDeps`<sup>Required</sup> <a name="cdk8sDeps" id="@jttc/projen-project-types.Cdk8App.property.cdk8sDeps"></a>
+
+```typescript
+public readonly cdk8sDeps: Cdk8sDeps;
+```
+
+- *Type:* projen.cdk8s.Cdk8sDeps
+
+---
+
+##### `cdk8s`<sup>Required</sup> <a name="cdk8s" id="@jttc/projen-project-types.Cdk8App.property.cdk8s"></a>
+
+```typescript
+public readonly cdk8s: Cdk8sComponent;
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.Cdk8sComponent">Cdk8sComponent</a>
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
+| <code><a href="#@jttc/projen-project-types.Cdk8App.property.DEFAULT_TS_JEST_TRANFORM_PATTERN">DEFAULT_TS_JEST_TRANFORM_PATTERN</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="@jttc/projen-project-types.Cdk8App.property.DEFAULT_TASK"></a>
+
+```typescript
+public readonly DEFAULT_TASK: string;
+```
+
+- *Type:* string
+
+The name of the default task (the task executed when `projen` is run without arguments).
+
+Normally
+this task should synthesize the project files.
+
+---
+
+##### `DEFAULT_TS_JEST_TRANFORM_PATTERN`<sup>Required</sup> <a name="DEFAULT_TS_JEST_TRANFORM_PATTERN" id="@jttc/projen-project-types.Cdk8App.property.DEFAULT_TS_JEST_TRANFORM_PATTERN"></a>
+
+```typescript
+public readonly DEFAULT_TS_JEST_TRANFORM_PATTERN: string;
+```
+
+- *Type:* string
+
+---
+
 ### Cdk8sComponent <a name="Cdk8sComponent" id="@jttc/projen-project-types.Cdk8sComponent"></a>
 
 #### Initializers <a name="Initializers" id="@jttc/projen-project-types.Cdk8sComponent.Initializer"></a>
@@ -5194,30 +6747,20 @@ const cdk8sAppOptions: Cdk8sAppOptions = { ... }
 | <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.tsconfigDevFile">tsconfigDevFile</a></code> | <code>string</code> | The name of the development tsconfig.json file. |
 | <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.tsJestOptions">tsJestOptions</a></code> | <code>projen.typescript.TsJestOptions</code> | Options for ts-jest. |
 | <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.buildCommand">buildCommand</a></code> | <code>string</code> | A command to execute before synthesis. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdkout">cdkout</a></code> | <code>string</code> | cdk.out directory. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.context">context</a></code> | <code>{[ key: string ]: any}</code> | Additional context to include in `cdk.json`. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.featureFlags">featureFlags</a></code> | <code>projen.awscdk.ICdkFeatureFlags</code> | Feature flags that should be enabled in `cdk.json`. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.requireApproval">requireApproval</a></code> | <code>projen.awscdk.ApprovalLevel</code> | To protect you against unintended changes that affect your security posture, the AWS CDK Toolkit prompts you to approve security-related changes before deploying them. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.watchExcludes">watchExcludes</a></code> | <code>string[]</code> | Glob patterns to exclude from `cdk watch`. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.watchIncludes">watchIncludes</a></code> | <code>string[]</code> | Glob patterns to include in `cdk watch`. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdkVersion">cdkVersion</a></code> | <code>string</code> | Minimum version of the AWS CDK to depend on. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdkAssert">cdkAssert</a></code> | <code>boolean</code> | Warning: NodeJS only. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdkAssertions">cdkAssertions</a></code> | <code>boolean</code> | Install the assertions library? |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdkCliVersion">cdkCliVersion</a></code> | <code>string</code> | Version range of the AWS CDK CLI to depend on. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdkDependencies">cdkDependencies</a></code> | <code>string[]</code> | Which AWS CDKv1 modules this project requires. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdkDependenciesAsDeps">cdkDependenciesAsDeps</a></code> | <code>boolean</code> | If this is enabled (default), all modules declared in `cdkDependencies` will be also added as normal `dependencies` (as well as `peerDependencies`). |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdkTestDependencies">cdkTestDependencies</a></code> | <code>string[]</code> | AWS CDK modules required for testing. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdkVersionPinning">cdkVersionPinning</a></code> | <code>boolean</code> | Use pinned version instead of caret version for CDK. |
+| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sVersion">cdk8sVersion</a></code> | <code>string</code> | Minimum version of the cdk8s to depend on. |
+| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sCliVersion">cdk8sCliVersion</a></code> | <code>string</code> | Minimum version of the cdk8s-cli to depend on. |
+| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sCliVersionPinning">cdk8sCliVersionPinning</a></code> | <code>boolean</code> | Use pinned version instead of caret version for cdk8s-cli. |
+| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sPlus">cdk8sPlus</a></code> | <code>boolean</code> | Include cdk8s-plus. |
+| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sPlusVersion">cdk8sPlusVersion</a></code> | <code>string</code> | Minimum version of the cdk8s-plus-XX to depend on. |
+| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sPlusVersionPinning">cdk8sPlusVersionPinning</a></code> | <code>boolean</code> | Use pinned version instead of caret version for cdk8s-plus-17. |
+| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sVersionPinning">cdk8sVersionPinning</a></code> | <code>boolean</code> | Use pinned version instead of caret version for cdk8s. |
 | <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.constructsVersion">constructsVersion</a></code> | <code>string</code> | Minimum version of the `constructs` library to depend on. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.app">app</a></code> | <code>string</code> | The command line to execute in order to synthesize the CDK application (language specific). |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.appEntrypoint">appEntrypoint</a></code> | <code>string</code> | The CDK app's entrypoint (relative to the source directory, which is "src" by default). |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.edgeLambdaAutoDiscover">edgeLambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `cloudfront.experimental.EdgeFunction` for each `.edge-lambda.ts` handler in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.experimentalIntegRunner">experimentalIntegRunner</a></code> | <code>boolean</code> | Enable experimental support for the AWS CDK integ-runner. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.integrationTestAutoDiscover">integrationTestAutoDiscover</a></code> | <code>boolean</code> | Automatically discovers and creates integration tests for each `.integ.ts` file in under your test directory. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.lambdaAutoDiscover">lambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.LambdaFunction` for each `.lambda.ts` handler in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.lambdaExtensionAutoDiscover">lambdaExtensionAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.LambdaExtension` for each `.lambda-extension.ts` entrypoint in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
-| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.lambdaOptions">lambdaOptions</a></code> | <code>projen.awscdk.LambdaFunctionCommonOptions</code> | Common options for all AWS Lambda functions. |
+| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.constructsVersionPinning">constructsVersionPinning</a></code> | <code>boolean</code> | Use pinned version instead of caret version for constructs. |
+| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.k8sMinorVersion">k8sMinorVersion</a></code> | <code>number</code> | The cdk8s-plus library depends of Kubernetes minor version For example, cdk8s-plus-22 targets kubernetes version 1.22.0 cdk8s-plus-21 targets kubernetes version 1.21.0. |
+| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.appEntrypoint">appEntrypoint</a></code> | <code>string</code> | The CDK8s app's entrypoint (relative to the source directory, which is "src" by default). |
+| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sImports">cdk8sImports</a></code> | <code>string[]</code> | Import additional specs. |
+| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.integrationTestAutoDiscover">integrationTestAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `cdk8s.IntegrationTest` for each `.integ.ts` app in your test directory. If this is disabled, you can manually add an `cdk8s.AutoDiscover` component to your project. |
+| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.k8sSpecVersion">k8sSpecVersion</a></code> | <code>string</code> | Import a specific Kubernetes spec version. |
 
 ---
 
@@ -7521,230 +9064,102 @@ same minor, so we recommend using a `~` dependency (e.g. `~1.2.3`).
 
 ---
 
-##### `buildCommand`<sup>Optional</sup> <a name="buildCommand" id="@jttc/projen-project-types.Cdk8sAppOptions.property.buildCommand"></a>
+##### `cdk8sVersion`<sup>Required</sup> <a name="cdk8sVersion" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sVersion"></a>
 
 ```typescript
-public readonly buildCommand: string;
+public readonly cdk8sVersion: string;
 ```
 
 - *Type:* string
-- *Default:* no build command
+- *Default:* "2.3.33"
 
-A command to execute before synthesis.
-
-This command will be called when
-running `cdk synth` or when `cdk watch` identifies a change in your source
-code before redeployment.
+Minimum version of the cdk8s to depend on.
 
 ---
 
-##### `cdkout`<sup>Optional</sup> <a name="cdkout" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdkout"></a>
+##### `cdk8sCliVersion`<sup>Optional</sup> <a name="cdk8sCliVersion" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sCliVersion"></a>
 
 ```typescript
-public readonly cdkout: string;
+public readonly cdk8sCliVersion: string;
 ```
 
 - *Type:* string
-- *Default:* "cdk.out"
+- *Default:* "2.0.28"
 
-cdk.out directory.
-
----
-
-##### `context`<sup>Optional</sup> <a name="context" id="@jttc/projen-project-types.Cdk8sAppOptions.property.context"></a>
-
-```typescript
-public readonly context: {[ key: string ]: any};
-```
-
-- *Type:* {[ key: string ]: any}
-- *Default:* no additional context
-
-Additional context to include in `cdk.json`.
+Minimum version of the cdk8s-cli to depend on.
 
 ---
 
-##### `featureFlags`<sup>Optional</sup> <a name="featureFlags" id="@jttc/projen-project-types.Cdk8sAppOptions.property.featureFlags"></a>
+##### `cdk8sCliVersionPinning`<sup>Optional</sup> <a name="cdk8sCliVersionPinning" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sCliVersionPinning"></a>
 
 ```typescript
-public readonly featureFlags: ICdkFeatureFlags;
-```
-
-- *Type:* projen.awscdk.ICdkFeatureFlags
-- *Default:* no feature flags are enabled by default
-
-Feature flags that should be enabled in `cdk.json`.
-
-Make sure to double-check any changes to feature flags in `cdk.json` before deploying.
-Unexpected changes may cause breaking changes in your CDK app.
-You can overwrite any feature flag by passing it into the context field.
-
----
-
-##### `requireApproval`<sup>Optional</sup> <a name="requireApproval" id="@jttc/projen-project-types.Cdk8sAppOptions.property.requireApproval"></a>
-
-```typescript
-public readonly requireApproval: ApprovalLevel;
-```
-
-- *Type:* projen.awscdk.ApprovalLevel
-- *Default:* ApprovalLevel.BROADENING
-
-To protect you against unintended changes that affect your security posture, the AWS CDK Toolkit prompts you to approve security-related changes before deploying them.
-
----
-
-##### `watchExcludes`<sup>Optional</sup> <a name="watchExcludes" id="@jttc/projen-project-types.Cdk8sAppOptions.property.watchExcludes"></a>
-
-```typescript
-public readonly watchExcludes: string[];
-```
-
-- *Type:* string[]
-- *Default:* []
-
-Glob patterns to exclude from `cdk watch`.
-
----
-
-##### `watchIncludes`<sup>Optional</sup> <a name="watchIncludes" id="@jttc/projen-project-types.Cdk8sAppOptions.property.watchIncludes"></a>
-
-```typescript
-public readonly watchIncludes: string[];
-```
-
-- *Type:* string[]
-- *Default:* []
-
-Glob patterns to include in `cdk watch`.
-
----
-
-##### `cdkVersion`<sup>Required</sup> <a name="cdkVersion" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdkVersion"></a>
-
-```typescript
-public readonly cdkVersion: string;
-```
-
-- *Type:* string
-- *Default:* "2.1.0"
-
-Minimum version of the AWS CDK to depend on.
-
----
-
-##### ~~`cdkAssert`~~<sup>Optional</sup> <a name="cdkAssert" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdkAssert"></a>
-
-- *Deprecated:* The
-
-```typescript
-public readonly cdkAssert: boolean;
+public readonly cdk8sCliVersionPinning: boolean;
 ```
 
 - *Type:* boolean
-- *Default:* will be included by default for AWS CDK >= 1.0.0 < 2.0.0
+- *Default:* false
 
-Warning: NodeJS only.
+Use pinned version instead of caret version for cdk8s-cli.
 
-Install the
-
----
-
-##### `cdkAssertions`<sup>Optional</sup> <a name="cdkAssertions" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdkAssertions"></a>
-
-```typescript
-public readonly cdkAssertions: boolean;
-```
-
-- *Type:* boolean
-- *Default:* will be included by default for AWS CDK >= 1.111.0 < 2.0.0
-
-Install the assertions library?
-
-Only needed for CDK 1.x. If using CDK 2.x then
-assertions is already included in 'aws-cdk-lib'
+You can use this to prevent yarn to mix versions for your CDK8s package and to prevent auto-updates.
+If you use experimental features this will let you define the moment you include breaking changes.
 
 ---
 
-##### `cdkCliVersion`<sup>Optional</sup> <a name="cdkCliVersion" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdkCliVersion"></a>
+##### `cdk8sPlus`<sup>Optional</sup> <a name="cdk8sPlus" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sPlus"></a>
 
 ```typescript
-public readonly cdkCliVersion: string;
-```
-
-- *Type:* string
-- *Default:* "^2"
-
-Version range of the AWS CDK CLI to depend on.
-
-Can be either a specific version, or an NPM version range.
-
-By default, the latest 2.x version will be installed; you can use this
-option to restrict it to a specific version or version range.
-
----
-
-##### ~~`cdkDependencies`~~<sup>Optional</sup> <a name="cdkDependencies" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdkDependencies"></a>
-
-- *Deprecated:* For CDK 2.x use "deps" instead. (or "peerDeps" if you're building a library)
-
-```typescript
-public readonly cdkDependencies: string[];
-```
-
-- *Type:* string[]
-
-Which AWS CDKv1 modules this project requires.
-
----
-
-##### ~~`cdkDependenciesAsDeps`~~<sup>Optional</sup> <a name="cdkDependenciesAsDeps" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdkDependenciesAsDeps"></a>
-
-- *Deprecated:* Not supported in CDK v2.
-
-```typescript
-public readonly cdkDependenciesAsDeps: boolean;
+public readonly cdk8sPlus: boolean;
 ```
 
 - *Type:* boolean
 - *Default:* true
 
-If this is enabled (default), all modules declared in `cdkDependencies` will be also added as normal `dependencies` (as well as `peerDependencies`).
-
-This is to ensure that downstream consumers actually have your CDK dependencies installed
-when using npm < 7 or yarn, where peer dependencies are not automatically installed.
-If this is disabled, `cdkDependencies` will be added to `devDependencies` to ensure
-they are present during development.
-
-Note: this setting only applies to construct library projects
+Include cdk8s-plus.
 
 ---
 
-##### ~~`cdkTestDependencies`~~<sup>Optional</sup> <a name="cdkTestDependencies" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdkTestDependencies"></a>
-
-- *Deprecated:* For CDK 2.x use 'devDeps' (in node.js projects) or 'testDeps' (in java projects) instead
+##### `cdk8sPlusVersion`<sup>Optional</sup> <a name="cdk8sPlusVersion" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sPlusVersion"></a>
 
 ```typescript
-public readonly cdkTestDependencies: string[];
+public readonly cdk8sPlusVersion: string;
 ```
 
-- *Type:* string[]
+- *Type:* string
+- *Default:* "2.0.0-rc.26"
 
-AWS CDK modules required for testing.
+Minimum version of the cdk8s-plus-XX to depend on.
 
 ---
 
-##### `cdkVersionPinning`<sup>Optional</sup> <a name="cdkVersionPinning" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdkVersionPinning"></a>
+##### `cdk8sPlusVersionPinning`<sup>Optional</sup> <a name="cdk8sPlusVersionPinning" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sPlusVersionPinning"></a>
 
 ```typescript
-public readonly cdkVersionPinning: boolean;
+public readonly cdk8sPlusVersionPinning: boolean;
 ```
 
 - *Type:* boolean
+- *Default:* false
 
-Use pinned version instead of caret version for CDK.
+Use pinned version instead of caret version for cdk8s-plus-17.
 
-You can use this to prevent mixed versions for your CDK dependencies and to prevent auto-updates.
+You can use this to prevent yarn to mix versions for your CDK8s package and to prevent auto-updates.
+If you use experimental features this will let you define the moment you include breaking changes.
+
+---
+
+##### `cdk8sVersionPinning`<sup>Optional</sup> <a name="cdk8sVersionPinning" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sVersionPinning"></a>
+
+```typescript
+public readonly cdk8sVersionPinning: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use pinned version instead of caret version for cdk8s.
+
+You can use this to prevent yarn to mix versions for your CDK8s package and to prevent auto-updates.
 If you use experimental features this will let you define the moment you include breaking changes.
 
 ---
@@ -7756,21 +9171,38 @@ public readonly constructsVersion: string;
 ```
 
 - *Type:* string
-- *Default:* for CDK 1.x the default is "3.2.27", for CDK 2.x the default is "10.0.5".
+- *Default:* "10.1.42"
 
 Minimum version of the `constructs` library to depend on.
 
 ---
 
-##### `app`<sup>Optional</sup> <a name="app" id="@jttc/projen-project-types.Cdk8sAppOptions.property.app"></a>
+##### `constructsVersionPinning`<sup>Optional</sup> <a name="constructsVersionPinning" id="@jttc/projen-project-types.Cdk8sAppOptions.property.constructsVersionPinning"></a>
 
 ```typescript
-public readonly app: string;
+public readonly constructsVersionPinning: boolean;
 ```
 
-- *Type:* string
+- *Type:* boolean
+- *Default:* false
 
-The command line to execute in order to synthesize the CDK application (language specific).
+Use pinned version instead of caret version for constructs.
+
+You can use this to prevent yarn to mix versions for your consructs package and to prevent auto-updates.
+If you use experimental features this will let you define the moment you include breaking changes.
+
+---
+
+##### `k8sMinorVersion`<sup>Optional</sup> <a name="k8sMinorVersion" id="@jttc/projen-project-types.Cdk8sAppOptions.property.k8sMinorVersion"></a>
+
+```typescript
+public readonly k8sMinorVersion: number;
+```
+
+- *Type:* number
+- *Default:* 22
+
+The cdk8s-plus library depends of Kubernetes minor version For example, cdk8s-plus-22 targets kubernetes version 1.22.0 cdk8s-plus-21 targets kubernetes version 1.21.0.
 
 ---
 
@@ -7783,33 +9215,20 @@ public readonly appEntrypoint: string;
 - *Type:* string
 - *Default:* "main.ts"
 
-The CDK app's entrypoint (relative to the source directory, which is "src" by default).
+The CDK8s app's entrypoint (relative to the source directory, which is "src" by default).
 
 ---
 
-##### `edgeLambdaAutoDiscover`<sup>Optional</sup> <a name="edgeLambdaAutoDiscover" id="@jttc/projen-project-types.Cdk8sAppOptions.property.edgeLambdaAutoDiscover"></a>
+##### `cdk8sImports`<sup>Optional</sup> <a name="cdk8sImports" id="@jttc/projen-project-types.Cdk8sAppOptions.property.cdk8sImports"></a>
 
 ```typescript
-public readonly edgeLambdaAutoDiscover: boolean;
+public readonly cdk8sImports: string[];
 ```
 
-- *Type:* boolean
-- *Default:* true
+- *Type:* string[]
+- *Default:* no additional specs imported
 
-Automatically adds an `cloudfront.experimental.EdgeFunction` for each `.edge-lambda.ts` handler in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project.
-
----
-
-##### `experimentalIntegRunner`<sup>Optional</sup> <a name="experimentalIntegRunner" id="@jttc/projen-project-types.Cdk8sAppOptions.property.experimentalIntegRunner"></a>
-
-```typescript
-public readonly experimentalIntegRunner: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Enable experimental support for the AWS CDK integ-runner.
+Import additional specs.
 
 ---
 
@@ -7822,46 +9241,20 @@ public readonly integrationTestAutoDiscover: boolean;
 - *Type:* boolean
 - *Default:* true
 
-Automatically discovers and creates integration tests for each `.integ.ts` file in under your test directory.
+Automatically adds an `cdk8s.IntegrationTest` for each `.integ.ts` app in your test directory. If this is disabled, you can manually add an `cdk8s.AutoDiscover` component to your project.
 
 ---
 
-##### `lambdaAutoDiscover`<sup>Optional</sup> <a name="lambdaAutoDiscover" id="@jttc/projen-project-types.Cdk8sAppOptions.property.lambdaAutoDiscover"></a>
+##### `k8sSpecVersion`<sup>Optional</sup> <a name="k8sSpecVersion" id="@jttc/projen-project-types.Cdk8sAppOptions.property.k8sSpecVersion"></a>
 
 ```typescript
-public readonly lambdaAutoDiscover: boolean;
+public readonly k8sSpecVersion: string;
 ```
 
-- *Type:* boolean
-- *Default:* true
+- *Type:* string
+- *Default:* Use the cdk8s default
 
-Automatically adds an `awscdk.LambdaFunction` for each `.lambda.ts` handler in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project.
-
----
-
-##### `lambdaExtensionAutoDiscover`<sup>Optional</sup> <a name="lambdaExtensionAutoDiscover" id="@jttc/projen-project-types.Cdk8sAppOptions.property.lambdaExtensionAutoDiscover"></a>
-
-```typescript
-public readonly lambdaExtensionAutoDiscover: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
-Automatically adds an `awscdk.LambdaExtension` for each `.lambda-extension.ts` entrypoint in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project.
-
----
-
-##### `lambdaOptions`<sup>Optional</sup> <a name="lambdaOptions" id="@jttc/projen-project-types.Cdk8sAppOptions.property.lambdaOptions"></a>
-
-```typescript
-public readonly lambdaOptions: LambdaFunctionCommonOptions;
-```
-
-- *Type:* projen.awscdk.LambdaFunctionCommonOptions
-- *Default:* default options
-
-Common options for all AWS Lambda functions.
+Import a specific Kubernetes spec version.
 
 ---
 
