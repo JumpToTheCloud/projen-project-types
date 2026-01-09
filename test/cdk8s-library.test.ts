@@ -5,6 +5,36 @@ import {
   K8sVersion,
 } from '../src/components/cdk8s/interfaces/Cdk8s';
 
+// Mock the CDK8s component to set pjid specifically for cdk8s-library tests
+jest.mock('../src/components/cdk8s/cdk8s', () => {
+  const originalModule = jest.requireActual('../src/components/cdk8s/cdk8s');
+
+  class MockCdk8sComponent extends originalModule.Cdk8sComponent {
+    constructor(project: any, id: string, props?: any) {
+      // Set up mock initProject for cdk8s-library projects
+      if (!project.initProject) {
+        Object.defineProperty(project, 'initProject', {
+          value: { type: { pjid: 'cdk8s-library' } },
+          writable: true,
+          configurable: true,
+        });
+      }
+
+      super(project, id, props);
+    }
+  }
+
+  return {
+    ...originalModule,
+    Cdk8sComponent: MockCdk8sComponent,
+  };
+
+  return {
+    ...originalModule,
+    Cdk8sComponent: MockCdk8sComponent,
+  };
+});
+
 // Helper function to parse package.json from snapshot
 function getPackageJson(snapshot: Record<string, any>): any {
   const packageJsonContent = snapshot['package.json'];
@@ -44,10 +74,10 @@ describe('Cdk8sLibrary', () => {
       expect(snapshot['cdk8s.yaml']).toBeDefined();
       expect(snapshot['cdk8s.yaml']).toMatchSnapshot();
 
-      // Verify cdk8s tasks are created
+      // Verify cdk8s tasks are created (but NOT cdk8s:synth for libraries)
       expect(packageJson.scripts).toHaveProperty('cdk8s');
       expect(packageJson.scripts).toHaveProperty('cdk8s:import');
-      expect(packageJson.scripts).toHaveProperty('cdk8s:synth');
+      expect(packageJson.scripts).not.toHaveProperty('cdk8s:synth'); // Should NOT exist for cdk8s-library
 
       // Verify main.ts sample file exists in default location
       expect(snapshot['src/main.ts']).toBeDefined();
@@ -75,6 +105,26 @@ describe('Cdk8sLibrary', () => {
       expect(project.cdk8s.appFile).toBe('main.ts');
       expect(project.cdk8s.outputPath).toBe('kubernetes');
       expect(project.cdk8s.k8sVersion).toBe(K8sVersion.V1_30);
+    });
+
+    test('should not include cdk8s:synth task for cdk8s-library projects', () => {
+      const options: Cdk8sLibraryOptions = {
+        name: 'test-cdk8s-library',
+        author: 'test-author',
+        authorAddress: 'test@example.com',
+        repositoryUrl: 'https://github.com/test/test-cdk8s-library.git',
+        cdkVersion: '2.1.0',
+        defaultReleaseBranch: 'main',
+      };
+
+      const project = new Cdk8sLibrary(options);
+      const snapshot = Testing.synth(project);
+      const packageJson = getPackageJson(snapshot);
+
+      // Verify that cdk8s:synth task is NOT created for libraries
+      expect(packageJson.scripts).toHaveProperty('cdk8s');
+      expect(packageJson.scripts).toHaveProperty('cdk8s:import');
+      expect(packageJson.scripts).not.toHaveProperty('cdk8s:synth');
     });
   });
 
