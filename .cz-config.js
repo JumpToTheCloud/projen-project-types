@@ -31,6 +31,7 @@ module.exports = {
     { name: 'cdk-app' },
     { name: 'cdk8s-component' },
     { name: 'cdk8s-library' },
+    { name: 'cdk8s-app' },
   ],
 
   usePreparedCommit: true, // to re-use commit from ./.git/COMMIT_EDITMSG

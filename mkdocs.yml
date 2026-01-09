@@ -8,6 +8,7 @@ nav:
       - CDK Library: project-types/cdk-library.md
       - CDK App: project-types/cdk-app.md
       - CDK8s Library: project-types/cdk8s-library.md
+      - CDK8s App: project-types/cdk8s-app.md
   - Components:
       - CDK8s Component: components/cdk8s.md
   - Configuration:
