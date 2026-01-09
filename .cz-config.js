@@ -24,7 +24,12 @@ module.exports = {
     { value: 'WIP', name: 'WIP:      Work in progress' },
   ],
 
-  scopes: [{ name: 'projen' }, { name: 'docs' }, { name: 'cdk-library' }],
+  scopes: [
+    { name: 'projen' },
+    { name: 'docs' },
+    { name: 'cdk-library' },
+    { name: 'cdk-app' },
+  ],
 
   usePreparedCommit: true, // to re-use commit from ./.git/COMMIT_EDITMSG
   allowTicketNumber: false,
