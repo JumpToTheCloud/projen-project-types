@@ -53,31 +53,15 @@ project.synth();
 
 ## Features
 
-### Automatic Prettier Configuration
+### Common Configurations
 
-The CDK App project automatically configures Prettier with opinionated settings. For detailed information about the default prettier configuration used across all project types, see [Default Configurations](../default-configurations.md#prettier-configuration).
+This project type includes the same common configurations as other project types:
 
-#### Summary of Default Settings
-
-- **Single quotes** for strings
-- **Trailing commas** (ES5 style) 
-- **Bracket spacing** enabled
-- **Semicolons** required
-
-!!! tip "View Complete Configuration"
-    See the [Default Configurations](../default-configurations.md#prettier-configuration) page for the complete prettier setup and customization options.
-
-### VSCode Integration
-
-When enabled, the project automatically sets up VSCode configuration with settings and recommended extensions optimized for CDK development. For complete details about VSCode configuration, see [Default Configurations](../default-configurations.md#vscode-configuration).
-
-#### Key Features
-
-- Format on save enabled
-- Prettier as default formatter
-- ESLint integration
-- AWS and Git development extensions
-- Proper indentation and editor settings
+!!! info "Default Configurations"
+    For complete details about Prettier and VSCode configurations, see [Default Configurations](../default-configurations.md). This includes:
+    
+    - [Prettier Configuration](../default-configurations.md#prettier-configuration) - Code formatting rules and customization
+    - [VSCode Configuration](../default-configurations.md#vscode-configuration) - Editor settings and recommended extensions
 
 ### CDK App Structure
 
@@ -106,85 +90,12 @@ const project = new CdkApp({
 });
 ```
 
-### Prettier Configuration
+### Common Configuration Options
 
-#### Enable/Disable Prettier
+For Prettier and VSCode configuration options, refer to [Default Configurations](../default-configurations.md):
 
-```typescript linenums="1" title="Disable Prettier" hl_lines="3"
-const project = new CdkApp({
-  // ... other options
-  prettier: false,
-});
-```
-
-**Highlighted line explanation:**
-
-- **Line 3**: Disables prettier entirely - no `.prettierrc.json` file will be created
-
-#### Custom Prettier Options
-
-```typescript linenums="1" title="Custom Prettier Configuration" hl_lines="5 6 7 8 9"
-const project = new CdkApp({
-  // ... other options
-  prettier: true,
-  prettierOptions: {
-    settings: {
-      singleQuote: false,
-      semi: false,
-      tabWidth: 4,
-      trailingComma: 'none',
-      printWidth: 120,
-    },
-  },
-});
-```
-
-**Highlighted lines explanation:**
-
-- **Line 6**: Use double quotes instead of single quotes
-- **Line 7**: Omit semicolons
-- **Line 8**: Use 4 spaces for indentation instead of 2
-- **Line 9**: No trailing commas
-- **Line 10**: Allow longer lines (120 characters instead of 80)
-
-### VSCode Configuration
-
-#### Enable/Disable VSCode Setup
-
-=== "Default Behavior (Recommended)"
-
-    ```typescript linenums="1" title="VSCode Enabled by Default"
-    const project = new CdkApp({
-      // ... other options
-      // vscode: undefined (defaults to enabled)
-    });
-    ```
-
-=== "Explicitly Enable"
-
-    ```typescript linenums="1" title="Explicitly Enable VSCode" hl_lines="3"
-    const project = new CdkApp({
-      // ... other options
-      vscode: true,
-    });
-    ```
-
-    **Highlighted line explanation:**
-    
-    - **Line 3**: Same as default behavior, but explicit
-
-=== "Disable VSCode"
-
-    ```typescript linenums="1" title="Disable VSCode Configuration" hl_lines="3"
-    const project = new CdkApp({
-      // ... other options
-      vscode: false,
-    });
-    ```
-
-    **Highlighted line explanation:**
-    
-    - **Line 3**: No `.vscode/` folder will be created
+- **Prettier**: [Customization Guide](../default-configurations.md#customization)
+- **VSCode**: [Configuration Options](../default-configurations.md#customization)
 
 ### Sample Code Configuration
 
