@@ -220,6 +220,9 @@
       "steps": [
         {
           "spawn": "docgen"
+        },
+        {
+          "exec": "cp src/components/cdk8s/*.template lib/components/cdk8s/ || true"
         }
       ]
     },

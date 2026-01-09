@@ -86,6 +86,10 @@ new Prettier(project, {
   },
 });
 
+project.postCompileTask.exec(
+  'cp src/components/cdk8s/*.template lib/components/cdk8s/ || true',
+);
+
 project.addTask('commit', {
   description:
     'Commit changes with conventional commits prompts provided by Commitizen',
