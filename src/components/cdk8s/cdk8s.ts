@@ -97,10 +97,15 @@ export class Cdk8sComponent extends Component {
         imports: this.imports,
       },
     });
-
-    new SampleFile(project, `${this.appPath}/${this.appFile}`, {
-      sourcePath: path.join(__dirname, 'main.ts.template'),
-    });
+    if (pjid === 'cdk8s-library') {
+      new SampleFile(project, `${this.appPath}/${this.appFile}`, {
+        sourcePath: path.join(__dirname, 'main-library.ts.template'),
+      });
+    } else {
+      new SampleFile(project, `${this.appPath}/${this.appFile}`, {
+        sourcePath: path.join(__dirname, 'main.ts.template'),
+      });
+    }
 
     if (pjid === 'cdk8s-library' || pjid === 'cdk8s-app') {
       new SampleFile(project, 'test/main.test.ts', {
