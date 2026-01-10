@@ -11,6 +11,7 @@ import {
   UpgradeDependenciesSchedule,
 } from 'projen/lib/javascript';
 import { ReleaseTrigger } from 'projen/lib/release';
+import { Commitzent } from './src/components';
 
 const project = new cdk.JsiiProject({
   author: 'Jumpt to the Cloud',
@@ -68,7 +69,7 @@ const project = new cdk.JsiiProject({
   },
   deps: ['projen'],
   // description: undefined,
-  devDeps: ['projen', 'constructs@^10.4.4', 'commitizen', 'cz-customizable'],
+  devDeps: ['projen', 'constructs@^10.4.4'],
   peerDeps: ['projen', 'constructs@^10.4.4'],
   packageName: '@jttc/projen-project-types',
   npmAccess: NpmAccess.PUBLIC,
@@ -90,17 +91,15 @@ project.postCompileTask.exec(
   'cp src/components/cdk8s/*.template lib/components/cdk8s/ || true',
 );
 
-project.addTask('commit', {
-  description:
-    'Commit changes with conventional commits prompts provided by Commitizen',
-  steps: [
-    {
-      exec: './node_modules/cz-customizable/standalone.js',
-      receiveArgs: false,
-      say: 'committing changes',
-    },
-  ],
-});
+const commitzent = new Commitzent(project, 'commitzent');
+
+commitzent.addScope({ name: 'docs' });
+commitzent.addScope({ name: 'cdk-library' });
+commitzent.addScope({ name: 'cdk-app' });
+commitzent.addScope({ name: 'cdk8s-library' });
+commitzent.addScope({ name: 'cdk8s-app' });
+commitzent.addScope({ name: 'cdk8s-component' });
+commitzent.addScope({ name: 'commitzent-component' });
 
 const deployDocs = project.github?.addWorkflow('deploy-docs');
 deployDocs?.on({
