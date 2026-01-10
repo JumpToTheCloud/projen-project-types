@@ -1,7 +1,8 @@
 import { execSync } from 'child_process';
 import { TypeScriptProject } from 'projen/lib/typescript';
 import { CommonOptionsConfig } from '../common/common-options';
-import { Cdk8sAppOptions, Cdk8sComponent } from '../components';
+import { Cdk8sComponent, Commitzent } from '../components';
+import { Cdk8sAppOptions } from './interfaces/cdk8s-app-options';
 
 /**
  * CDK8s Application Project
@@ -10,7 +11,7 @@ import { Cdk8sAppOptions, Cdk8sComponent } from '../components';
  */
 export class Cdk8App extends TypeScriptProject {
   readonly cdk8s: Cdk8sComponent;
-
+  readonly commitzent?: Commitzent;
   constructor(options: Cdk8sAppOptions) {
     const opts = CommonOptionsConfig.withCommonOptionsDefaults({
       ...options,
@@ -35,7 +36,8 @@ export class Cdk8App extends TypeScriptProject {
 
     this.cdk8s = new Cdk8sComponent(this, 'cdk8s-component', options);
 
-    CommonOptionsConfig.withCommonComponents(this, opts);
+    const components = CommonOptionsConfig.withCommonComponents(this, opts);
+    this.commitzent = components.commitzent;
   }
 
   postSynthesize(): void {

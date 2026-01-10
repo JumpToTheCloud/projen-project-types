@@ -3,7 +3,18 @@ import { PrettierOptions, TrailingComma } from 'projen/lib/javascript';
 import { TypeScriptProjectOptions } from 'projen/lib/typescript';
 import { deepMerge } from 'projen/lib/util';
 import { VsCode } from 'projen/lib/vscode';
+import { ProjectGlobalOptions } from '../cdk/interfaces/project-global-options';
+import { Commitzent } from '../components/commitzent/commitzent';
 
+/**
+ * TypeScript project options that include global project options
+ */
+export interface TypeScriptProjectWithGlobalOptions
+  extends TypeScriptProjectOptions, ProjectGlobalOptions {}
+
+export interface CommonsComponents {
+  readonly commitzent?: Commitzent;
+}
 /**
  * Utility class for configuring common project options with default values
  */
@@ -28,11 +39,12 @@ export class CommonOptionsConfig {
    * Configures common components like VSCode settings and extensions
    * If project has parent, configures VSCode in parent project instead of subproject
    * @param project - The project instance to configure
+   * @param options - Project options (any type that has vscode and commitzent properties)
    */
   static withCommonComponents(
     project: Project,
-    options: TypeScriptProjectOptions,
-  ): void {
+    options: TypeScriptProjectWithGlobalOptions,
+  ): CommonsComponents {
     if (options.vscode !== false) {
       // Determine target project: use parent if it's a subproject, otherwise use current project
       const targetProject = project.parent ?? project;
@@ -49,6 +61,14 @@ export class CommonOptionsConfig {
       vscode.settings.addSettings(this.VSCODE_SETTINGS);
       vscode.extensions.addRecommendations(...this.VSCODE_EXTENSIONS);
     }
+
+    // Add Commitzent component if enabled (default: true)
+    let commitzent: Commitzent | undefined;
+    if (options.commitzent !== false) {
+      commitzent = new Commitzent(project, 'commitzent');
+    }
+
+    return { commitzent };
   }
 
   /**

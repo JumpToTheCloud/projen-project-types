@@ -1,6 +1,3 @@
-import { AwsCdkConstructLibraryOptions } from 'projen/lib/awscdk';
-import { TypeScriptProjectOptions } from 'projen/lib/typescript';
-
 export enum K8sVersion {
   V1_29 = '1.29.0',
   V1_30 = '1.30.0',
@@ -39,9 +36,3 @@ export interface Cdk8sBaseOptions {
    */
   readonly k8sVersion?: K8sVersion;
 }
-
-export interface Cdk8sLibraryOptions
-  extends Cdk8sBaseOptions, AwsCdkConstructLibraryOptions {}
-
-export interface Cdk8sAppOptions
-  extends Cdk8sBaseOptions, TypeScriptProjectOptions {}

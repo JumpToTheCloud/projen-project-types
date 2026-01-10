@@ -1,7 +1,8 @@
 import { execSync } from 'child_process';
 import { AwsCdkConstructLibrary } from 'projen/lib/awscdk';
 import { CommonOptionsConfig } from '../common/common-options';
-import { Cdk8sComponent, Cdk8sLibraryOptions } from '../components';
+import { Cdk8sComponent, Commitzent } from '../components';
+import { Cdk8sLibraryOptions } from './interfaces/cdk8s-library-options';
 
 /**
  * CDK Construct Library Project
@@ -10,7 +11,7 @@ import { Cdk8sComponent, Cdk8sLibraryOptions } from '../components';
  */
 export class Cdk8sLibrary extends AwsCdkConstructLibrary {
   readonly cdk8s: Cdk8sComponent;
-
+  readonly commitzent?: Commitzent;
   constructor(options: Cdk8sLibraryOptions) {
     const opts = CommonOptionsConfig.withCommonOptionsDefaults({
       ...options,
@@ -33,7 +34,8 @@ export class Cdk8sLibrary extends AwsCdkConstructLibrary {
     this.cdk8s = new Cdk8sComponent(this, 'cdk8s-component', opts);
     this.addDeps('constructs@^10.4.2');
 
-    CommonOptionsConfig.withCommonComponents(this, opts);
+    const components = CommonOptionsConfig.withCommonComponents(this, opts);
+    this.commitzent = components.commitzent;
   }
 
   postSynthesize(): void {
