@@ -7,5 +7,9 @@ import { Cdk8sBaseOptions } from '../../components/cdk8s/interfaces/Cdk8s';
  */
 export interface Cdk8sAppOptions
   extends Cdk8sBaseOptions, TypeScriptProjectOptions, ProjectGlobalOptions {
-  // Future CDK8s App specific options can be added here
+  /**
+   * Enable K3d component integration
+   * @default true
+   */
+  readonly k3d?: boolean;
 }

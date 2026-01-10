@@ -67,6 +67,9 @@ module.exports = {
     },
     {
       name: 'commitzent-component'
+    },
+    {
+      name: 'k3d-component'
     }
   ],
   usePreparedCommit: true,

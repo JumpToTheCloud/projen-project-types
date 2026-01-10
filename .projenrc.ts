@@ -100,6 +100,7 @@ commitzent.addScope({ name: 'cdk8s-library' });
 commitzent.addScope({ name: 'cdk8s-app' });
 commitzent.addScope({ name: 'cdk8s-component' });
 commitzent.addScope({ name: 'commitzent-component' });
+commitzent.addScope({ name: 'k3d-component' });
 
 const deployDocs = project.github?.addWorkflow('deploy-docs');
 deployDocs?.on({
