@@ -1,9 +1,7 @@
 import { Testing } from 'projen/lib/testing';
 import { Cdk8sLibrary } from '../src/cdk/cdk8s-library-project';
-import {
-  Cdk8sLibraryOptions,
-  K8sVersion,
-} from '../src/components/cdk8s/interfaces/Cdk8s';
+import { Cdk8sLibraryOptions } from '../src/cdk/interfaces';
+import { K8sVersion } from '../src/components/cdk8s/interfaces/Cdk8s';
 
 // Mock the CDK8s component to set pjid specifically for cdk8s-library tests
 jest.mock('../src/components/cdk8s/cdk8s', () => {

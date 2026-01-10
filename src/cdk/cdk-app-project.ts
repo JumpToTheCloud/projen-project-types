@@ -1,8 +1,7 @@
-import {
-  AwsCdkTypeScriptApp,
-  AwsCdkTypeScriptAppOptions,
-} from 'projen/lib/awscdk';
+import { AwsCdkTypeScriptApp } from 'projen/lib/awscdk';
 import { CommonOptionsConfig } from '../common/common-options';
+import { Commitzent } from '../components';
+import { CdkAppOptions } from './interfaces/cdk-app-options';
 
 /**
  * CDK TypeScript App Project
@@ -10,13 +9,15 @@ import { CommonOptionsConfig } from '../common/common-options';
  * @pjid cdk-app
  */
 export class CdkApp extends AwsCdkTypeScriptApp {
-  constructor(options: AwsCdkTypeScriptAppOptions) {
+  readonly commitzent?: Commitzent;
+  constructor(options: CdkAppOptions) {
     const opts = CommonOptionsConfig.withCommonOptionsDefaults({
       ...options,
     });
     super({
       ...opts,
     });
-    CommonOptionsConfig.withCommonComponents(this, opts);
+    const components = CommonOptionsConfig.withCommonComponents(this, opts);
+    this.commitzent = components.commitzent;
   }
 }

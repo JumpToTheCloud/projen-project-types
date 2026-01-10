@@ -45,13 +45,15 @@ Choose from our available project types and components:
 | Component | Description | Integration | Documentation |
 |-----------|-------------|-------------|---------------|
 | **[CDK8s Component](components/cdk8s.md)** | Kubernetes manifest generation with CDK8s | Can be added to any project type | [View Details](components/cdk8s.md) |
+| **[Commitzent Component](components/commitzent.md)** | Conventional Commits with interactive prompts | Included by default in all project types | [View Details](components/commitzent.md) |
 
 ### ⚙️ Common Features
 
 All project types include:
 
 - **[Prettier Configuration](default-configurations.md#prettier-configuration)** - Consistent code formatting
-- **[VSCode Integration](default-configurations.md#vscode-configuration)** - Optimized editor experience  
+- **[VSCode Integration](default-configurations.md#vscode-configuration)** - Optimized editor experience
+- **[Commitzent Component](components/commitzent.md)** - Conventional commits with interactive prompts
 - **TypeScript Setup** - Best practices and configurations
 - **Testing Framework** - Jest with appropriate configurations
 - **CI/CD Ready** - GitHub Actions workflows included

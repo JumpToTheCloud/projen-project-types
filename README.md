@@ -43,13 +43,15 @@ npx projen new --from @jttc/projen-project-types cdk8s-app
 | Component | Description | Documentation |
 |-----------|-------------|---------------|
 | **[CDK8s Component](https://jumptothecloud.github.io/projen-project-types/components/cdk8s/)** | Kubernetes manifest generation with TypeScript | Add to any project type |
+| **[Commitzent Component](https://jumptothecloud.github.io/projen-project-types/components/commitzent/)** | Conventional Commits with interactive prompts | Included by default |
 
 ## ⚡ What You Get Out of the Box
 
 Every project template includes:
 
 - 🎨 **[Prettier](https://jumptothecloud.github.io/projen-project-types/default-configurations/#prettier-configuration)** - Consistent code formatting
-- 🔧 **[VSCode Setup](https://jumptothecloud.github.io/projen-project-types/default-configurations/#vscode-configuration)** - Optimized editor experience with recommended extensions  
+- 🔧 **[VSCode Setup](https://jumptothecloud.github.io/projen-project-types/default-configurations/#vscode-configuration)** - Optimized editor experience with recommended extensions
+- 📋 **[Commitzent](https://jumptothecloud.github.io/projen-project-types/components/commitzent/)** - Conventional commits with interactive prompts
 - 📝 **TypeScript** - Best practices and configurations
 - 🧪 **Jest Testing** - Ready-to-use testing framework
 - 🚢 **CI/CD Pipelines** - GitHub Actions workflows
