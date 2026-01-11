@@ -49,6 +49,8 @@ export class Cdk8sComponent extends Component {
     // Note: constructs dependency is now managed by the BaseProject dependency override system
     // to avoid conflicts between different project types
     project.deps.addDependency('cdk8s', DependencyType.RUNTIME);
+    project.deps.addDependency('cdk8s', DependencyType.PEER);
+
     project.deps.addDependency('cdk8s-cli', DependencyType.BUILD);
     project.deps.addDependency(cdk8sPlusVersion, DependencyType.RUNTIME);
 

@@ -87,6 +87,9 @@ exports[`Cdk8sComponent Custom Configuration should use custom k8s version 2`] =
   },
   "license": "Apache-2.0",
   "name": "test-cdk-app",
+  "peerDependencies": {
+    "cdk8s": "*",
+  },
   "publishConfig": {
     "access": "public",
   },
@@ -252,6 +255,9 @@ exports[`Cdk8sComponent Custom Configuration should use custom paths and imports
   },
   "license": "Apache-2.0",
   "name": "test-cdk-app",
+  "peerDependencies": {
+    "cdk8s": "*",
+  },
   "publishConfig": {
     "access": "public",
   },
@@ -399,6 +405,9 @@ exports[`Cdk8sComponent Default Configuration should add cdk8s component with de
   },
   "license": "Apache-2.0",
   "name": "test-cdk-app",
+  "peerDependencies": {
+    "cdk8s": "*",
+  },
   "publishConfig": {
     "access": "public",
   },
@@ -639,6 +648,9 @@ exports[`Cdk8sComponent Task Configuration should create all required cdk8s task
   },
   "license": "Apache-2.0",
   "name": "test-cdk-app",
+  "peerDependencies": {
+    "cdk8s": "*",
+  },
   "publishConfig": {
     "access": "public",
   },
@@ -750,6 +762,9 @@ exports[`Cdk8sComponent Task Configuration should create tasks with custom paths
   },
   "license": "Apache-2.0",
   "name": "test-cdk-app",
+  "peerDependencies": {
+    "cdk8s": "*",
+  },
   "publishConfig": {
     "access": "public",
   },

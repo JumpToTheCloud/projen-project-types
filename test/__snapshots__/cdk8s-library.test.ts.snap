@@ -148,6 +148,7 @@ exports[`Cdk8sLibrary Basic Configuration should create cdk8s library with defau
   "name": "test-cdk8s-library",
   "peerDependencies": {
     "aws-cdk-lib": "^2.1.0",
+    "cdk8s": "*",
     "constructs": "^10.0.5",
   },
   "publishConfig": {
