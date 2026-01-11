@@ -37,7 +37,7 @@ export class Cdk8App extends TypeScriptProject {
     this.cdk8s = new Cdk8sComponent(this, 'cdk8s-component', options);
 
     if (options.k3d != false) {
-      new K3d(this, 'k3d-component', options);
+      new K3d(this, 'k3d-component', options.k3dOptions);
     }
 
     const components = CommonOptionsConfig.withCommonComponents(this, opts);

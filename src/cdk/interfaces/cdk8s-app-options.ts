@@ -1,5 +1,6 @@
 import { TypeScriptProjectOptions } from 'projen/lib/typescript';
 import { ProjectGlobalOptions } from './project-global-options';
+import { K3dOptions } from '../../components';
 import { Cdk8sBaseOptions } from '../../components/cdk8s/interfaces/Cdk8s';
 
 /**
@@ -12,4 +13,8 @@ export interface Cdk8sAppOptions
    * @default true
    */
   readonly k3d?: boolean;
+  /**
+   * K3d component configuration options
+   */
+  readonly k3dOptions?: K3dOptions;
 }

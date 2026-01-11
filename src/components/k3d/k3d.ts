@@ -1,7 +1,7 @@
 import { Component, Project, YamlFile } from 'projen';
-import { ApiVersion, ArgConfig, K3dConfig } from './types';
+import { ApiVersion, ArgConfig, K3dConfig, K3dOptions } from './types';
 
-export interface K3dEksProps {
+export interface K3dProps {
   readonly name: string;
   /**
    * Control Plane number of servers
@@ -33,19 +33,20 @@ export class K3d extends Component {
   private loadBalancerPort: number = 8080;
   private clusterName: string;
 
-  constructor(project: Project, id: string, props: K3dEksProps) {
+  constructor(project: Project, id: string, props?: K3dOptions) {
     super(project, id);
 
-    this.clusterName = props.name;
+    this.clusterName = props?.k3d?.metadata?.name || project.name;
 
-    if (props.loadBalancerPort) {
+    // TODO: Enable load balancer port number
+    /* if (props?.k3d?.loadbalancer) {
       this.loadBalancerPort = props.loadBalancerPort;
-    }
+    } */
 
     this.addDefaultExtraArgs();
 
-    if (props.k3sExtraArgs) {
-      props.k3sExtraArgs.forEach((arg) => {
+    if (props?.k3s?.extraArgs) {
+      props.k3s.extraArgs.forEach((arg) => {
         this.k3sExtraArgs.push(arg);
       });
     }
@@ -56,9 +57,9 @@ export class K3d extends Component {
       metadata: {
         name: this.clusterName,
       },
-      servers: props.servers || 1,
-      agents: props.agents || 0,
-      network: props.network || 'k3s',
+      servers: props?.k3d?.servers || 1,
+      agents: props?.k3d?.agents || 0,
+      network: props?.k3d?.network || 'k3s',
       image: 'docker.io/rancher/k3s:v1.30.8-k3s1',
       ports: [
         {
@@ -71,7 +72,8 @@ export class K3d extends Component {
           extraArgs: this.k3sExtraArgs,
         },
         kubeconfig: {
-          updateDefaultKubeconfig: props.updateDefaultKubeconfig || true,
+          updateDefaultKubeconfig:
+            props?.kubeconfig?.updateDefaultKubeconfig || true,
         },
       },
     };
@@ -97,7 +99,7 @@ export class K3d extends Component {
       description: 'Stop K3d Kubernetes Cluster',
       steps: [
         {
-          exec: `k3d cluster stop ${props.name}`,
+          exec: `k3d cluster stop ${this.clusterName}`,
           say: 'Stopping K3d Cluster',
           receiveArgs: true,
         },
@@ -108,7 +110,7 @@ export class K3d extends Component {
       description: 'Start K3d Kubernetes Cluster',
       steps: [
         {
-          exec: `k3d cluster start ${props.name}`,
+          exec: `k3d cluster start ${this.clusterName}`,
           say: 'Starting K3d Cluster',
           receiveArgs: true,
         },
@@ -119,7 +121,7 @@ export class K3d extends Component {
       description: 'Delete K3d Kubernetes Cluster',
       steps: [
         {
-          exec: `k3d cluster delete ${props.name}`,
+          exec: `k3d cluster delete ${this.clusterName}`,
           say: 'Deleting K3d Cluster',
           receiveArgs: true,
         },

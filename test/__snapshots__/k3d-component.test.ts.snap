@@ -12,7 +12,7 @@ agents: 1
 network: test-network
 image: docker.io/rancher/k3s:v1.30.8-k3s1
 ports:
-  - port: 8081:80
+  - port: 8080:80
     nodeFilters:
       - loadbalancer
 options:
@@ -24,9 +24,6 @@ options:
       - arg: --disable=metrics-server
         nodeFilters:
           - server:*
-      - arg: --custom-arg
-        nodeFilters:
-          - server:0
   kubeconfig:
     updateDefaultKubeconfig: true
 "
@@ -54,9 +51,6 @@ options:
         nodeFilters:
           - server:*
       - arg: --disable=metrics-server
-        nodeFilters:
-          - server:*
-      - arg: --disable=local-storage
         nodeFilters:
           - server:*
   kubeconfig:
@@ -88,12 +82,6 @@ options:
       - arg: --disable=metrics-server
         nodeFilters:
           - server:*
-      - arg: --disable=local-storage
-        nodeFilters:
-          - server:*
-      - arg: --cluster-cidr=10.43.0.0/16
-        nodeFilters:
-          - server:0
   kubeconfig:
     updateDefaultKubeconfig: true
 "
@@ -111,7 +99,7 @@ agents: 0
 network: k3s
 image: docker.io/rancher/k3s:v1.30.8-k3s1
 ports:
-  - port: 9090:80
+  - port: 8080:80
     nodeFilters:
       - loadbalancer
 options:

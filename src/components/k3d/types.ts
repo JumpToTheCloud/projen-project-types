@@ -62,8 +62,8 @@ export interface Volume {
 }
 
 export interface K3dConfig {
-  readonly apiVersion: ApiVersion;
-  readonly kind: string;
+  readonly apiVersion?: ApiVersion;
+  readonly kind?: string;
   readonly metadata?: Metadata;
   readonly servers?: number;
   readonly agents?: number;
