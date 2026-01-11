@@ -68,8 +68,8 @@ const project = new cdk.JsiiProject({
     },
   },
   deps: ['projen'],
-  // description: undefined,
   devDeps: ['projen', 'constructs@^10.4.4'],
+  // description: undefined,
   peerDeps: ['projen', 'constructs@^10.4.4'],
   packageName: '@jttc/projen-project-types',
   npmAccess: NpmAccess.PUBLIC,
@@ -101,6 +101,7 @@ commitzent.addScope({ name: 'cdk8s-app' });
 commitzent.addScope({ name: 'cdk8s-component' });
 commitzent.addScope({ name: 'commitzent-component' });
 commitzent.addScope({ name: 'k3d-component' });
+commitzent.addScope({ name: 'cloudformation-extensions' });
 
 const deployDocs = project.github?.addWorkflow('deploy-docs');
 deployDocs?.on({

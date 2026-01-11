@@ -70,6 +70,9 @@ module.exports = {
     },
     {
       name: 'k3d-component'
+    },
+    {
+      name: 'cloudformation-extensions'
     }
   ],
   usePreparedCommit: true,
