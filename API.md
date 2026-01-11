@@ -6767,7 +6767,379 @@ public readonly project: Project;
 ---
 
 
+### K3d <a name="K3d" id="@jttc/projen-project-types.K3d"></a>
+
+#### Initializers <a name="Initializers" id="@jttc/projen-project-types.K3d.Initializer"></a>
+
+```typescript
+import { K3d } from '@jttc/projen-project-types'
+
+new K3d(project: Project, id: string, props?: K3dOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.K3d.Initializer.parameter.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3d.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3d.Initializer.parameter.props">props</a></code> | <code><a href="#@jttc/projen-project-types.K3dOptions">K3dOptions</a></code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@jttc/projen-project-types.K3d.Initializer.parameter.project"></a>
+
+- *Type:* projen.Project
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@jttc/projen-project-types.K3d.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `props`<sup>Optional</sup> <a name="props" id="@jttc/projen-project-types.K3d.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#@jttc/projen-project-types.K3dOptions">K3dOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@jttc/projen-project-types.K3d.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@jttc/projen-project-types.K3d.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#@jttc/projen-project-types.K3d.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#@jttc/projen-project-types.K3d.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+
+---
+
+##### `toString` <a name="toString" id="@jttc/projen-project-types.K3d.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `postSynthesize` <a name="postSynthesize" id="@jttc/projen-project-types.K3d.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="@jttc/projen-project-types.K3d.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `synthesize` <a name="synthesize" id="@jttc/projen-project-types.K3d.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@jttc/projen-project-types.K3d.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@jttc/projen-project-types.K3d.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@jttc/projen-project-types.K3d.isConstruct"></a>
+
+```typescript
+import { K3d } from '@jttc/projen-project-types'
+
+K3d.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@jttc/projen-project-types.K3d.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isComponent` <a name="isComponent" id="@jttc/projen-project-types.K3d.isComponent"></a>
+
+```typescript
+import { K3d } from '@jttc/projen-project-types'
+
+K3d.isComponent(x: any)
+```
+
+Test whether the given construct is a component.
+
+###### `x`<sup>Required</sup> <a name="x" id="@jttc/projen-project-types.K3d.isComponent.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.K3d.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@jttc/projen-project-types.K3d.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@jttc/projen-project-types.K3d.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@jttc/projen-project-types.K3d.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
+
+---
+
+
+### K3dBase <a name="K3dBase" id="@jttc/projen-project-types.K3dBase"></a>
+
+#### Initializers <a name="Initializers" id="@jttc/projen-project-types.K3dBase.Initializer"></a>
+
+```typescript
+import { K3dBase } from '@jttc/projen-project-types'
+
+new K3dBase(project: Project, id: string)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.K3dBase.Initializer.parameter.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dBase.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@jttc/projen-project-types.K3dBase.Initializer.parameter.project"></a>
+
+- *Type:* projen.Project
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@jttc/projen-project-types.K3dBase.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@jttc/projen-project-types.K3dBase.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@jttc/projen-project-types.K3dBase.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#@jttc/projen-project-types.K3dBase.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#@jttc/projen-project-types.K3dBase.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+
+---
+
+##### `toString` <a name="toString" id="@jttc/projen-project-types.K3dBase.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `postSynthesize` <a name="postSynthesize" id="@jttc/projen-project-types.K3dBase.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="@jttc/projen-project-types.K3dBase.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `synthesize` <a name="synthesize" id="@jttc/projen-project-types.K3dBase.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@jttc/projen-project-types.K3dBase.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@jttc/projen-project-types.K3dBase.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@jttc/projen-project-types.K3dBase.isConstruct"></a>
+
+```typescript
+import { K3dBase } from '@jttc/projen-project-types'
+
+K3dBase.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@jttc/projen-project-types.K3dBase.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isComponent` <a name="isComponent" id="@jttc/projen-project-types.K3dBase.isComponent"></a>
+
+```typescript
+import { K3dBase } from '@jttc/projen-project-types'
+
+K3dBase.isComponent(x: any)
+```
+
+Test whether the given construct is a component.
+
+###### `x`<sup>Required</sup> <a name="x" id="@jttc/projen-project-types.K3dBase.isComponent.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.K3dBase.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@jttc/projen-project-types.K3dBase.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@jttc/projen-project-types.K3dBase.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@jttc/projen-project-types.K3dBase.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
+
+---
+
+
 ## Structs <a name="Structs" id="Structs"></a>
+
+### ArgConfig <a name="ArgConfig" id="@jttc/projen-project-types.ArgConfig"></a>
+
+#### Initializer <a name="Initializer" id="@jttc/projen-project-types.ArgConfig.Initializer"></a>
+
+```typescript
+import { ArgConfig } from '@jttc/projen-project-types'
+
+const argConfig: ArgConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.ArgConfig.property.arg">arg</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.ArgConfig.property.nodeFilters">nodeFilters</a></code> | <code>string[]</code> | *No description.* |
+
+---
+
+##### `arg`<sup>Required</sup> <a name="arg" id="@jttc/projen-project-types.ArgConfig.property.arg"></a>
+
+```typescript
+public readonly arg: string;
+```
+
+- *Type:* string
+
+---
+
+##### `nodeFilters`<sup>Required</sup> <a name="nodeFilters" id="@jttc/projen-project-types.ArgConfig.property.nodeFilters"></a>
+
+```typescript
+public readonly nodeFilters: string[];
+```
+
+- *Type:* string[]
+
+---
 
 ### Cdk8sAppOptions <a name="Cdk8sAppOptions" id="@jttc/projen-project-types.Cdk8sAppOptions"></a>
 
@@ -6946,6 +7318,8 @@ const cdk8sAppOptions: Cdk8sAppOptions = { ... }
 | <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.tsJestOptions">tsJestOptions</a></code> | <code>projen.typescript.TsJestOptions</code> | Options for ts-jest. |
 | <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
 | <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.commitzent">commitzent</a></code> | <code>boolean</code> | Whether to include Commitzent component for conventional commits. |
+| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.k3d">k3d</a></code> | <code>boolean</code> | Enable K3d component integration. |
+| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.k3dOptions">k3dOptions</a></code> | <code><a href="#@jttc/projen-project-types.K3dOptions">K3dOptions</a></code> | K3d component configuration options. |
 
 ---
 
@@ -9259,6 +9633,31 @@ public readonly commitzent: boolean;
 - *Default:* true
 
 Whether to include Commitzent component for conventional commits.
+
+---
+
+##### `k3d`<sup>Optional</sup> <a name="k3d" id="@jttc/projen-project-types.Cdk8sAppOptions.property.k3d"></a>
+
+```typescript
+public readonly k3d: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable K3d component integration.
+
+---
+
+##### `k3dOptions`<sup>Optional</sup> <a name="k3dOptions" id="@jttc/projen-project-types.Cdk8sAppOptions.property.k3dOptions"></a>
+
+```typescript
+public readonly k3dOptions: K3dOptions;
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.K3dOptions">K3dOptions</a>
+
+K3d component configuration options.
 
 ---
 
@@ -18429,6 +18828,573 @@ public readonly commitzent: Commitzent;
 
 ---
 
+### K3dConfig <a name="K3dConfig" id="@jttc/projen-project-types.K3dConfig"></a>
+
+#### Initializer <a name="Initializer" id="@jttc/projen-project-types.K3dConfig.Initializer"></a>
+
+```typescript
+import { K3dConfig } from '@jttc/projen-project-types'
+
+const k3dConfig: K3dConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.K3dConfig.property.agents">agents</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dConfig.property.apiVersion">apiVersion</a></code> | <code><a href="#@jttc/projen-project-types.ApiVersion">ApiVersion</a></code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dConfig.property.disableImageVolume">disableImageVolume</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dConfig.property.disableLoadbalancer">disableLoadbalancer</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dConfig.property.disableRollback">disableRollback</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dConfig.property.image">image</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dConfig.property.kind">kind</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dConfig.property.kubeAPI">kubeAPI</a></code> | <code><a href="#@jttc/projen-project-types.KubeAPI">KubeAPI</a></code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dConfig.property.loadbalancer">loadbalancer</a></code> | <code><a href="#@jttc/projen-project-types.LoadbalancerConfig">LoadbalancerConfig</a></code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dConfig.property.metadata">metadata</a></code> | <code><a href="#@jttc/projen-project-types.Metadata">Metadata</a></code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dConfig.property.network">network</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dConfig.property.options">options</a></code> | <code><a href="#@jttc/projen-project-types.K3dOptions">K3dOptions</a></code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dConfig.property.ports">ports</a></code> | <code><a href="#@jttc/projen-project-types.PortConfig">PortConfig</a>[]</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dConfig.property.servers">servers</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dConfig.property.timeout">timeout</a></code> | <code>string</code> | wait timeout before aborting; |
+| <code><a href="#@jttc/projen-project-types.K3dConfig.property.volumes">volumes</a></code> | <code><a href="#@jttc/projen-project-types.Volume">Volume</a>[]</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dConfig.property.wait">wait</a></code> | <code>boolean</code> | wait for cluster to be usable before returning; |
+
+---
+
+##### `agents`<sup>Optional</sup> <a name="agents" id="@jttc/projen-project-types.K3dConfig.property.agents"></a>
+
+```typescript
+public readonly agents: number;
+```
+
+- *Type:* number
+
+---
+
+##### `apiVersion`<sup>Optional</sup> <a name="apiVersion" id="@jttc/projen-project-types.K3dConfig.property.apiVersion"></a>
+
+```typescript
+public readonly apiVersion: ApiVersion;
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.ApiVersion">ApiVersion</a>
+
+---
+
+##### `disableImageVolume`<sup>Optional</sup> <a name="disableImageVolume" id="@jttc/projen-project-types.K3dConfig.property.disableImageVolume"></a>
+
+```typescript
+public readonly disableImageVolume: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `disableLoadbalancer`<sup>Optional</sup> <a name="disableLoadbalancer" id="@jttc/projen-project-types.K3dConfig.property.disableLoadbalancer"></a>
+
+```typescript
+public readonly disableLoadbalancer: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `disableRollback`<sup>Optional</sup> <a name="disableRollback" id="@jttc/projen-project-types.K3dConfig.property.disableRollback"></a>
+
+```typescript
+public readonly disableRollback: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+##### `image`<sup>Optional</sup> <a name="image" id="@jttc/projen-project-types.K3dConfig.property.image"></a>
+
+```typescript
+public readonly image: string;
+```
+
+- *Type:* string
+
+---
+
+##### `kind`<sup>Optional</sup> <a name="kind" id="@jttc/projen-project-types.K3dConfig.property.kind"></a>
+
+```typescript
+public readonly kind: string;
+```
+
+- *Type:* string
+
+---
+
+##### `kubeAPI`<sup>Optional</sup> <a name="kubeAPI" id="@jttc/projen-project-types.K3dConfig.property.kubeAPI"></a>
+
+```typescript
+public readonly kubeAPI: KubeAPI;
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.KubeAPI">KubeAPI</a>
+
+---
+
+##### `loadbalancer`<sup>Optional</sup> <a name="loadbalancer" id="@jttc/projen-project-types.K3dConfig.property.loadbalancer"></a>
+
+```typescript
+public readonly loadbalancer: LoadbalancerConfig;
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.LoadbalancerConfig">LoadbalancerConfig</a>
+
+---
+
+##### `metadata`<sup>Optional</sup> <a name="metadata" id="@jttc/projen-project-types.K3dConfig.property.metadata"></a>
+
+```typescript
+public readonly metadata: Metadata;
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.Metadata">Metadata</a>
+
+---
+
+##### `network`<sup>Optional</sup> <a name="network" id="@jttc/projen-project-types.K3dConfig.property.network"></a>
+
+```typescript
+public readonly network: string;
+```
+
+- *Type:* string
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="@jttc/projen-project-types.K3dConfig.property.options"></a>
+
+```typescript
+public readonly options: K3dOptions;
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.K3dOptions">K3dOptions</a>
+
+---
+
+##### `ports`<sup>Optional</sup> <a name="ports" id="@jttc/projen-project-types.K3dConfig.property.ports"></a>
+
+```typescript
+public readonly ports: PortConfig[];
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.PortConfig">PortConfig</a>[]
+
+---
+
+##### `servers`<sup>Optional</sup> <a name="servers" id="@jttc/projen-project-types.K3dConfig.property.servers"></a>
+
+```typescript
+public readonly servers: number;
+```
+
+- *Type:* number
+
+---
+
+##### `timeout`<sup>Optional</sup> <a name="timeout" id="@jttc/projen-project-types.K3dConfig.property.timeout"></a>
+
+```typescript
+public readonly timeout: string;
+```
+
+- *Type:* string
+
+wait timeout before aborting;
+
+same as `--timeout 60s`
+
+---
+
+##### `volumes`<sup>Optional</sup> <a name="volumes" id="@jttc/projen-project-types.K3dConfig.property.volumes"></a>
+
+```typescript
+public readonly volumes: Volume[];
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.Volume">Volume</a>[]
+
+---
+
+##### `wait`<sup>Optional</sup> <a name="wait" id="@jttc/projen-project-types.K3dConfig.property.wait"></a>
+
+```typescript
+public readonly wait: boolean;
+```
+
+- *Type:* boolean
+
+wait for cluster to be usable before returning;
+
+same as `--wait` (default: true)
+
+---
+
+### K3dOptions <a name="K3dOptions" id="@jttc/projen-project-types.K3dOptions"></a>
+
+#### Initializer <a name="Initializer" id="@jttc/projen-project-types.K3dOptions.Initializer"></a>
+
+```typescript
+import { K3dOptions } from '@jttc/projen-project-types'
+
+const k3dOptions: K3dOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.K3dOptions.property.k3d">k3d</a></code> | <code><a href="#@jttc/projen-project-types.K3dConfig">K3dConfig</a></code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dOptions.property.k3s">k3s</a></code> | <code><a href="#@jttc/projen-project-types.K3s">K3s</a></code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dOptions.property.kubeconfig">kubeconfig</a></code> | <code><a href="#@jttc/projen-project-types.Kubeconfig">Kubeconfig</a></code> | *No description.* |
+
+---
+
+##### `k3d`<sup>Optional</sup> <a name="k3d" id="@jttc/projen-project-types.K3dOptions.property.k3d"></a>
+
+```typescript
+public readonly k3d: K3dConfig;
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.K3dConfig">K3dConfig</a>
+
+---
+
+##### `k3s`<sup>Optional</sup> <a name="k3s" id="@jttc/projen-project-types.K3dOptions.property.k3s"></a>
+
+```typescript
+public readonly k3s: K3s;
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.K3s">K3s</a>
+
+---
+
+##### `kubeconfig`<sup>Optional</sup> <a name="kubeconfig" id="@jttc/projen-project-types.K3dOptions.property.kubeconfig"></a>
+
+```typescript
+public readonly kubeconfig: Kubeconfig;
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.Kubeconfig">Kubeconfig</a>
+
+---
+
+### K3dProps <a name="K3dProps" id="@jttc/projen-project-types.K3dProps"></a>
+
+#### Initializer <a name="Initializer" id="@jttc/projen-project-types.K3dProps.Initializer"></a>
+
+```typescript
+import { K3dProps } from '@jttc/projen-project-types'
+
+const k3dProps: K3dProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.K3dProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dProps.property.agents">agents</a></code> | <code>number</code> | Number of worker nodes. |
+| <code><a href="#@jttc/projen-project-types.K3dProps.property.k3sExtraArgs">k3sExtraArgs</a></code> | <code><a href="#@jttc/projen-project-types.ArgConfig">ArgConfig</a>[]</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dProps.property.loadBalancerPort">loadBalancerPort</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dProps.property.network">network</a></code> | <code>string</code> | Name of the docker network. |
+| <code><a href="#@jttc/projen-project-types.K3dProps.property.servers">servers</a></code> | <code>number</code> | Control Plane number of servers. |
+| <code><a href="#@jttc/projen-project-types.K3dProps.property.updateDefaultKubeconfig">updateDefaultKubeconfig</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="@jttc/projen-project-types.K3dProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `agents`<sup>Optional</sup> <a name="agents" id="@jttc/projen-project-types.K3dProps.property.agents"></a>
+
+```typescript
+public readonly agents: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+Number of worker nodes.
+
+---
+
+##### `k3sExtraArgs`<sup>Optional</sup> <a name="k3sExtraArgs" id="@jttc/projen-project-types.K3dProps.property.k3sExtraArgs"></a>
+
+```typescript
+public readonly k3sExtraArgs: ArgConfig[];
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.ArgConfig">ArgConfig</a>[]
+
+---
+
+##### `loadBalancerPort`<sup>Optional</sup> <a name="loadBalancerPort" id="@jttc/projen-project-types.K3dProps.property.loadBalancerPort"></a>
+
+```typescript
+public readonly loadBalancerPort: number;
+```
+
+- *Type:* number
+
+---
+
+##### `network`<sup>Optional</sup> <a name="network" id="@jttc/projen-project-types.K3dProps.property.network"></a>
+
+```typescript
+public readonly network: string;
+```
+
+- *Type:* string
+- *Default:* aws
+
+Name of the docker network.
+
+---
+
+##### `servers`<sup>Optional</sup> <a name="servers" id="@jttc/projen-project-types.K3dProps.property.servers"></a>
+
+```typescript
+public readonly servers: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+Control Plane number of servers.
+
+---
+
+##### `updateDefaultKubeconfig`<sup>Optional</sup> <a name="updateDefaultKubeconfig" id="@jttc/projen-project-types.K3dProps.property.updateDefaultKubeconfig"></a>
+
+```typescript
+public readonly updateDefaultKubeconfig: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+---
+
+### K3s <a name="K3s" id="@jttc/projen-project-types.K3s"></a>
+
+#### Initializer <a name="Initializer" id="@jttc/projen-project-types.K3s.Initializer"></a>
+
+```typescript
+import { K3s } from '@jttc/projen-project-types'
+
+const k3s: K3s = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.K3s.property.extraArgs">extraArgs</a></code> | <code><a href="#@jttc/projen-project-types.ArgConfig">ArgConfig</a>[]</code> | *No description.* |
+
+---
+
+##### `extraArgs`<sup>Required</sup> <a name="extraArgs" id="@jttc/projen-project-types.K3s.property.extraArgs"></a>
+
+```typescript
+public readonly extraArgs: ArgConfig[];
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.ArgConfig">ArgConfig</a>[]
+
+---
+
+### KubeAPI <a name="KubeAPI" id="@jttc/projen-project-types.KubeAPI"></a>
+
+#### Initializer <a name="Initializer" id="@jttc/projen-project-types.KubeAPI.Initializer"></a>
+
+```typescript
+import { KubeAPI } from '@jttc/projen-project-types'
+
+const kubeAPI: KubeAPI = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.KubeAPI.property.host">host</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.KubeAPI.property.hostIP">hostIP</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.KubeAPI.property.hostPort">hostPort</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `host`<sup>Required</sup> <a name="host" id="@jttc/projen-project-types.KubeAPI.property.host"></a>
+
+```typescript
+public readonly host: string;
+```
+
+- *Type:* string
+
+---
+
+##### `hostIP`<sup>Required</sup> <a name="hostIP" id="@jttc/projen-project-types.KubeAPI.property.hostIP"></a>
+
+```typescript
+public readonly hostIP: string;
+```
+
+- *Type:* string
+
+---
+
+##### `hostPort`<sup>Required</sup> <a name="hostPort" id="@jttc/projen-project-types.KubeAPI.property.hostPort"></a>
+
+```typescript
+public readonly hostPort: string;
+```
+
+- *Type:* string
+
+---
+
+### Kubeconfig <a name="Kubeconfig" id="@jttc/projen-project-types.Kubeconfig"></a>
+
+#### Initializer <a name="Initializer" id="@jttc/projen-project-types.Kubeconfig.Initializer"></a>
+
+```typescript
+import { Kubeconfig } from '@jttc/projen-project-types'
+
+const kubeconfig: Kubeconfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.Kubeconfig.property.updateDefaultKubeconfig">updateDefaultKubeconfig</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `updateDefaultKubeconfig`<sup>Required</sup> <a name="updateDefaultKubeconfig" id="@jttc/projen-project-types.Kubeconfig.property.updateDefaultKubeconfig"></a>
+
+```typescript
+public readonly updateDefaultKubeconfig: boolean;
+```
+
+- *Type:* boolean
+
+---
+
+### LoadbalancerConfig <a name="LoadbalancerConfig" id="@jttc/projen-project-types.LoadbalancerConfig"></a>
+
+#### Initializer <a name="Initializer" id="@jttc/projen-project-types.LoadbalancerConfig.Initializer"></a>
+
+```typescript
+import { LoadbalancerConfig } from '@jttc/projen-project-types'
+
+const loadbalancerConfig: LoadbalancerConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.LoadbalancerConfig.property.configOverrides">configOverrides</a></code> | <code>string[]</code> | *No description.* |
+
+---
+
+##### `configOverrides`<sup>Required</sup> <a name="configOverrides" id="@jttc/projen-project-types.LoadbalancerConfig.property.configOverrides"></a>
+
+```typescript
+public readonly configOverrides: string[];
+```
+
+- *Type:* string[]
+
+---
+
+### Metadata <a name="Metadata" id="@jttc/projen-project-types.Metadata"></a>
+
+#### Initializer <a name="Initializer" id="@jttc/projen-project-types.Metadata.Initializer"></a>
+
+```typescript
+import { Metadata } from '@jttc/projen-project-types'
+
+const metadata: Metadata = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.Metadata.property.name">name</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="@jttc/projen-project-types.Metadata.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+### PortConfig <a name="PortConfig" id="@jttc/projen-project-types.PortConfig"></a>
+
+#### Initializer <a name="Initializer" id="@jttc/projen-project-types.PortConfig.Initializer"></a>
+
+```typescript
+import { PortConfig } from '@jttc/projen-project-types'
+
+const portConfig: PortConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.PortConfig.property.nodeFilters">nodeFilters</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.PortConfig.property.port">port</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `nodeFilters`<sup>Required</sup> <a name="nodeFilters" id="@jttc/projen-project-types.PortConfig.property.nodeFilters"></a>
+
+```typescript
+public readonly nodeFilters: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `port`<sup>Required</sup> <a name="port" id="@jttc/projen-project-types.PortConfig.property.port"></a>
+
+```typescript
+public readonly port: string;
+```
+
+- *Type:* string
+
+---
+
 ### ProjectGlobalOptions <a name="ProjectGlobalOptions" id="@jttc/projen-project-types.ProjectGlobalOptions"></a>
 
 Global configuration options that apply to all projects.
@@ -20886,6 +21852,45 @@ Whether to include Commitzent component for conventional commits.
 
 ---
 
+### Volume <a name="Volume" id="@jttc/projen-project-types.Volume"></a>
+
+#### Initializer <a name="Initializer" id="@jttc/projen-project-types.Volume.Initializer"></a>
+
+```typescript
+import { Volume } from '@jttc/projen-project-types'
+
+const volume: Volume = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.Volume.property.nodeFilters">nodeFilters</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Volume.property.volumeName">volumeName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `nodeFilters`<sup>Required</sup> <a name="nodeFilters" id="@jttc/projen-project-types.Volume.property.nodeFilters"></a>
+
+```typescript
+public readonly nodeFilters: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `volumeName`<sup>Required</sup> <a name="volumeName" id="@jttc/projen-project-types.Volume.property.volumeName"></a>
+
+```typescript
+public readonly volumeName: string;
+```
+
+- *Type:* string
+
+---
+
 ## Classes <a name="Classes" id="Classes"></a>
 
 ### CommonOptionsConfig <a name="CommonOptionsConfig" id="@jttc/projen-project-types.CommonOptionsConfig"></a>
@@ -20963,6 +21968,21 @@ Project options that may include existing configurations.
 
 
 ## Enums <a name="Enums" id="Enums"></a>
+
+### ApiVersion <a name="ApiVersion" id="@jttc/projen-project-types.ApiVersion"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@jttc/projen-project-types.ApiVersion.V1_ALPHA_5">V1_ALPHA_5</a></code> | *No description.* |
+
+---
+
+##### `V1_ALPHA_5` <a name="V1_ALPHA_5" id="@jttc/projen-project-types.ApiVersion.V1_ALPHA_5"></a>
+
+---
+
 
 ### K8sVersion <a name="K8sVersion" id="@jttc/projen-project-types.K8sVersion"></a>
 

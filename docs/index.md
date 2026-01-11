@@ -45,6 +45,7 @@ Choose from our available project types and components:
 | Component | Description | Integration | Documentation |
 |-----------|-------------|-------------|---------------|
 | **[CDK8s Component](components/cdk8s.md)** | Kubernetes manifest generation with CDK8s | Can be added to any project type | [View Details](components/cdk8s.md) |
+| **[K3d Component](components/k3d.md)** | Local Kubernetes development with K3d | Included in CDK8s apps, can be added to any project | [View Details](components/k3d.md) |
 | **[Commitzent Component](components/commitzent.md)** | Conventional Commits with interactive prompts | Included by default in all project types | [View Details](components/commitzent.md) |
 
 ### ⚙️ Common Features

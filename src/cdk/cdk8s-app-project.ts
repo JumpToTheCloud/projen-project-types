@@ -1,7 +1,7 @@
 import { execSync } from 'child_process';
 import { TypeScriptProject } from 'projen/lib/typescript';
 import { CommonOptionsConfig } from '../common/common-options';
-import { Cdk8sComponent, Commitzent } from '../components';
+import { Cdk8sComponent, Commitzent, K3d } from '../components';
 import { Cdk8sAppOptions } from './interfaces/cdk8s-app-options';
 
 /**
@@ -35,6 +35,10 @@ export class Cdk8App extends TypeScriptProject {
     this.addDeps('constructs@^10.4.2');
 
     this.cdk8s = new Cdk8sComponent(this, 'cdk8s-component', options);
+
+    if (options.k3d != false) {
+      new K3d(this, 'k3d-component', options.k3dOptions);
+    }
 
     const components = CommonOptionsConfig.withCommonComponents(this, opts);
     this.commitzent = components.commitzent;
