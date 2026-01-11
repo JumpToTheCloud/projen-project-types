@@ -43,6 +43,7 @@ npx projen new --from @jttc/projen-project-types cdk8s-app
 | Component | Description | Documentation |
 |-----------|-------------|---------------|
 | **[CDK8s Component](https://jumptothecloud.github.io/projen-project-types/components/cdk8s/)** | Kubernetes manifest generation with TypeScript | Add to any project type |
+| **[K3d Component](https://jumptothecloud.github.io/projen-project-types/components/k3d/)** | Local Kubernetes development with K3d | Included in CDK8s apps, add to any project |
 | **[Commitzent Component](https://jumptothecloud.github.io/projen-project-types/components/commitzent/)** | Conventional Commits with interactive prompts | Included by default |
 
 ## ⚡ What You Get Out of the Box

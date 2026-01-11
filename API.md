@@ -6774,14 +6774,14 @@ public readonly project: Project;
 ```typescript
 import { K3d } from '@jttc/projen-project-types'
 
-new K3d(project: Project, id: string, props: K3dEksProps)
+new K3d(project: Project, id: string, props?: K3dOptions)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@jttc/projen-project-types.K3d.Initializer.parameter.project">project</a></code> | <code>projen.Project</code> | *No description.* |
 | <code><a href="#@jttc/projen-project-types.K3d.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@jttc/projen-project-types.K3d.Initializer.parameter.props">props</a></code> | <code><a href="#@jttc/projen-project-types.K3dEksProps">K3dEksProps</a></code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3d.Initializer.parameter.props">props</a></code> | <code><a href="#@jttc/projen-project-types.K3dOptions">K3dOptions</a></code> | *No description.* |
 
 ---
 
@@ -6797,9 +6797,9 @@ new K3d(project: Project, id: string, props: K3dEksProps)
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="@jttc/projen-project-types.K3d.Initializer.parameter.props"></a>
+##### `props`<sup>Optional</sup> <a name="props" id="@jttc/projen-project-types.K3d.Initializer.parameter.props"></a>
 
-- *Type:* <a href="#@jttc/projen-project-types.K3dEksProps">K3dEksProps</a>
+- *Type:* <a href="#@jttc/projen-project-types.K3dOptions">K3dOptions</a>
 
 ---
 
@@ -7319,6 +7319,7 @@ const cdk8sAppOptions: Cdk8sAppOptions = { ... }
 | <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
 | <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.commitzent">commitzent</a></code> | <code>boolean</code> | Whether to include Commitzent component for conventional commits. |
 | <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.k3d">k3d</a></code> | <code>boolean</code> | Enable K3d component integration. |
+| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.k3dOptions">k3dOptions</a></code> | <code><a href="#@jttc/projen-project-types.K3dOptions">K3dOptions</a></code> | K3d component configuration options. |
 
 ---
 
@@ -9645,6 +9646,18 @@ public readonly k3d: boolean;
 - *Default:* true
 
 Enable K3d component integration.
+
+---
+
+##### `k3dOptions`<sup>Optional</sup> <a name="k3dOptions" id="@jttc/projen-project-types.Cdk8sAppOptions.property.k3dOptions"></a>
+
+```typescript
+public readonly k3dOptions: K3dOptions;
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.K3dOptions">K3dOptions</a>
+
+K3d component configuration options.
 
 ---
 
@@ -18829,13 +18842,13 @@ const k3dConfig: K3dConfig = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@jttc/projen-project-types.K3dConfig.property.apiVersion">apiVersion</a></code> | <code><a href="#@jttc/projen-project-types.ApiVersion">ApiVersion</a></code> | *No description.* |
-| <code><a href="#@jttc/projen-project-types.K3dConfig.property.kind">kind</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@jttc/projen-project-types.K3dConfig.property.agents">agents</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dConfig.property.apiVersion">apiVersion</a></code> | <code><a href="#@jttc/projen-project-types.ApiVersion">ApiVersion</a></code> | *No description.* |
 | <code><a href="#@jttc/projen-project-types.K3dConfig.property.disableImageVolume">disableImageVolume</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#@jttc/projen-project-types.K3dConfig.property.disableLoadbalancer">disableLoadbalancer</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#@jttc/projen-project-types.K3dConfig.property.disableRollback">disableRollback</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#@jttc/projen-project-types.K3dConfig.property.image">image</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dConfig.property.kind">kind</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@jttc/projen-project-types.K3dConfig.property.kubeAPI">kubeAPI</a></code> | <code><a href="#@jttc/projen-project-types.KubeAPI">KubeAPI</a></code> | *No description.* |
 | <code><a href="#@jttc/projen-project-types.K3dConfig.property.loadbalancer">loadbalancer</a></code> | <code><a href="#@jttc/projen-project-types.LoadbalancerConfig">LoadbalancerConfig</a></code> | *No description.* |
 | <code><a href="#@jttc/projen-project-types.K3dConfig.property.metadata">metadata</a></code> | <code><a href="#@jttc/projen-project-types.Metadata">Metadata</a></code> | *No description.* |
@@ -18849,26 +18862,6 @@ const k3dConfig: K3dConfig = { ... }
 
 ---
 
-##### `apiVersion`<sup>Required</sup> <a name="apiVersion" id="@jttc/projen-project-types.K3dConfig.property.apiVersion"></a>
-
-```typescript
-public readonly apiVersion: ApiVersion;
-```
-
-- *Type:* <a href="#@jttc/projen-project-types.ApiVersion">ApiVersion</a>
-
----
-
-##### `kind`<sup>Required</sup> <a name="kind" id="@jttc/projen-project-types.K3dConfig.property.kind"></a>
-
-```typescript
-public readonly kind: string;
-```
-
-- *Type:* string
-
----
-
 ##### `agents`<sup>Optional</sup> <a name="agents" id="@jttc/projen-project-types.K3dConfig.property.agents"></a>
 
 ```typescript
@@ -18876,6 +18869,16 @@ public readonly agents: number;
 ```
 
 - *Type:* number
+
+---
+
+##### `apiVersion`<sup>Optional</sup> <a name="apiVersion" id="@jttc/projen-project-types.K3dConfig.property.apiVersion"></a>
+
+```typescript
+public readonly apiVersion: ApiVersion;
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.ApiVersion">ApiVersion</a>
 
 ---
 
@@ -18913,6 +18916,16 @@ public readonly disableRollback: boolean;
 
 ```typescript
 public readonly image: string;
+```
+
+- *Type:* string
+
+---
+
+##### `kind`<sup>Optional</sup> <a name="kind" id="@jttc/projen-project-types.K3dConfig.property.kind"></a>
+
+```typescript
+public readonly kind: string;
 ```
 
 - *Type:* string
@@ -19027,110 +19040,6 @@ same as `--wait` (default: true)
 
 ---
 
-### K3dEksProps <a name="K3dEksProps" id="@jttc/projen-project-types.K3dEksProps"></a>
-
-#### Initializer <a name="Initializer" id="@jttc/projen-project-types.K3dEksProps.Initializer"></a>
-
-```typescript
-import { K3dEksProps } from '@jttc/projen-project-types'
-
-const k3dEksProps: K3dEksProps = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#@jttc/projen-project-types.K3dEksProps.property.name">name</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@jttc/projen-project-types.K3dEksProps.property.agents">agents</a></code> | <code>number</code> | Number of worker nodes. |
-| <code><a href="#@jttc/projen-project-types.K3dEksProps.property.k3sExtraArgs">k3sExtraArgs</a></code> | <code><a href="#@jttc/projen-project-types.ArgConfig">ArgConfig</a>[]</code> | *No description.* |
-| <code><a href="#@jttc/projen-project-types.K3dEksProps.property.loadBalancerPort">loadBalancerPort</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#@jttc/projen-project-types.K3dEksProps.property.network">network</a></code> | <code>string</code> | Name of the docker network. |
-| <code><a href="#@jttc/projen-project-types.K3dEksProps.property.servers">servers</a></code> | <code>number</code> | Control Plane number of servers. |
-| <code><a href="#@jttc/projen-project-types.K3dEksProps.property.updateDefaultKubeconfig">updateDefaultKubeconfig</a></code> | <code>boolean</code> | *No description.* |
-
----
-
-##### `name`<sup>Required</sup> <a name="name" id="@jttc/projen-project-types.K3dEksProps.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
----
-
-##### `agents`<sup>Optional</sup> <a name="agents" id="@jttc/projen-project-types.K3dEksProps.property.agents"></a>
-
-```typescript
-public readonly agents: number;
-```
-
-- *Type:* number
-- *Default:* 0
-
-Number of worker nodes.
-
----
-
-##### `k3sExtraArgs`<sup>Optional</sup> <a name="k3sExtraArgs" id="@jttc/projen-project-types.K3dEksProps.property.k3sExtraArgs"></a>
-
-```typescript
-public readonly k3sExtraArgs: ArgConfig[];
-```
-
-- *Type:* <a href="#@jttc/projen-project-types.ArgConfig">ArgConfig</a>[]
-
----
-
-##### `loadBalancerPort`<sup>Optional</sup> <a name="loadBalancerPort" id="@jttc/projen-project-types.K3dEksProps.property.loadBalancerPort"></a>
-
-```typescript
-public readonly loadBalancerPort: number;
-```
-
-- *Type:* number
-
----
-
-##### `network`<sup>Optional</sup> <a name="network" id="@jttc/projen-project-types.K3dEksProps.property.network"></a>
-
-```typescript
-public readonly network: string;
-```
-
-- *Type:* string
-- *Default:* aws
-
-Name of the docker network.
-
----
-
-##### `servers`<sup>Optional</sup> <a name="servers" id="@jttc/projen-project-types.K3dEksProps.property.servers"></a>
-
-```typescript
-public readonly servers: number;
-```
-
-- *Type:* number
-- *Default:* 3
-
-Control Plane number of servers.
-
----
-
-##### `updateDefaultKubeconfig`<sup>Optional</sup> <a name="updateDefaultKubeconfig" id="@jttc/projen-project-types.K3dEksProps.property.updateDefaultKubeconfig"></a>
-
-```typescript
-public readonly updateDefaultKubeconfig: boolean;
-```
-
-- *Type:* boolean
-- *Default:* true
-
----
-
 ### K3dOptions <a name="K3dOptions" id="@jttc/projen-project-types.K3dOptions"></a>
 
 #### Initializer <a name="Initializer" id="@jttc/projen-project-types.K3dOptions.Initializer"></a>
@@ -19178,6 +19087,110 @@ public readonly kubeconfig: Kubeconfig;
 ```
 
 - *Type:* <a href="#@jttc/projen-project-types.Kubeconfig">Kubeconfig</a>
+
+---
+
+### K3dProps <a name="K3dProps" id="@jttc/projen-project-types.K3dProps"></a>
+
+#### Initializer <a name="Initializer" id="@jttc/projen-project-types.K3dProps.Initializer"></a>
+
+```typescript
+import { K3dProps } from '@jttc/projen-project-types'
+
+const k3dProps: K3dProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.K3dProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dProps.property.agents">agents</a></code> | <code>number</code> | Number of worker nodes. |
+| <code><a href="#@jttc/projen-project-types.K3dProps.property.k3sExtraArgs">k3sExtraArgs</a></code> | <code><a href="#@jttc/projen-project-types.ArgConfig">ArgConfig</a>[]</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dProps.property.loadBalancerPort">loadBalancerPort</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.K3dProps.property.network">network</a></code> | <code>string</code> | Name of the docker network. |
+| <code><a href="#@jttc/projen-project-types.K3dProps.property.servers">servers</a></code> | <code>number</code> | Control Plane number of servers. |
+| <code><a href="#@jttc/projen-project-types.K3dProps.property.updateDefaultKubeconfig">updateDefaultKubeconfig</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="@jttc/projen-project-types.K3dProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `agents`<sup>Optional</sup> <a name="agents" id="@jttc/projen-project-types.K3dProps.property.agents"></a>
+
+```typescript
+public readonly agents: number;
+```
+
+- *Type:* number
+- *Default:* 0
+
+Number of worker nodes.
+
+---
+
+##### `k3sExtraArgs`<sup>Optional</sup> <a name="k3sExtraArgs" id="@jttc/projen-project-types.K3dProps.property.k3sExtraArgs"></a>
+
+```typescript
+public readonly k3sExtraArgs: ArgConfig[];
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.ArgConfig">ArgConfig</a>[]
+
+---
+
+##### `loadBalancerPort`<sup>Optional</sup> <a name="loadBalancerPort" id="@jttc/projen-project-types.K3dProps.property.loadBalancerPort"></a>
+
+```typescript
+public readonly loadBalancerPort: number;
+```
+
+- *Type:* number
+
+---
+
+##### `network`<sup>Optional</sup> <a name="network" id="@jttc/projen-project-types.K3dProps.property.network"></a>
+
+```typescript
+public readonly network: string;
+```
+
+- *Type:* string
+- *Default:* aws
+
+Name of the docker network.
+
+---
+
+##### `servers`<sup>Optional</sup> <a name="servers" id="@jttc/projen-project-types.K3dProps.property.servers"></a>
+
+```typescript
+public readonly servers: number;
+```
+
+- *Type:* number
+- *Default:* 3
+
+Control Plane number of servers.
+
+---
+
+##### `updateDefaultKubeconfig`<sup>Optional</sup> <a name="updateDefaultKubeconfig" id="@jttc/projen-project-types.K3dProps.property.updateDefaultKubeconfig"></a>
+
+```typescript
+public readonly updateDefaultKubeconfig: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
 
 ---
 
