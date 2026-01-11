@@ -22,6 +22,9 @@ npx projen new --from @jttc/projen-project-types cdk-library
 # Create a CDK application  
 npx projen new --from @jttc/projen-project-types cdk-app
 
+# Create a CDKTF construct library
+npx projen new --from @jttc/projen-project-types cdktf-library
+
 # Create a CDK8s construct library with Kubernetes support
 npx projen new --from @jttc/projen-project-types cdk8s-library
 
@@ -35,6 +38,7 @@ npx projen new --from @jttc/projen-project-types cdk8s-app
 |--------------|-------------|----------|
 | **[CDK Library](https://jumptothecloud.github.io/projen-project-types/project-types/cdk-library/)** | AWS CDK construct libraries | Creating reusable AWS infrastructure components |
 | **[CDK App](https://jumptothecloud.github.io/projen-project-types/project-types/cdk-app/)** | AWS CDK applications | Building and deploying AWS infrastructure |
+| **[CDKTF Library](https://jumptothecloud.github.io/projen-project-types/project-types/cdktf-library/)** | CDK for Terraform construct libraries | Creating reusable Terraform infrastructure components |
 | **[CDK8s Library](https://jumptothecloud.github.io/projen-project-types/project-types/cdk8s-library/)** | CDK8s libraries with Kubernetes | Creating reusable Kubernetes constructs |
 | **[CDK8s App](https://jumptothecloud.github.io/projen-project-types/project-types/cdk8s-app/)** | CDK8s applications with Kubernetes | Building and deploying Kubernetes applications |
 

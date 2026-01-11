@@ -7,6 +7,7 @@ nav:
   - Project Types:
       - CDK Library: project-types/cdk-library.md
       - CDK App: project-types/cdk-app.md
+      - CDKTF Library: project-types/cdktf-library.md
       - CDK8s Library: project-types/cdk8s-library.md
       - CDK8s App: project-types/cdk8s-app.md
   - Components:

@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`CdktfLibrary ESLint Configuration should configure eslint with default options 1`] = `
+{
+  "env": {
+    "jest": true,
+    "node": true,
+  },
+  "extends": [
+    "plugin:import/typescript",
+    "plugin:prettier/recommended",
+  ],
+  "ignorePatterns": [
+    "*.js",
+    "*.d.ts",
+    "node_modules/",
+    "*.generated.ts",
+    "coverage",
+    "!.projenrc.js",
+  ],
+  "overrides": [
+    {
+      "files": [
+        ".projenrc.js",
+      ],
+      "rules": {
+        "@typescript-eslint/no-require-imports": "off",
+        "import/no-extraneous-dependencies": "off",
+      },
+    },
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "project": "./tsconfig.dev.json",
+    "sourceType": "module",
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "import",
+  ],
+  "root": true,
+  "rules": {
+    "@typescript-eslint/member-ordering": [
+      "error",
+      {
+        "default": [
+          "public-static-field",
+          "public-static-method",
+          "protected-static-field",
+          "protected-static-method",
+          "private-static-field",
+          "private-static-method",
+          "field",
+          "constructor",
+          "method",
+        ],
+      },
+    ],
+    "@typescript-eslint/no-floating-promises": "error",
+    "@typescript-eslint/no-require-imports": "error",
+    "@typescript-eslint/no-shadow": "error",
+    "@typescript-eslint/return-await": "error",
+    "curly": [
+      "error",
+      "multi-line",
+      "consistent",
+    ],
+    "dot-notation": [
+      "error",
+    ],
+    "import/no-duplicates": [
+      "error",
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/test/**",
+          "**/build-tools/**",
+        ],
+        "optionalDependencies": false,
+        "peerDependencies": true,
+      },
+    ],
+    "import/no-unresolved": [
+      "error",
+    ],
+    "import/order": [
+      "warn",
+      {
+        "alphabetize": {
+          "caseInsensitive": true,
+          "order": "asc",
+        },
+        "groups": [
+          "builtin",
+          "external",
+        ],
+      },
+    ],
+    "no-bitwise": [
+      "error",
+    ],
+    "no-return-await": [
+      "off",
+    ],
+    "no-shadow": [
+      "off",
+    ],
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx",
+      ],
+    },
+    "import/resolver": {
+      "node": {},
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.dev.json",
+      },
+    },
+  },
+}
+`;
+
+exports[`CdktfLibrary Prettier Configuration should configure prettier with default options when not specified 1`] = `
+{
+  "bracketSpacing": true,
+  "overrides": [],
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+}
+`;

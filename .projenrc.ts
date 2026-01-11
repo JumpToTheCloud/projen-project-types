@@ -98,6 +98,7 @@ commitzent.addScope({ name: 'cdk-library' });
 commitzent.addScope({ name: 'cdk-app' });
 commitzent.addScope({ name: 'cdk8s-library' });
 commitzent.addScope({ name: 'cdk8s-app' });
+commitzent.addScope({ name: 'cdktf-library' });
 commitzent.addScope({ name: 'cdk8s-component' });
 commitzent.addScope({ name: 'commitzent-component' });
 commitzent.addScope({ name: 'k3d-component' });

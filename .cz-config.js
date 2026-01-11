@@ -63,6 +63,9 @@ module.exports = {
       name: 'cdk8s-app'
     },
     {
+      name: 'cdktf-library'
+    },
+    {
       name: 'cdk8s-component'
     },
     {
