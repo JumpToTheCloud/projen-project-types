@@ -212,4 +212,6 @@ deployDocs?.addJob('deploy-docs', {
   ],
 });
 
+project.addGitIgnore('cfn');
+
 project.synth();

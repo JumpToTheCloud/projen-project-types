@@ -54,5 +54,6 @@ tsconfig.json
 !/.czrc
 !/.github/workflows/deploy-docs.yml
 site
+cfn
 !/.projenrc.ts
 !/.cz-config.js

@@ -4,6 +4,7 @@ import {
 } from 'projen/lib/typescript';
 import { CommonOptionsConfig } from '../common/common-options';
 import { Commitzent } from '../components';
+import { CloudFormationTasks } from './components';
 import {
   RequirementsCheckerService,
   PluginInstallerService,
@@ -34,6 +35,14 @@ export class CloudformationExtensions extends TypeScriptAppProject {
     });
     const components = CommonOptionsConfig.withCommonComponents(this, opts);
     this.commitzent = components.commitzent;
+
+    this.addDeps(
+      '@amazon-web-services-cloudformation/cloudformation-cli-typescript-lib',
+      'class-transformer',
+    );
+
+    new CloudFormationTasks(this);
+    this.preCompileTask.exec('npx tsc');
   }
 
   public preSynthesize(): void {
