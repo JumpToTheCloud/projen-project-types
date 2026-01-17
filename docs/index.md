@@ -39,6 +39,7 @@ Choose from our available project types and components:
 | **[CDK App](project-types/cdk-app.md)** | AWS CDK applications | Building deployable AWS infrastructure | `npx projen new --from @jttc/projen-project-types cdk-app` |
 | **[CDK8s Library](project-types/cdk8s-library.md)** | CDK8s construct libraries with Kubernetes support | Creating reusable Kubernetes constructs | `npx projen new --from @jttc/projen-project-types cdk8s-library` |
 | **[CDK8s App](project-types/cdk8s-app.md)** | CDK8s applications with Kubernetes support | Building deployable Kubernetes applications | `npx projen new --from @jttc/projen-project-types cdk8s-app` |
+| **[NX Monorepo](project-types/nx-monorepo.md)** | NX monorepo workspace | Managing multiple related packages in a single repository | `npx projen new --from @jttc/projen-project-types nx-monorepo` |
 
 ### 🧩 Components
 
