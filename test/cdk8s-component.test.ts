@@ -1,8 +1,11 @@
 import { AwsCdkTypeScriptAppOptions } from 'projen/lib/awscdk';
 import { Testing } from 'projen/lib/testing';
 import { CdkApp } from '../src/cdk/cdk-app-project';
+import { Cdk8sLibrary } from '../src/cdk/cdk8s-library-project';
 import { Cdk8sComponent } from '../src/components/cdk8s/cdk8s';
 import { K8sVersion } from '../src/components/cdk8s/interfaces/Cdk8s';
+import { NxMonorepoOptions } from '../src/monorepo/interfaces/NxMonorepo';
+import { NxMonorepo } from '../src/monorepo/monorepo';
 
 // Helper function to parse package.json from snapshot
 function getPackageJson(snapshot: Record<string, any>): any {
@@ -328,6 +331,127 @@ describe('Cdk8sComponent', () => {
       expect(cdk8sYaml).toContain('nginx-ingress@4.0.0');
 
       expect(snapshot['cdk8s.yaml']).toMatchSnapshot();
+    });
+  });
+
+  describe('Integration with NX Monorepo', () => {
+    test('should add cdk8s nx commands to monorepo when single cdk8s subproject exists', () => {
+      // Create a monorepo
+      const monorepoOptions: NxMonorepoOptions = {
+        name: 'test-monorepo',
+        defaultReleaseBranch: 'main',
+      };
+      const monorepo = new NxMonorepo(monorepoOptions);
+
+      // Create a cdk8s library as subproject
+      const subprojectOptions = {
+        name: 'cdk8s-lib1',
+        author: 'test-author',
+        authorAddress: 'test@example.com',
+        repositoryUrl: 'https://github.com/test/cdk8s-lib1.git',
+        cdkVersion: '2.1.0',
+        parent: monorepo,
+        outdir: 'packages/cdk8s-lib1',
+        defaultReleaseBranch: 'main',
+      };
+      new Cdk8sLibrary(subprojectOptions);
+
+      const monoSnapshot = Testing.synth(monorepo);
+
+      // Helper to get tasks from snapshot
+      const getTasksJson = (snapshot: Record<string, any>): any => {
+        const tasksJsonContent = snapshot['.projen/tasks.json'];
+        return typeof tasksJsonContent === 'string'
+          ? JSON.parse(tasksJsonContent)
+          : tasksJsonContent;
+      };
+
+      const tasksJson = getTasksJson(monoSnapshot);
+
+      // Verify that nx cdk8s tasks were added to monorepo
+      expect(tasksJson.tasks).toHaveProperty('cdk8s');
+      expect(tasksJson.tasks).toHaveProperty('cdk8s:import');
+      expect(tasksJson.tasks).toHaveProperty('cdk8s:synth');
+
+      // Verify the tasks contain the correct nx run-many command
+      expect(tasksJson.tasks.cdk8s.steps[0].exec).toContain('nx run-many --target=cdk8s');
+      expect(tasksJson.tasks['cdk8s:import'].steps[0].exec).toContain('nx run-many --target=cdk8s:import');
+      expect(tasksJson.tasks['cdk8s:synth'].steps[0].exec).toContain('nx run-many --target=cdk8s:synth');
+
+      // Snapshot test
+      expect(tasksJson.tasks.cdk8s).toMatchSnapshot();
+      expect(tasksJson.tasks['cdk8s:import']).toMatchSnapshot();
+      expect(tasksJson.tasks['cdk8s:synth']).toMatchSnapshot();
+    });
+
+    test('should not duplicate cdk8s nx commands when multiple cdk8s subprojects exist', () => {
+      // Create a monorepo
+      const monorepoOptions: NxMonorepoOptions = {
+        name: 'test-monorepo',
+        defaultReleaseBranch: 'main',
+      };
+      const monorepo = new NxMonorepo(monorepoOptions);
+
+      // Create first cdk8s library as subproject
+      const subproject1Options = {
+        name: 'cdk8s-lib1',
+        author: 'test-author',
+        authorAddress: 'test@example.com',
+        repositoryUrl: 'https://github.com/test/cdk8s-lib1.git',
+        cdkVersion: '2.1.0',
+        parent: monorepo,
+        outdir: 'packages/cdk8s-lib1',
+        defaultReleaseBranch: 'main',
+      };
+      new Cdk8sLibrary(subproject1Options);
+
+      // Create second cdk8s library as subproject
+      const subproject2Options = {
+        name: 'cdk8s-lib2',
+        author: 'test-author',
+        authorAddress: 'test@example.com',
+        repositoryUrl: 'https://github.com/test/cdk8s-lib2.git',
+        cdkVersion: '2.1.0',
+        parent: monorepo,
+        outdir: 'packages/cdk8s-lib2',
+        defaultReleaseBranch: 'main',
+      };
+      new Cdk8sLibrary(subproject2Options);
+
+      const multiSnapshot = Testing.synth(monorepo);
+
+      // Helper to get tasks from snapshot
+      const getTasksJson = (snapshot: Record<string, any>): any => {
+        const tasksJsonContent = snapshot['.projen/tasks.json'];
+        return typeof tasksJsonContent === 'string'
+          ? JSON.parse(tasksJsonContent)
+          : tasksJsonContent;
+      };
+
+      const tasksJson = getTasksJson(multiSnapshot);
+
+      // Verify that cdk8s tasks were added only once (not duplicated)
+      expect(tasksJson.tasks).toHaveProperty('cdk8s');
+      expect(tasksJson.tasks).toHaveProperty('cdk8s:import');
+      expect(tasksJson.tasks).toHaveProperty('cdk8s:synth');
+
+      // Count occurrences of cdk8s tasks to ensure no duplication
+      const taskNames = Object.keys(tasksJson.tasks);
+      const cdk8sTaskCount = taskNames.filter(name => name === 'cdk8s').length;
+      const cdk8sImportTaskCount = taskNames.filter(name => name === 'cdk8s:import').length;
+      const cdk8sSynthTaskCount = taskNames.filter(name => name === 'cdk8s:synth').length;
+
+      expect(cdk8sTaskCount).toBe(1);
+      expect(cdk8sImportTaskCount).toBe(1);
+      expect(cdk8sSynthTaskCount).toBe(1);
+
+      // Verify the tasks still contain the correct nx run-many command
+      expect(tasksJson.tasks.cdk8s.steps[0].exec).toContain('nx run-many --target=cdk8s');
+      expect(tasksJson.tasks['cdk8s:import'].steps[0].exec).toContain('nx run-many --target=cdk8s:import');
+      expect(tasksJson.tasks['cdk8s:synth'].steps[0].exec).toContain('nx run-many --target=cdk8s:synth');
+
+      // Snapshot test - complete tasks.json to verify structure
+      expect(tasksJson).toMatchSnapshot();
     });
   });
 });
