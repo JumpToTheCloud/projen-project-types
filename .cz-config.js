@@ -63,6 +63,9 @@ module.exports = {
       name: 'cdk8s-app'
     },
     {
+      name: 'monorepo'
+    },
+    {
       name: 'cdk8s-component'
     },
     {
