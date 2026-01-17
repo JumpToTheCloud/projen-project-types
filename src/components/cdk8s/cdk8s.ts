@@ -97,19 +97,25 @@ export class Cdk8sComponent extends Component {
     if (project.parent && project.parent instanceof NxMonorepo) {
       const monorepo = project.parent as NxMonorepo;
 
-      // Add cdk8s commands to monorepo for nx run-many
-      monorepo.addRunManyCommand(
-        'cdk8s',
-        'Run cdk8s command for all affected projects',
-      );
-      monorepo.addRunManyCommand(
-        'cdk8s:import',
-        'Import cdk8s charts for all affected projects',
-      );
-      monorepo.addRunManyCommand(
-        'cdk8s:synth',
-        'Synthesize cdk8s constructs for all affected projects',
-      );
+      // Add cdk8s commands to monorepo for nx run-many only if they don't exist yet
+      if (!monorepo.tasks.tryFind('cdk8s')) {
+        monorepo.addRunManyCommand(
+          'cdk8s',
+          'Run cdk8s command for all affected projects',
+        );
+      }
+      if (!monorepo.tasks.tryFind('cdk8s:import')) {
+        monorepo.addRunManyCommand(
+          'cdk8s:import',
+          'Import cdk8s charts for all affected projects',
+        );
+      }
+      if (!monorepo.tasks.tryFind('cdk8s:synth')) {
+        monorepo.addRunManyCommand(
+          'cdk8s:synth',
+          'Synthesize cdk8s constructs for all affected projects',
+        );
+      }
     }
 
     new YamlFile(project, 'cdk8s.yaml', {
