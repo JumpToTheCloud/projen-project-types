@@ -11,6 +11,8 @@ import {
   UpgradeDependenciesSchedule,
 } from 'projen/lib/javascript';
 import { ReleaseTrigger } from 'projen/lib/release';
+import { CloudformationExtensions } from './src/cloudformation-extensions-projects';
+
 import { Commitzent } from './src/components';
 
 const project = new cdk.JsiiProject({
@@ -68,8 +70,8 @@ const project = new cdk.JsiiProject({
     },
   },
   deps: ['projen'],
+  devDeps: ['projen', 'constructs@^10.4.4', 'quicktype'],
   // description: undefined,
-  devDeps: ['projen', 'constructs@^10.4.4'],
   peerDeps: ['projen', 'constructs@^10.4.4'],
   packageName: '@jttc/projen-project-types',
   npmAccess: NpmAccess.PUBLIC,
@@ -91,6 +93,25 @@ project.postCompileTask.exec(
   'cp src/components/cdk8s/*.template lib/components/cdk8s/ || true',
 );
 
+project.addTask('generate:types', {
+  description:
+    'Generate TypeScript interfaces from CloudFormation JSON schemas',
+  steps: [
+    {
+      exec: 'mkdir -p src/cloudformation-extensions-projects/generated',
+      say: 'Ensuring generated types directory exists',
+    },
+    {
+      exec: 'cd src/cloudformation-extensions-projects/schema && npx quicktype --src provider.definition.schema.v1.json --lang typescript --out ../generated/provider-definition.ts --just-types --readonly',
+      say: 'Generating TypeScript interfaces from CloudFormation schemas',
+    },
+    {
+      exec: 'npx prettier --write src/cloudformation-extensions-projects/generated/*.ts',
+      say: 'Formatting generated TypeScript files with Prettier',
+    },
+  ],
+});
+
 const commitzent = new Commitzent(project, 'commitzent');
 
 commitzent.addScope({ name: 'docs' });
@@ -101,6 +122,7 @@ commitzent.addScope({ name: 'cdk8s-app' });
 commitzent.addScope({ name: 'cdk8s-component' });
 commitzent.addScope({ name: 'commitzent-component' });
 commitzent.addScope({ name: 'k3d-component' });
+commitzent.addScope({ name: 'cloudformation-extensions' });
 
 const deployDocs = project.github?.addWorkflow('deploy-docs');
 deployDocs?.on({
@@ -209,6 +231,20 @@ deployDocs?.addJob('deploy-docs', {
       ].join('\n'),
     },
   ],
+});
+
+project.addGitIgnore('cfn');
+project.addGitIgnore('examples');
+
+// Test CloudFormation Extensions project
+new CloudformationExtensions({
+  name: 'test-cfn-extensions',
+  parent: project,
+  outdir: 'examples/test-cfn-extensions',
+  defaultReleaseBranch: 'main',
+  authorName: 'Test Author',
+  authorEmail: 'test@example.com',
+  description: 'Test CloudFormation Extensions project',
 });
 
 project.synth();

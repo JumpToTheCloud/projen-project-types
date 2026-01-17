@@ -164,6 +164,24 @@
         }
       ]
     },
+    "generate:types": {
+      "name": "generate:types",
+      "description": "Generate TypeScript interfaces from CloudFormation JSON schemas",
+      "steps": [
+        {
+          "exec": "mkdir -p src/cloudformation-extensions-projects/generated",
+          "say": "Ensuring generated types directory exists"
+        },
+        {
+          "exec": "cd src/cloudformation-extensions-projects/schema && npx json2ts provider.definition.schema.v1.json --output ../generated/provider-definition.ts --declareExternallyReferenced false --enableConstEnums false --strictIndexSignatures true --style.singleQuote",
+          "say": "Generating TypeScript interfaces from CloudFormation schemas"
+        },
+        {
+          "exec": "npx prettier --write src/cloudformation-extensions-projects/generated/*.ts",
+          "say": "Formatting generated TypeScript files with Prettier"
+        }
+      ]
+    },
     "install": {
       "name": "install",
       "description": "Install project dependencies and update lockfile (non-frozen)",
@@ -308,13 +326,13 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@18 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,commitizen,cz-customizable,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-pacmak,prettier,projen,ts-jest,ts-node,typescript"
+          "exec": "npx npm-check-updates@18 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,commitizen,cz-customizable,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,jsii-pacmak,json-schema-to-typescript,prettier,projen,ts-jest,ts-node,typescript"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @stylistic/eslint-plugin @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser commit-and-tag-version commitizen constructs cz-customizable eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii prettier projen ts-jest ts-node typescript"
+          "exec": "yarn upgrade @stylistic/eslint-plugin @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser commit-and-tag-version commitizen constructs cz-customizable eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii json-schema-to-typescript prettier projen ts-jest ts-node typescript"
         },
         {
           "exec": "npx projen"
