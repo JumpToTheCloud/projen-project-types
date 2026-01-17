@@ -2,6 +2,178 @@
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
 
+### Agents <a name="Agents" id="@jttc/projen-project-types.Agents"></a>
+
+Component that adds an AGENTS.md file to explain how the repository works for coding agents like GitHub Copilot.
+
+#### Initializers <a name="Initializers" id="@jttc/projen-project-types.Agents.Initializer"></a>
+
+```typescript
+import { Agents } from '@jttc/projen-project-types'
+
+new Agents(project: Project, id: string, options?: AgentsOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.Agents.Initializer.parameter.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Agents.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.Agents.Initializer.parameter.options">options</a></code> | <code><a href="#@jttc/projen-project-types.AgentsOptions">AgentsOptions</a></code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@jttc/projen-project-types.Agents.Initializer.parameter.project"></a>
+
+- *Type:* projen.Project
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@jttc/projen-project-types.Agents.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="@jttc/projen-project-types.Agents.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#@jttc/projen-project-types.AgentsOptions">AgentsOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@jttc/projen-project-types.Agents.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@jttc/projen-project-types.Agents.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#@jttc/projen-project-types.Agents.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#@jttc/projen-project-types.Agents.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+
+---
+
+##### `toString` <a name="toString" id="@jttc/projen-project-types.Agents.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `postSynthesize` <a name="postSynthesize" id="@jttc/projen-project-types.Agents.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="@jttc/projen-project-types.Agents.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `synthesize` <a name="synthesize" id="@jttc/projen-project-types.Agents.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@jttc/projen-project-types.Agents.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@jttc/projen-project-types.Agents.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@jttc/projen-project-types.Agents.isConstruct"></a>
+
+```typescript
+import { Agents } from '@jttc/projen-project-types'
+
+Agents.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@jttc/projen-project-types.Agents.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isComponent` <a name="isComponent" id="@jttc/projen-project-types.Agents.isComponent"></a>
+
+```typescript
+import { Agents } from '@jttc/projen-project-types'
+
+Agents.isComponent(x: any)
+```
+
+Test whether the given construct is a component.
+
+###### `x`<sup>Required</sup> <a name="x" id="@jttc/projen-project-types.Agents.isComponent.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.Agents.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@jttc/projen-project-types.Agents.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@jttc/projen-project-types.Agents.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@jttc/projen-project-types.Agents.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
+
+---
+
+
 ### Cdk8App <a name="Cdk8App" id="@jttc/projen-project-types.Cdk8App"></a>
 
 CDK8s Application Project.
@@ -9064,6 +9236,36 @@ Default base to use for affected commands It will take the projen default base b
 
 ---
 
+### AgentsOptions <a name="AgentsOptions" id="@jttc/projen-project-types.AgentsOptions"></a>
+
+#### Initializer <a name="Initializer" id="@jttc/projen-project-types.AgentsOptions.Initializer"></a>
+
+```typescript
+import { AgentsOptions } from '@jttc/projen-project-types'
+
+const agentsOptions: AgentsOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.AgentsOptions.property.customContent">customContent</a></code> | <code>string[]</code> | Custom content to include in the AGENTS.md file. |
+
+---
+
+##### `customContent`<sup>Optional</sup> <a name="customContent" id="@jttc/projen-project-types.AgentsOptions.property.customContent"></a>
+
+```typescript
+public readonly customContent: string[];
+```
+
+- *Type:* string[]
+
+Custom content to include in the AGENTS.md file.
+
+---
+
 ### ArgConfig <a name="ArgConfig" id="@jttc/projen-project-types.ArgConfig"></a>
 
 #### Initializer <a name="Initializer" id="@jttc/projen-project-types.ArgConfig.Initializer"></a>
@@ -9279,6 +9481,7 @@ const cdk8sAppOptions: Cdk8sAppOptions = { ... }
 | <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.tsconfigDevFile">tsconfigDevFile</a></code> | <code>string</code> | The name of the development tsconfig.json file. |
 | <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.tsJestOptions">tsJestOptions</a></code> | <code>projen.typescript.TsJestOptions</code> | Options for ts-jest. |
 | <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
+| <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.agents">agents</a></code> | <code>boolean</code> | Whether to include Agents component for coding agent documentation. |
 | <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.commitzent">commitzent</a></code> | <code>boolean</code> | Whether to include Commitzent component for conventional commits. |
 | <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.k3d">k3d</a></code> | <code>boolean</code> | Enable K3d component integration. |
 | <code><a href="#@jttc/projen-project-types.Cdk8sAppOptions.property.k3dOptions">k3dOptions</a></code> | <code><a href="#@jttc/projen-project-types.K3dOptions">K3dOptions</a></code> | K3d component configuration options. |
@@ -11585,6 +11788,19 @@ same minor, so we recommend using a `~` dependency (e.g. `~1.2.3`).
 
 ---
 
+##### `agents`<sup>Optional</sup> <a name="agents" id="@jttc/projen-project-types.Cdk8sAppOptions.property.agents"></a>
+
+```typescript
+public readonly agents: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to include Agents component for coding agent documentation.
+
+---
+
 ##### `commitzent`<sup>Optional</sup> <a name="commitzent" id="@jttc/projen-project-types.Cdk8sAppOptions.property.commitzent"></a>
 
 ```typescript
@@ -11917,6 +12133,7 @@ const cdk8sLibraryOptions: Cdk8sLibraryOptions = { ... }
 | <code><a href="#@jttc/projen-project-types.Cdk8sLibraryOptions.property.lambdaAutoDiscover">lambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `aws_lambda.Function` for each `.lambda.ts` handler in your source tree. If this is disabled, you either need to explicitly call `aws_lambda.Function.autoDiscover()` or define a `new aws_lambda.Function()` for each handler. |
 | <code><a href="#@jttc/projen-project-types.Cdk8sLibraryOptions.property.lambdaExtensionAutoDiscover">lambdaExtensionAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.LambdaExtension` for each `.lambda-extension.ts` entrypoint in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
 | <code><a href="#@jttc/projen-project-types.Cdk8sLibraryOptions.property.lambdaOptions">lambdaOptions</a></code> | <code>projen.awscdk.LambdaFunctionCommonOptions</code> | Common options for all AWS Lambda functions. |
+| <code><a href="#@jttc/projen-project-types.Cdk8sLibraryOptions.property.agents">agents</a></code> | <code>boolean</code> | Whether to include Agents component for coding agent documentation. |
 | <code><a href="#@jttc/projen-project-types.Cdk8sLibraryOptions.property.commitzent">commitzent</a></code> | <code>boolean</code> | Whether to include Commitzent component for conventional commits. |
 
 ---
@@ -14684,6 +14901,19 @@ Common options for all AWS Lambda functions.
 
 ---
 
+##### `agents`<sup>Optional</sup> <a name="agents" id="@jttc/projen-project-types.Cdk8sLibraryOptions.property.agents"></a>
+
+```typescript
+public readonly agents: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to include Agents component for coding agent documentation.
+
+---
+
 ##### `commitzent`<sup>Optional</sup> <a name="commitzent" id="@jttc/projen-project-types.Cdk8sLibraryOptions.property.commitzent"></a>
 
 ```typescript
@@ -14892,6 +15122,7 @@ const cdkAppOptions: CdkAppOptions = { ... }
 | <code><a href="#@jttc/projen-project-types.CdkAppOptions.property.lambdaAutoDiscover">lambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.LambdaFunction` for each `.lambda.ts` handler in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
 | <code><a href="#@jttc/projen-project-types.CdkAppOptions.property.lambdaExtensionAutoDiscover">lambdaExtensionAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.LambdaExtension` for each `.lambda-extension.ts` entrypoint in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
 | <code><a href="#@jttc/projen-project-types.CdkAppOptions.property.lambdaOptions">lambdaOptions</a></code> | <code>projen.awscdk.LambdaFunctionCommonOptions</code> | Common options for all AWS Lambda functions. |
+| <code><a href="#@jttc/projen-project-types.CdkAppOptions.property.agents">agents</a></code> | <code>boolean</code> | Whether to include Agents component for coding agent documentation. |
 | <code><a href="#@jttc/projen-project-types.CdkAppOptions.property.commitzent">commitzent</a></code> | <code>boolean</code> | Whether to include Commitzent component for conventional commits. |
 
 ---
@@ -17476,6 +17707,19 @@ Common options for all AWS Lambda functions.
 
 ---
 
+##### `agents`<sup>Optional</sup> <a name="agents" id="@jttc/projen-project-types.CdkAppOptions.property.agents"></a>
+
+```typescript
+public readonly agents: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to include Agents component for coding agent documentation.
+
+---
+
 ##### `commitzent`<sup>Optional</sup> <a name="commitzent" id="@jttc/projen-project-types.CdkAppOptions.property.commitzent"></a>
 
 ```typescript
@@ -17692,6 +17936,7 @@ const cdkLibraryOptions: CdkLibraryOptions = { ... }
 | <code><a href="#@jttc/projen-project-types.CdkLibraryOptions.property.lambdaAutoDiscover">lambdaAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `aws_lambda.Function` for each `.lambda.ts` handler in your source tree. If this is disabled, you either need to explicitly call `aws_lambda.Function.autoDiscover()` or define a `new aws_lambda.Function()` for each handler. |
 | <code><a href="#@jttc/projen-project-types.CdkLibraryOptions.property.lambdaExtensionAutoDiscover">lambdaExtensionAutoDiscover</a></code> | <code>boolean</code> | Automatically adds an `awscdk.LambdaExtension` for each `.lambda-extension.ts` entrypoint in your source tree. If this is disabled, you can manually add an `awscdk.AutoDiscover` component to your project. |
 | <code><a href="#@jttc/projen-project-types.CdkLibraryOptions.property.lambdaOptions">lambdaOptions</a></code> | <code>projen.awscdk.LambdaFunctionCommonOptions</code> | Common options for all AWS Lambda functions. |
+| <code><a href="#@jttc/projen-project-types.CdkLibraryOptions.property.agents">agents</a></code> | <code>boolean</code> | Whether to include Agents component for coding agent documentation. |
 | <code><a href="#@jttc/projen-project-types.CdkLibraryOptions.property.commitzent">commitzent</a></code> | <code>boolean</code> | Whether to include Commitzent component for conventional commits. |
 
 ---
@@ -20395,6 +20640,19 @@ Common options for all AWS Lambda functions.
 
 ---
 
+##### `agents`<sup>Optional</sup> <a name="agents" id="@jttc/projen-project-types.CdkLibraryOptions.property.agents"></a>
+
+```typescript
+public readonly agents: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to include Agents component for coding agent documentation.
+
+---
+
 ##### `commitzent`<sup>Optional</sup> <a name="commitzent" id="@jttc/projen-project-types.CdkLibraryOptions.property.commitzent"></a>
 
 ```typescript
@@ -20776,7 +21034,18 @@ const commonsComponents: CommonsComponents = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.CommonsComponents.property.agents">agents</a></code> | <code><a href="#@jttc/projen-project-types.Agents">Agents</a></code> | *No description.* |
 | <code><a href="#@jttc/projen-project-types.CommonsComponents.property.commitzent">commitzent</a></code> | <code><a href="#@jttc/projen-project-types.Commitzent">Commitzent</a></code> | *No description.* |
+
+---
+
+##### `agents`<sup>Optional</sup> <a name="agents" id="@jttc/projen-project-types.CommonsComponents.property.agents"></a>
+
+```typescript
+public readonly agents: Agents;
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.Agents">Agents</a>
 
 ---
 
@@ -23899,7 +24168,21 @@ const projectGlobalOptions: ProjectGlobalOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.ProjectGlobalOptions.property.agents">agents</a></code> | <code>boolean</code> | Whether to include Agents component for coding agent documentation. |
 | <code><a href="#@jttc/projen-project-types.ProjectGlobalOptions.property.commitzent">commitzent</a></code> | <code>boolean</code> | Whether to include Commitzent component for conventional commits. |
+
+---
+
+##### `agents`<sup>Optional</sup> <a name="agents" id="@jttc/projen-project-types.ProjectGlobalOptions.property.agents"></a>
+
+```typescript
+public readonly agents: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to include Agents component for coding agent documentation.
 
 ---
 
@@ -24487,6 +24770,7 @@ const typeScriptProjectWithGlobalOptions: TypeScriptProjectWithGlobalOptions = {
 | <code><a href="#@jttc/projen-project-types.TypeScriptProjectWithGlobalOptions.property.tsconfigDevFile">tsconfigDevFile</a></code> | <code>string</code> | The name of the development tsconfig.json file. |
 | <code><a href="#@jttc/projen-project-types.TypeScriptProjectWithGlobalOptions.property.tsJestOptions">tsJestOptions</a></code> | <code>projen.typescript.TsJestOptions</code> | Options for ts-jest. |
 | <code><a href="#@jttc/projen-project-types.TypeScriptProjectWithGlobalOptions.property.typescriptVersion">typescriptVersion</a></code> | <code>string</code> | TypeScript version to use. |
+| <code><a href="#@jttc/projen-project-types.TypeScriptProjectWithGlobalOptions.property.agents">agents</a></code> | <code>boolean</code> | Whether to include Agents component for coding agent documentation. |
 | <code><a href="#@jttc/projen-project-types.TypeScriptProjectWithGlobalOptions.property.commitzent">commitzent</a></code> | <code>boolean</code> | Whether to include Commitzent component for conventional commits. |
 
 ---
@@ -26724,6 +27008,19 @@ TypeScript version to use.
 
 NOTE: Typescript is not semantically versioned and should remain on the
 same minor, so we recommend using a `~` dependency (e.g. `~1.2.3`).
+
+---
+
+##### `agents`<sup>Optional</sup> <a name="agents" id="@jttc/projen-project-types.TypeScriptProjectWithGlobalOptions.property.agents"></a>
+
+```typescript
+public readonly agents: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to include Agents component for coding agent documentation.
 
 ---
 

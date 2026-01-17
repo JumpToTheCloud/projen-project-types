@@ -4,6 +4,7 @@ import { TypeScriptProjectOptions } from 'projen/lib/typescript';
 import { deepMerge } from 'projen/lib/util';
 import { VsCode } from 'projen/lib/vscode';
 import { ProjectGlobalOptions } from '../cdk/interfaces/project-global-options';
+import { Agents } from '../components/agents/agents';
 import { Commitzent } from '../components/commitzent/commitzent';
 
 /**
@@ -13,6 +14,7 @@ export interface TypeScriptProjectWithGlobalOptions
   extends TypeScriptProjectOptions, ProjectGlobalOptions {}
 
 export interface CommonsComponents {
+  readonly agents?: Agents;
   readonly commitzent?: Commitzent;
 }
 /**
@@ -70,6 +72,12 @@ export class CommonOptionsConfig {
       vscode.extensions.addRecommendations(...this.VSCODE_EXTENSIONS);
     }
 
+    // Add Agents component (enabled by default for all projects)
+    let agents: Agents | undefined;
+    if (options.agents !== false) {
+      agents = new Agents(project, 'agents');
+    }
+
     // Add Commitzent component only for root projects (not subprojects) unless explicitly enabled
     let commitzent: Commitzent | undefined;
     const isSubproject = project.parent != null;
@@ -82,7 +90,7 @@ export class CommonOptionsConfig {
       commitzent = new Commitzent(project, 'commitzent');
     }
 
-    return { commitzent };
+    return { agents, commitzent };
   }
 
   /**
