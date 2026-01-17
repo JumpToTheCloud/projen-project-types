@@ -9,6 +9,7 @@ nav:
       - CDK App: project-types/cdk-app.md
       - CDK8s Library: project-types/cdk8s-library.md
       - CDK8s App: project-types/cdk8s-app.md
+      - NX Monorepo: project-types/nx-monorepo.md
   - Components:
       - CDK8s Component: components/cdk8s.md
       - K3d Component: components/k3d.md
