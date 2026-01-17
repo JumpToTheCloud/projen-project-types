@@ -87,15 +87,15 @@
       "type": "build"
     },
     {
-      "name": "json-schema-to-typescript",
-      "type": "build"
-    },
-    {
       "name": "prettier",
       "type": "build"
     },
     {
       "name": "projen",
+      "type": "build"
+    },
+    {
+      "name": "quicktype",
       "type": "build"
     },
     {

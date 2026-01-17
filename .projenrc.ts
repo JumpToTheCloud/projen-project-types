@@ -11,7 +11,6 @@ import {
   UpgradeDependenciesSchedule,
 } from 'projen/lib/javascript';
 import { ReleaseTrigger } from 'projen/lib/release';
-import { CloudformationExtensions } from './src/cloudformation-extensions-projects';
 
 import { Commitzent } from './src/components';
 
@@ -231,20 +230,6 @@ deployDocs?.addJob('deploy-docs', {
       ].join('\n'),
     },
   ],
-});
-
-project.addGitIgnore('cfn');
-project.addGitIgnore('examples');
-
-// Test CloudFormation Extensions project
-new CloudformationExtensions({
-  name: 'test-cfn-extensions',
-  parent: project,
-  outdir: 'examples/test-cfn-extensions',
-  defaultReleaseBranch: 'main',
-  authorName: 'Test Author',
-  authorEmail: 'test@example.com',
-  description: 'Test CloudFormation Extensions project',
 });
 
 project.synth();
