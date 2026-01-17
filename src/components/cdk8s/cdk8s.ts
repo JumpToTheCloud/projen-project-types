@@ -9,6 +9,7 @@ import {
 } from 'projen';
 
 import { K8sVersion, Cdk8sBaseOptions } from './interfaces/Cdk8s';
+import { NxMonorepo } from '../../monorepo/monorepo';
 
 export class Cdk8sComponent extends Component {
   readonly appPath: string = 'src';
@@ -90,6 +91,25 @@ export class Cdk8sComponent extends Component {
           },
         ],
       });
+    }
+
+    // If this is a subproject within an NX monorepo, add run-many commands to the parent monorepo
+    if (project.parent && project.parent instanceof NxMonorepo) {
+      const monorepo = project.parent as NxMonorepo;
+
+      // Add cdk8s commands to monorepo for nx run-many
+      monorepo.addRunManyCommand(
+        'cdk8s',
+        'Run cdk8s command for all affected projects',
+      );
+      monorepo.addRunManyCommand(
+        'cdk8s:import',
+        'Import cdk8s charts for all affected projects',
+      );
+      monorepo.addRunManyCommand(
+        'cdk8s:synth',
+        'Synthesize cdk8s constructs for all affected projects',
+      );
     }
 
     new YamlFile(project, 'cdk8s.yaml', {
