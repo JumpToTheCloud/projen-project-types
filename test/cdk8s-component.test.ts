@@ -374,9 +374,15 @@ describe('Cdk8sComponent', () => {
       expect(tasksJson.tasks).toHaveProperty('cdk8s:synth');
 
       // Verify the tasks contain the correct nx run-many command
-      expect(tasksJson.tasks.cdk8s.steps[0].exec).toContain('nx run-many --target=cdk8s');
-      expect(tasksJson.tasks['cdk8s:import'].steps[0].exec).toContain('nx run-many --target=cdk8s:import');
-      expect(tasksJson.tasks['cdk8s:synth'].steps[0].exec).toContain('nx run-many --target=cdk8s:synth');
+      expect(tasksJson.tasks.cdk8s.steps[0].exec).toContain(
+        'nx run-many --target=cdk8s',
+      );
+      expect(tasksJson.tasks['cdk8s:import'].steps[0].exec).toContain(
+        'nx run-many --target=cdk8s:import',
+      );
+      expect(tasksJson.tasks['cdk8s:synth'].steps[0].exec).toContain(
+        'nx run-many --target=cdk8s:synth',
+      );
 
       // Snapshot test
       expect(tasksJson.tasks.cdk8s).toMatchSnapshot();
@@ -437,18 +443,30 @@ describe('Cdk8sComponent', () => {
 
       // Count occurrences of cdk8s tasks to ensure no duplication
       const taskNames = Object.keys(tasksJson.tasks);
-      const cdk8sTaskCount = taskNames.filter(name => name === 'cdk8s').length;
-      const cdk8sImportTaskCount = taskNames.filter(name => name === 'cdk8s:import').length;
-      const cdk8sSynthTaskCount = taskNames.filter(name => name === 'cdk8s:synth').length;
+      const cdk8sTaskCount = taskNames.filter(
+        (name) => name === 'cdk8s',
+      ).length;
+      const cdk8sImportTaskCount = taskNames.filter(
+        (name) => name === 'cdk8s:import',
+      ).length;
+      const cdk8sSynthTaskCount = taskNames.filter(
+        (name) => name === 'cdk8s:synth',
+      ).length;
 
       expect(cdk8sTaskCount).toBe(1);
       expect(cdk8sImportTaskCount).toBe(1);
       expect(cdk8sSynthTaskCount).toBe(1);
 
       // Verify the tasks still contain the correct nx run-many command
-      expect(tasksJson.tasks.cdk8s.steps[0].exec).toContain('nx run-many --target=cdk8s');
-      expect(tasksJson.tasks['cdk8s:import'].steps[0].exec).toContain('nx run-many --target=cdk8s:import');
-      expect(tasksJson.tasks['cdk8s:synth'].steps[0].exec).toContain('nx run-many --target=cdk8s:synth');
+      expect(tasksJson.tasks.cdk8s.steps[0].exec).toContain(
+        'nx run-many --target=cdk8s',
+      );
+      expect(tasksJson.tasks['cdk8s:import'].steps[0].exec).toContain(
+        'nx run-many --target=cdk8s:import',
+      );
+      expect(tasksJson.tasks['cdk8s:synth'].steps[0].exec).toContain(
+        'nx run-many --target=cdk8s:synth',
+      );
 
       // Snapshot test - complete tasks.json to verify structure
       expect(tasksJson).toMatchSnapshot();
