@@ -42,6 +42,7 @@ export class CloudformationExtensions extends TypeScriptAppProject {
     );
 
     new CloudFormationTasks(this);
+    this.preCompileTask.exec('npx projen generate:types');
     this.preCompileTask.exec('npx tsc');
   }
 

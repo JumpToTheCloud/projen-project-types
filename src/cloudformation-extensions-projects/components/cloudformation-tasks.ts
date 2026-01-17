@@ -19,7 +19,8 @@ export class CloudFormationTasks extends Component {
   private setupCloudFormationTasks(): void {
     // cfn generate - Generates TypeScript models from JSON schema
     this.project.addTask('cfn:generate', {
-      description: 'Generate TypeScript models from CloudFormation resource schema',
+      description:
+        'Generate TypeScript models from CloudFormation resource schema',
       exec: 'cfn generate',
     });
 

@@ -87,6 +87,10 @@
       "type": "build"
     },
     {
+      "name": "json-schema-to-typescript",
+      "type": "build"
+    },
+    {
       "name": "prettier",
       "type": "build"
     },
