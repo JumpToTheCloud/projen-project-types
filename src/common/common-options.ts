@@ -21,15 +21,22 @@ export interface CommonsComponents {
 export class CommonOptionsConfig {
   /**
    * Configures default options only if they are not already defined in the projen options
+   * Prettier and ESLint are only enabled for root projects (not subprojects)
    * @param options - Project options that may include existing configurations
    * @returns Final options with default values applied where no previous configuration existed
    */
   static withCommonOptionsDefaults<T extends TypeScriptProjectOptions>(
     options: T,
   ): T {
+    // Only enable prettier and eslint for root projects (not subprojects) unless explicitly set
+    const isSubproject = options.parent != null;
+    const prettierDefault = isSubproject ? false : true;
+    const eslintDefault = isSubproject ? false : true;
+
     const commonDefaults = {
-      prettier: options.prettier ?? true,
+      prettier: options.prettier ?? prettierDefault,
       prettierOptions: options.prettierOptions ?? this.DEFAULT_PRETTIER_OPTIONS,
+      eslint: options.eslint ?? eslintDefault,
     };
 
     return deepMerge([{}, options, commonDefaults]) as T;
@@ -38,6 +45,7 @@ export class CommonOptionsConfig {
   /**
    * Configures common components like VSCode settings and extensions
    * If project has parent, configures VSCode in parent project instead of subproject
+   * Commitzent is only added to root projects (not subprojects) unless explicitly requested
    * @param project - The project instance to configure
    * @param options - Project options (any type that has vscode and commitzent properties)
    */
@@ -62,9 +70,15 @@ export class CommonOptionsConfig {
       vscode.extensions.addRecommendations(...this.VSCODE_EXTENSIONS);
     }
 
-    // Add Commitzent component if enabled (default: true)
+    // Add Commitzent component only for root projects (not subprojects) unless explicitly enabled
     let commitzent: Commitzent | undefined;
-    if (options.commitzent !== false) {
+    const isSubproject = project.parent != null;
+
+    // Only enable commitzent for root projects unless explicitly set
+    const shouldEnableCommitzent =
+      options.commitzent !== false && !isSubproject;
+
+    if (shouldEnableCommitzent) {
       commitzent = new Commitzent(project, 'commitzent');
     }
 

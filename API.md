@@ -26831,8 +26831,8 @@ new CommonOptionsConfig()
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@jttc/projen-project-types.CommonOptionsConfig.withCommonComponents">withCommonComponents</a></code> | Configures common components like VSCode settings and extensions If project has parent, configures VSCode in parent project instead of subproject. |
-| <code><a href="#@jttc/projen-project-types.CommonOptionsConfig.withCommonOptionsDefaults">withCommonOptionsDefaults</a></code> | Configures default options only if they are not already defined in the projen options. |
+| <code><a href="#@jttc/projen-project-types.CommonOptionsConfig.withCommonComponents">withCommonComponents</a></code> | Configures common components like VSCode settings and extensions If project has parent, configures VSCode in parent project instead of subproject Commitzent is only added to root projects (not subprojects) unless explicitly requested. |
+| <code><a href="#@jttc/projen-project-types.CommonOptionsConfig.withCommonOptionsDefaults">withCommonOptionsDefaults</a></code> | Configures default options only if they are not already defined in the projen options Prettier and ESLint are only enabled for root projects (not subprojects). |
 
 ---
 
@@ -26844,7 +26844,7 @@ import { CommonOptionsConfig } from '@jttc/projen-project-types'
 CommonOptionsConfig.withCommonComponents(project: Project, options: TypeScriptProjectWithGlobalOptions)
 ```
 
-Configures common components like VSCode settings and extensions If project has parent, configures VSCode in parent project instead of subproject.
+Configures common components like VSCode settings and extensions If project has parent, configures VSCode in parent project instead of subproject Commitzent is only added to root projects (not subprojects) unless explicitly requested.
 
 ###### `project`<sup>Required</sup> <a name="project" id="@jttc/projen-project-types.CommonOptionsConfig.withCommonComponents.parameter.project"></a>
 
@@ -26870,7 +26870,7 @@ import { CommonOptionsConfig } from '@jttc/projen-project-types'
 CommonOptionsConfig.withCommonOptionsDefaults(options: TypeScriptProjectOptions)
 ```
 
-Configures default options only if they are not already defined in the projen options.
+Configures default options only if they are not already defined in the projen options Prettier and ESLint are only enabled for root projects (not subprojects).
 
 ###### `options`<sup>Required</sup> <a name="options" id="@jttc/projen-project-types.CommonOptionsConfig.withCommonOptionsDefaults.parameter.options"></a>
 

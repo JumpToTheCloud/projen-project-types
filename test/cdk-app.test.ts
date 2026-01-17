@@ -296,4 +296,48 @@ describe('CdkApp', () => {
       expect(snapshot['package.json']).toMatchSnapshot();
     });
   });
+
+  describe('Subproject Configuration', () => {
+    test('should disable prettier, eslint, and commitzent by default when parent is specified', () => {
+      // Create a parent project first (in memory, no synth needed)
+      const parentProject = new CdkApp({
+        name: 'parent-project',
+        cdkVersion: '2.1.0',
+        defaultReleaseBranch: 'main',
+      });
+
+      // Create a subproject with the parent
+      const subprojectOptions: CdkAppOptions = {
+        name: 'subproject',
+        cdkVersion: '2.1.0',
+        defaultReleaseBranch: 'main',
+        outdir: 'packages/subproject', // Required for subprojects
+        parent: parentProject, // This makes it a subproject
+      };
+      const subproject = new CdkApp(subprojectOptions);
+
+      const subprojectSnapshot = Testing.synth(subproject);
+
+      // Verify subproject does NOT have prettier, eslint, and commitzent files
+      expect(subprojectSnapshot['.prettierrc.json']).toBeUndefined();
+      expect(subprojectSnapshot['.eslintrc.json']).toBeUndefined();
+      expect(subprojectSnapshot['.czrc']).toBeUndefined();
+      expect(subprojectSnapshot['.cz-config.js']).toBeUndefined();
+      expect(subproject.commitzent).toBeUndefined();
+
+      // Verify VSCode files are not created in subproject
+      expect(subprojectSnapshot['.vscode/settings.json']).toBeUndefined();
+      expect(subprojectSnapshot['.vscode/extensions.json']).toBeUndefined();
+
+      // Snapshot tests to document the exact files generated in subprojects
+      expect(subprojectSnapshot['package.json']).toMatchSnapshot();
+      expect(subprojectSnapshot['.gitignore']).toMatchSnapshot();
+
+      // Verify these files are explicitly NOT present in subprojects
+      expect(subprojectSnapshot['.prettierrc.json']).toMatchSnapshot(); // Should be undefined
+      expect(subprojectSnapshot['.eslintrc.json']).toMatchSnapshot(); // Should be undefined
+      expect(subprojectSnapshot['.czrc']).toMatchSnapshot(); // Should be undefined
+      expect(subprojectSnapshot['.cz-config.js']).toMatchSnapshot(); // Should be undefined
+    });
+  });
 });
