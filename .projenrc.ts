@@ -11,7 +11,7 @@ import {
   UpgradeDependenciesSchedule,
 } from 'projen/lib/javascript';
 import { ReleaseTrigger } from 'projen/lib/release';
-import { Commitzent } from './src/components';
+import { Agents, Commitzent } from './src/components';
 
 const project = new cdk.JsiiProject({
   author: 'Jumpt to the Cloud',
@@ -102,6 +102,7 @@ commitzent.addScope({ name: 'monorepo' });
 commitzent.addScope({ name: 'cdk8s-component' });
 commitzent.addScope({ name: 'commitzent-component' });
 commitzent.addScope({ name: 'k3d-component' });
+commitzent.addScope({ name: 'agents-component' });
 
 const deployDocs = project.github?.addWorkflow('deploy-docs');
 deployDocs?.on({
@@ -211,5 +212,7 @@ deployDocs?.addJob('deploy-docs', {
     },
   ],
 });
+
+new Agents(project, 'agents');
 
 project.synth();

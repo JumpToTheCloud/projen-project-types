@@ -73,6 +73,9 @@ module.exports = {
     },
     {
       name: 'k3d-component'
+    },
+    {
+      name: 'agents-component'
     }
   ],
   usePreparedCommit: true,
