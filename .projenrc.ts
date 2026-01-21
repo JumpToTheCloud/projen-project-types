@@ -5,13 +5,14 @@ import {
   JobPermission,
 } from 'projen/lib/github/workflows-model';
 import {
+  NodePackageManager,
   NpmAccess,
   Prettier,
   TrailingComma,
   UpgradeDependenciesSchedule,
 } from 'projen/lib/javascript';
 import { ReleaseTrigger } from 'projen/lib/release';
-import { Agents, Commitzent } from './src/components';
+import { Commitzent, NxComponent } from './src/components';
 
 const project = new cdk.JsiiProject({
   author: 'Jumpt to the Cloud',
@@ -213,6 +214,8 @@ deployDocs?.addJob('deploy-docs', {
   ],
 });
 
-new Agents(project, 'agents');
+//new Agents(project, 'agents');
+
+new NxComponent(project, 'nx-component');
 
 project.synth();

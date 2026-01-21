@@ -54,6 +54,6 @@ tsconfig.json
 !/.czrc
 !/.github/workflows/deploy-docs.yml
 site
-!/AGENTS.md
+!/nx.json
 !/.projenrc.ts
 !/.cz-config.js

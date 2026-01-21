@@ -1,11 +1,3 @@
-export interface Affected {
-  /**
-   * Default base to use for affected commands
-   * It will take the projen default base by default
-   */
-  readonly defaultBase?: string;
-}
-
 export type NamedInput = {
   readonly [name: string]: string[];
 };
@@ -127,14 +119,14 @@ export interface ReleaseVersion {
 export interface WorkspaceChangelog {
   readonly createRelease: string;
 }
-export interface ReleaseChangelog {
+export interface ReleaseChangelogV1 {
   readonly workspaceChangelog: WorkspaceChangelog;
 }
 
 export interface NxRelease {
   readonly projects: string[];
   readonly version: ReleaseVersion;
-  readonly changelog?: ReleaseChangelog;
+  readonly changelog?: ReleaseChangelogV1;
 }
 export interface NxConfiguration {
   /**
@@ -142,10 +134,6 @@ export interface NxConfiguration {
    * @default nx/presets/npm.json
    */
   readonly extends?: string;
-  /**
-   * Default options for `nx affected`
-   */
-  readonly affected: Affected;
 
   /**
    * Named inputs used by inputs defined in targets

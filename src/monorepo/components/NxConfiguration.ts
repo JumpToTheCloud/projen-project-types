@@ -43,9 +43,6 @@ export class NxConfigurations extends Component {
     });
 
     const config: NxConfiguration = {
-      affected: {
-        defaultBase: 'main',
-      },
       namedInput: {
         default: [
           '{projectRoot}/**/*',
