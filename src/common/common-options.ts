@@ -55,10 +55,12 @@ export class CommonOptionsConfig {
     project: Project,
     options: TypeScriptProjectWithGlobalOptions,
   ): CommonsComponents {
-    if (options.vscode !== false) {
-      // Determine target project: use parent if it's a subproject, otherwise use current project
-      const targetProject = project.parent ?? project;
+    const isSubproject = project.parent != null;
 
+    // Determine target project: use parent if it's a subproject, otherwise use current project
+    const targetProject = project.parent ?? project;
+
+    if (options.vscode !== false) {
       // Try to find existing VsCode component by type in target project
       let vscode = targetProject.node.children.find(
         (child) => child instanceof VsCode,
@@ -75,19 +77,28 @@ export class CommonOptionsConfig {
     // Add Agents component (enabled by default for all projects)
     let agents: Agents | undefined;
     if (options.agents !== false) {
-      agents = new Agents(project, 'agents');
+      agents = targetProject.node.children.find(
+        (child) => child instanceof Agents,
+      ) as Agents;
+
+      if (!agents || !isSubproject) {
+        agents = new Agents(targetProject, 'agents');
+      }
     }
 
-    // Add Commitzent component only for root projects (not subprojects) unless explicitly enabled
     let commitzent: Commitzent | undefined;
-    const isSubproject = project.parent != null;
+    if (options.commitzent !== false) {
+      commitzent = targetProject.node.children.find(
+        (child) => child instanceof Commitzent,
+      ) as Commitzent;
 
-    // Only enable commitzent for root projects unless explicitly set
-    const shouldEnableCommitzent =
-      options.commitzent !== false && !isSubproject;
+      if (!commitzent) {
+        commitzent = new Commitzent(targetProject, 'commitzent');
+      }
+    }
 
-    if (shouldEnableCommitzent) {
-      commitzent = new Commitzent(project, 'commitzent');
+    if (isSubproject && options.commitzent !== false) {
+      commitzent?.addScope({ name: project.name });
     }
 
     return { agents, commitzent };
