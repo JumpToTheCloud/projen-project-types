@@ -182,17 +182,6 @@
         }
       ]
     },
-    "nx": {
-      "name": "nx",
-      "description": "Run nx commands",
-      "steps": [
-        {
-          "say": "Running nx commands",
-          "exec": "nx",
-          "receiveArgs": true
-        }
-      ]
-    },
     "package": {
       "name": "package",
       "description": "Creates the distribution package",

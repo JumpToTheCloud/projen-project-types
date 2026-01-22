@@ -110,11 +110,6 @@
       "type": "build"
     },
     {
-      "name": "nx",
-      "version": "^22",
-      "type": "devenv"
-    },
-    {
       "name": "constructs",
       "version": "^10.4.4",
       "type": "peer"

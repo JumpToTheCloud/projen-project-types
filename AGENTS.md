@@ -1,264 +1,132 @@
-# Agent Guidelines for Projen Project Types
+# Coding Agents Guide
 
-This document provides essential information for AI coding agents working in this repository. The project is a TypeScript JSII library that provides opinionated Projen project templates.
+This file contains essential information about how this repository works for coding agents like GitHub Copilot.
 
-## Project Overview
+## Repository Overview
 
-- **Type**: TypeScript JSII library (multi-language support)
-- **Framework**: Projen for project configuration management
-- **Package**: `@jttc/projen-project-types`
-- **Purpose**: Provides opinionated project templates extending Projen with best practices
+This is the **projen-project-types** project, which uses [Projen](https://projen.io/) for project configuration management.
 
-## Build, Test & Lint Commands
+## What is Projen?
 
-### Core Commands
+Projen is a tool that allows managing project configuration through TypeScript code instead of static configuration files.
 
-```bash
-# Full build pipeline (compile, lint, test, package)
-yarn build
+### Key Features:
+- **Configuration as Code**: Everything is defined in `.projenrc.ts`
+- **Automatic Management**: Automatically regenerates configuration files
+- **Extensible**: Allows creating reusable components
+- **Consistency**: Keeps configuration synchronized
 
-# Run tests with coverage
-yarn test
+## TypeScript Project
 
-# Run specific test file
-yarn jest test/cdk-app.test.ts
+This is a TypeScript project managed by Projen.
 
-# Run tests in watch mode
-yarn test:watch
+### TypeScript Features:
+- **Type Safety**: Compile-time type checking
+- **Modern JavaScript**: Latest ECMAScript features
+- **Build Tools**: Automated compilation and bundling
+- **Testing**: Comprehensive test framework integration
 
-# Lint code
-yarn eslint
-
-# Compile TypeScript
-yarn compile
-
-# Generate documentation
-yarn docgen
-
-# Package for distribution
-yarn package
-
-# Preview documentation locally
-yarn docs:serve
-```
-
-### Projen Commands
+## Important Commands
 
 ```bash
-# Regenerate project files (run after editing .projenrc.ts)
+# Regenerate configuration files from .projenrc.ts
 npx projen
 
-# Update dependencies
+# Build the project
+npx projen build
+
+# Run tests
+npx projen test
+
+# Run tests in watch mode
+npx projen test:watch
+
+# Lint the code
+npx projen eslint
+
+# Package the project
+npx projen package
+
+# Clean generated files
+npx projen clobber
+
+# Upgrade dependencies
 npx projen upgrade
-
-# Commit with conventional commits
-yarn  commit
 ```
 
-## Code Style Guidelines
 
-### TypeScript Configuration
+## Dependency Management
 
-- **Target**: ES2020
-- **Module**: CommonJS (for JSII compatibility)
-- **Strict mode**: Enabled with all strict flags
-- **Source maps**: Inline source maps enabled
-- **Declaration files**: Generated automatically
-
-### ESLint Rules
-
-#### Imports
-- Use alphabetical import ordering: `import/order`
-- No duplicate imports: `import/no-duplicates`
-- Separate builtin, external imports
-- Use TypeScript import resolver
-
-#### Formatting
-- **Indentation**: 2 spaces (`@stylistic/indent`)
-- **Quotes**: Single quotes with escape avoidance (`@stylistic/quotes`)
-- **Line length**: 150 characters max (`@stylistic/max-len`)
-- **Semicolons**: Always required (`@stylistic/semi`)
-- **Trailing commas**: Always on multiline (`@stylistic/comma-dangle`)
-- **Object spacing**: Always around braces (`@stylistic/object-curly-spacing`)
-- **Array spacing**: Never around brackets (`@stylistic/array-bracket-spacing`)
-
-#### TypeScript Specific
-- No `require()` imports: `@typescript-eslint/no-require-imports`
-- No floating promises: `@typescript-eslint/no-floating-promises`
-- Proper return await: `@typescript-eslint/return-await`
-- Member ordering: static fields/methods first, then instance fields, constructor, methods
-
-### Prettier Configuration
-```json
-{
-  "trailingComma": "all",
-  "singleQuote": true,
-  "bracketSpacing": true,
-  "semi": true
-}
-```
-
-### Naming Conventions
-
-#### Classes and Interfaces
-- **Classes**: PascalCase (`CdkApp`, `NxMonorepo`)
-- **Interfaces**: PascalCase with descriptive names (`CdkAppOptions`, `CommitzentConfiguration`)
-- **Type aliases**: PascalCase
-- **Components**: Extend Projen `Component` class
-
-#### Files and Directories
-- **Files**: kebab-case (`cdk-app-project.ts`, `agents.ts`)
-- **Directories**: kebab-case (`src/components`, `src/cdk`)
-- **Test files**: `*.test.ts` suffix
-- **Interface files**: Often in `interfaces/` subdirectories
-
-#### Variables and Functions
-- **Variables**: camelCase (`projectOptions`, `defaultConfig`)
-- **Functions**: camelCase (`withCommonOptionsDefaults`)
-- **Constants**: SCREAMING_SNAKE_CASE (`DEFAULT_PRETTIER_OPTIONS`)
-- **Private fields**: camelCase with `private` modifier
-
-### Project Structure Patterns
-
-#### Component Architecture
-```
-src/
-├── cdk/                    # CDK project templates
-│   ├── interfaces/         # TypeScript interfaces
-│   └── *.ts               # Project classes
-├── components/             # Reusable components
-│   ├── component-name/
-│   │   ├── interfaces/     # Component interfaces
-│   │   ├── index.ts       # Exports
-│   │   └── component.ts   # Main implementation
-├── monorepo/              # NX monorepo templates
-├── common/                # Shared utilities
-└── index.ts              # Main exports
-```
-
-#### Class Design Patterns
-- Extend appropriate Projen base classes (`AwsCdkTypeScriptApp`, `Component`)
-- Use constructor injection for dependencies
-- Implement readonly properties for component references
-- Use static factory methods for configuration
-
-### Error Handling
-
-#### Exception Patterns
-- Use built-in TypeScript/Node.js error types
-- Provide descriptive error messages
-- Avoid silent failures
-- Use proper error propagation in async code
-
-#### Validation
-- Validate inputs in constructors
-- Use TypeScript's strict null checks
-- Implement proper type guards when needed
-
-### Documentation Standards
-
-#### JSDoc Comments
+### Adding Dependencies:
 ```typescript
-/**
- * CDK TypeScript App Project
- * 
- * @pjid cdk-app
- */
-export class CdkApp extends AwsCdkTypeScriptApp {
-  /**
-   * Optional Commitzent component for conventional commits
-   */
-  readonly commitzent?: Commitzent;
-}
+// In the project or component constructor
+project.deps.addDependency("package-name", DependencyType.BUILD);
+project.deps.addDependency("package-name", DependencyType.RUNTIME);
+project.deps.addDependency("package-name", DependencyType.PEER);
 ```
 
-#### Interface Documentation
-- Document all public interfaces
-- Include usage examples where helpful
-- Use `@pjid` tags for project identifiers
-- Document component purposes and integration points
+### Dependency Types:
+- `RUNTIME`: Runtime dependencies (dependencies)
+- `BUILD`: Build dependencies (devDependencies)
+- `PEER`: Peer dependencies (peerDependencies)
 
-### Testing Guidelines
+## Project Structure
 
-#### Test Structure
-- Place tests in `test/` directory
-- Use `*.test.ts` naming convention
-- One test file per main class/component
-- Use descriptive test names
+```
+src/                 # Source code
+├── index.ts         # Main entry point
+└── lib/             # Library code
 
-#### Jest Patterns
-```typescript
-describe('CdkApp', () => {
-  test('should generate expected project structure', () => {
-    const project = new TestProject();
-    Testing.synth(project);
-    // Assertions using snapshot testing
-  });
-});
+test/                # Unit tests
+lib/                 # Compiled TypeScript (generated)
+dist/                # Distribution files (generated)
 ```
 
-#### Coverage Requirements
-- Maintain high test coverage
-- Test both success and error paths
-- Use Projen's `Testing.synth()` for project generation tests
-- Verify generated file contents with snapshots
 
-### Dependencies Management
+## Common Configuration
 
-#### Dependency Types
-- **Runtime**: Only `projen` as main dependency
-- **Peer Dependencies**: `constructs`, `projen`
-- **Dev Dependencies**: TypeScript toolchain, testing, linting
+- **CommonOptionsConfig**: Manages default configurations
+- **Prettier**: Automatic code formatting
+- **ESLint**: Automatic linting
+- **VSCode**: Configuration and recommended extensions
+- **Commitzent**: Conventional commits
+- **Agents**: This documentation for coding agents
 
-#### Version Constraints
-- Use compatible version ranges (`^` for minor updates)
-- Pin exact versions for build tools when stability is critical
-- Regular dependency updates via Projen's upgrade workflow
+## Important Files
 
-## File Modifications
+- `.projenrc.ts`: Main project configuration
+- `package.json`: Generated automatically by Projen
+- `tsconfig.json`: TypeScript configuration
+- `.gitignore`: Files ignored by Git
 
-### Critical Files - Do Not Modify Directly
-- `package.json` (generated by Projen)
-- `.eslintrc.json` (generated by Projen)  
-- `tsconfig.json` (generated by Projen)
-- `tsconfig.dev.json` (generated by Projen)
+## Best Practices
 
-### Configuration Source
-- All configuration changes go in `.projenrc.ts`
-- Run `npx projen` after configuration changes
-- Components are configured via TypeScript classes
+1. **Never edit generated files**: Always modify the source in `.projenrc.ts`
+2. **Run `npx projen`** after configuration changes
+3. **Use components** for reusable functionality
+4. **Follow naming conventions** established in the project
+5. **Document changes** in tests and README
 
-### When Adding Features
-1. Create component in `src/components/`
-2. Add interface definitions
-3. Export from appropriate index files
-4. Add comprehensive tests
-5. Update documentation if needed
-6. Run full build pipeline
+## Troubleshooting
 
-## Common Patterns
+### Error: "File is read-only"
+- Files generated by Projen are read-only
+- Modify the configuration in `.projenrc.ts` instead
 
-### Component Integration
-```typescript
-// In constructor of project class
-const components = CommonOptionsConfig.withCommonComponents(this, opts);
-this.commitzent = components.commitzent;
-```
+### Dependencies not found
+- Run `npx projen` to install dependencies
+- Verify dependencies are in `.projenrc.ts`
 
-### Configuration Merging
-```typescript
-const opts = CommonOptionsConfig.withCommonOptionsDefaults({
-  ...options,
-});
-```
+### Tests fail
+- Run `npx projen build` to compile changes
+- Verify snapshots are updated
 
-### Projen Task Creation
-```typescript
-const task = project.addTask('task-name', {
-  description: 'Task description',
-  steps: [{ exec: 'command', receiveArgs: false }],
-});
-task.lock(); // Prevent modification
-```
+## Useful Resources
 
-This codebase follows strict TypeScript patterns with Projen's configuration-as-code approach. All generated files are immutable and configuration changes must go through the `.projenrc.ts` file.
+- [Projen Documentation](https://projen.io/)
+- [Projen API Reference](https://github.com/projen/projen/blob/main/API.md)
+
+---
+
+> This file is automatically generated by the `Agents` component.
+> To modify it, edit the component in `src/components/agents/agents.ts`.
