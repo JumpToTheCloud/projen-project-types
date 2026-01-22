@@ -7,8 +7,8 @@ import { Cdk8sBaseOptions } from '../../components/cdk8s/interfaces/Cdk8s';
  */
 export interface Cdk8sLibraryOptions
   extends
-  Cdk8sBaseOptions,
-  AwsCdkConstructLibraryOptions,
-  ProjectGlobalOptions {
+    Cdk8sBaseOptions,
+    AwsCdkConstructLibraryOptions,
+    ProjectGlobalOptions {
   // Future CDK8s Library specific options can be added here
 }

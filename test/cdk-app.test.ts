@@ -323,7 +323,6 @@ describe('CdkApp', () => {
       expect(subprojectSnapshot['.eslintrc.json']).toBeUndefined();
       expect(subprojectSnapshot['.czrc']).toBeUndefined();
       expect(subprojectSnapshot['.cz-config.js']).toBeUndefined();
-      expect(subproject.commitzent).toBeUndefined();
 
       // Verify VSCode files are not created in subproject
       expect(subprojectSnapshot['.vscode/settings.json']).toBeUndefined();

@@ -43,7 +43,7 @@ export class PublishRelease extends Component {
           uses: 'actions/setup-node@v4',
           with: {
             'node-version': '18',
-            'cache': 'yarn',
+            cache: 'yarn',
           },
         },
         {

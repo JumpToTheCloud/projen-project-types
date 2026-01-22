@@ -744,7 +744,6 @@ junit.xml
 /cdk.out/
 .cdk.staging/
 .parcel-cache/
-!/AGENTS.md
 "
 `;
 
