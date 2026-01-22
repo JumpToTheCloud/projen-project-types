@@ -63,6 +63,9 @@ module.exports = {
       name: 'cdk8s-app'
     },
     {
+      name: 'jsii-project'
+    },
+    {
       name: 'monorepo'
     },
     {

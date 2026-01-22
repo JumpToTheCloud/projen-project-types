@@ -1,19 +1,14 @@
-import { cdk, ReleasableCommits } from 'projen';
+import { ReleasableCommits } from 'projen';
 import { GithubCredentials } from 'projen/lib/github';
 import {
   AppPermission,
   JobPermission,
 } from 'projen/lib/github/workflows-model';
-import {
-  NpmAccess,
-  Prettier,
-  TrailingComma,
-  UpgradeDependenciesSchedule,
-} from 'projen/lib/javascript';
+import { NpmAccess, UpgradeDependenciesSchedule } from 'projen/lib/javascript';
 import { ReleaseTrigger } from 'projen/lib/release';
-import { Agents, Commitzent } from './src/components';
+import { JsiiProject } from './src/cdk/jsii-project';
 
-const project = new cdk.JsiiProject({
+const project = new JsiiProject({
   author: 'Jumpt to the Cloud',
   authorAddress: 'antonio.marquez@jumptothecloud.tech',
   defaultReleaseBranch: 'main',
@@ -75,34 +70,21 @@ const project = new cdk.JsiiProject({
   npmAccess: NpmAccess.PUBLIC,
 });
 
-new Prettier(project, {
-  settings: {
-    trailingComma: TrailingComma.ALL,
-    singleQuote: true,
-    bracketSpacing: true,
-    semi: true,
-  },
-  ignoreFileOptions: {
-    ignorePatterns: ['*.md'],
-  },
-});
-
 project.postCompileTask.exec(
   'cp src/components/cdk8s/*.template lib/components/cdk8s/ || true',
 );
 
-const commitzent = new Commitzent(project, 'commitzent');
-
-commitzent.addScope({ name: 'docs' });
-commitzent.addScope({ name: 'cdk-library' });
-commitzent.addScope({ name: 'cdk-app' });
-commitzent.addScope({ name: 'cdk8s-library' });
-commitzent.addScope({ name: 'cdk8s-app' });
-commitzent.addScope({ name: 'monorepo' });
-commitzent.addScope({ name: 'cdk8s-component' });
-commitzent.addScope({ name: 'commitzent-component' });
-commitzent.addScope({ name: 'k3d-component' });
-commitzent.addScope({ name: 'agents-component' });
+project.commitzent?.addScope({ name: 'docs' });
+project.commitzent?.addScope({ name: 'cdk-library' });
+project.commitzent?.addScope({ name: 'cdk-app' });
+project.commitzent?.addScope({ name: 'cdk8s-library' });
+project.commitzent?.addScope({ name: 'cdk8s-app' });
+project.commitzent?.addScope({ name: 'jsii-project' });
+project.commitzent?.addScope({ name: 'monorepo' });
+project.commitzent?.addScope({ name: 'cdk8s-component' });
+project.commitzent?.addScope({ name: 'commitzent-component' });
+project.commitzent?.addScope({ name: 'k3d-component' });
+project.commitzent?.addScope({ name: 'agents-component' });
 
 const deployDocs = project.github?.addWorkflow('deploy-docs');
 deployDocs?.on({
@@ -212,7 +194,5 @@ deployDocs?.addJob('deploy-docs', {
     },
   ],
 });
-
-new Agents(project, 'agents');
 
 project.synth();
