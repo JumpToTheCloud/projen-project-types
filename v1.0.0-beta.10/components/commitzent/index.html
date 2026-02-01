@@ -1,0 +1,1528 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../k3d/">
+      
+      
+        <link rel="next" href="../../default-configurations/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.3.2">
+    
+    
+      
+        <title>Commitzent Component - Projen Project Types</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.30068a00.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#commitzent-component" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+               You're not viewing the latest
+version.
+<a href="../../..">
+  <strong>Click here to go to latest.</strong>
+</a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Projen Project Types" class="md-header__button md-logo" aria-label="Projen Project Types" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Projen Project Types
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Commitzent Component
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/JumpToTheCloud/projen-project-types" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+    
+  
+  Homepage
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../project-types/cdk-library/" class="md-tabs__link">
+          
+  
+    
+  
+  Project Types
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../cdk8s/" class="md-tabs__link">
+          
+  
+    
+  
+  Components
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../default-configurations/" class="md-tabs__link">
+          
+  
+    
+  
+  Configuration
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Projen Project Types" class="md-nav__button md-logo" aria-label="Projen Project Types" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Projen Project Types
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/JumpToTheCloud/projen-project-types" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Homepage
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Homepage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Project Types
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Project Types
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project-types/cdk-library/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CDK Library
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project-types/cdk-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CDK App
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project-types/cdk8s-library/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CDK8s Library
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project-types/cdk8s-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CDK8s App
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project-types/nx-monorepo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NX Monorepo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Components
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Components
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cdk8s/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CDK8s Component
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../k3d/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    K3d Component
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Commitzent Component
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Commitzent Component
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    Key Features
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automatic-setup" class="md-nav__link">
+    🔧 Automatic Setup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactive-commit-workflow" class="md-nav__link">
+    📝 Interactive Commit Workflow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customizable-scopes" class="md-nav__link">
+    🎯 Customizable Scopes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#easy-usage" class="md-nav__link">
+    ⚡ Easy Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-configuration" class="md-nav__link">
+    Default Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Default Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commit-types" class="md-nav__link">
+    Commit Types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-scopes" class="md-nav__link">
+    Default Scopes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-commit-workflow" class="md-nav__link">
+    Basic Commit Workflow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactive-prompt-example" class="md-nav__link">
+    Interactive Prompt Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customization" class="md-nav__link">
+    Customization
+  </a>
+  
+    <nav class="md-nav" aria-label="Customization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-custom-scopes" class="md-nav__link">
+    Adding Custom Scopes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disabling-commitzent" class="md-nav__link">
+    Disabling Commitzent
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generated-files" class="md-nav__link">
+    Generated Files
+  </a>
+  
+    <nav class="md-nav" aria-label="Generated Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#czrc" class="md-nav__link">
+    .czrc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cz-configjs-example-for-cdk-app" class="md-nav__link">
+    .cz-config.js (example for CDK App)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packagejson-integration" class="md-nav__link">
+    Package.json Integration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    Best Practices
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commit-message-guidelines" class="md-nav__link">
+    Commit Message Guidelines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scope-naming" class="md-nav__link">
+    Scope Naming
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-good-commits" class="md-nav__link">
+    Example Good Commits
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-resources" class="md-nav__link">
+    Related Resources
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../default-configurations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Default Configurations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    Key Features
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automatic-setup" class="md-nav__link">
+    🔧 Automatic Setup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactive-commit-workflow" class="md-nav__link">
+    📝 Interactive Commit Workflow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customizable-scopes" class="md-nav__link">
+    🎯 Customizable Scopes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#easy-usage" class="md-nav__link">
+    ⚡ Easy Usage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-configuration" class="md-nav__link">
+    Default Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Default Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commit-types" class="md-nav__link">
+    Commit Types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-scopes" class="md-nav__link">
+    Default Scopes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-commit-workflow" class="md-nav__link">
+    Basic Commit Workflow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactive-prompt-example" class="md-nav__link">
+    Interactive Prompt Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customization" class="md-nav__link">
+    Customization
+  </a>
+  
+    <nav class="md-nav" aria-label="Customization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-custom-scopes" class="md-nav__link">
+    Adding Custom Scopes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disabling-commitzent" class="md-nav__link">
+    Disabling Commitzent
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generated-files" class="md-nav__link">
+    Generated Files
+  </a>
+  
+    <nav class="md-nav" aria-label="Generated Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#czrc" class="md-nav__link">
+    .czrc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cz-configjs-example-for-cdk-app" class="md-nav__link">
+    .cz-config.js (example for CDK App)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packagejson-integration" class="md-nav__link">
+    Package.json Integration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    Best Practices
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commit-message-guidelines" class="md-nav__link">
+    Commit Message Guidelines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scope-naming" class="md-nav__link">
+    Scope Naming
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-good-commits" class="md-nav__link">
+    Example Good Commits
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-resources" class="md-nav__link">
+    Related Resources
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="commitzent-component">Commitzent Component<a class="headerlink" href="#commitzent-component" title="Permanent link">&para;</a></h1>
+<p>The Commitzent Component provides standardized <strong>Conventional Commits</strong> support to all project types, enabling consistent and structured commit messages across your development workflow.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p><a href="https://www.conventionalcommits.org/">Conventional Commits</a> is a specification for adding human and machine-readable meaning to commit messages. The Commitzent component integrates <a href="https://commitizen.github.io/cz-cli/">Commitizen</a> with a customizable configuration to enforce this standard in your projects.</p>
+<p>Key benefits:
+- <strong>Consistent commit format</strong> across team members
+- <strong>Automated changelog generation</strong> support
+- <strong>Semantic versioning</strong> integration
+- <strong>Interactive prompts</strong> to guide commit creation
+- <strong>Customizable scopes</strong> for different project areas</p>
+<div class="admonition info">
+<p class="admonition-title">Universal Integration</p>
+<p>This component is automatically included in <strong>all</strong> project types (CDK App, CDK Library, CDK8s App, CDK8s Library) by default and can be easily disabled if not needed.</p>
+</div>
+<h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
+<h3 id="automatic-setup">🔧 <strong>Automatic Setup</strong><a class="headerlink" href="#automatic-setup" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Installs Commitizen and cz-customizable dependencies</li>
+<li>Generates <code>.czrc</code> configuration file</li>
+<li>Creates customizable <code>.cz-config.js</code> with project-specific settings</li>
+<li>Adds <code>commit</code> script to package.json</li>
+</ul>
+<h3 id="interactive-commit-workflow">📝 <strong>Interactive Commit Workflow</strong><a class="headerlink" href="#interactive-commit-workflow" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Guided prompts for commit type, scope, and description</li>
+<li>Built-in validation for conventional commit format</li>
+<li>Support for breaking changes and issue references</li>
+<li>Consistent formatting across all commits</li>
+</ul>
+<h3 id="customizable-scopes">🎯 <strong>Customizable Scopes</strong><a class="headerlink" href="#customizable-scopes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Pre-configured default scopes for each project type</li>
+<li>Ability to add custom scopes programmatically</li>
+<li>Project-specific scope suggestions</li>
+</ul>
+<h3 id="easy-usage">⚡ <strong>Easy Usage</strong><a class="headerlink" href="#easy-usage" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Simple <code>yarn commit</code> command replaces <code>git commit</code></li>
+<li>No need to remember conventional commit syntax</li>
+<li>Automatic formatting and validation</li>
+</ul>
+<h2 id="default-configuration">Default Configuration<a class="headerlink" href="#default-configuration" title="Permanent link">&para;</a></h2>
+<h3 id="commit-types">Commit Types<a class="headerlink" href="#commit-types" title="Permanent link">&para;</a></h3>
+<p>The component includes standard conventional commit types:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>feat</code></td>
+<td>New feature</td>
+<td><code>feat(api): add user authentication</code></td>
+</tr>
+<tr>
+<td><code>fix</code></td>
+<td>Bug fix</td>
+<td><code>fix(ui): resolve navigation issue</code></td>
+</tr>
+<tr>
+<td><code>docs</code></td>
+<td>Documentation</td>
+<td><code>docs(readme): update installation guide</code></td>
+</tr>
+<tr>
+<td><code>style</code></td>
+<td>Code style changes</td>
+<td><code>style(components): format with prettier</code></td>
+</tr>
+<tr>
+<td><code>refactor</code></td>
+<td>Code refactoring</td>
+<td><code>refactor(utils): simplify helper functions</code></td>
+</tr>
+<tr>
+<td><code>perf</code></td>
+<td>Performance improvements</td>
+<td><code>perf(api): optimize database queries</code></td>
+</tr>
+<tr>
+<td><code>test</code></td>
+<td>Tests</td>
+<td><code>test(auth): add unit tests for login</code></td>
+</tr>
+<tr>
+<td><code>build</code></td>
+<td>Build system</td>
+<td><code>build(webpack): update configuration</code></td>
+</tr>
+<tr>
+<td><code>ci</code></td>
+<td>CI/CD changes</td>
+<td><code>ci(github): add automated testing</code></td>
+</tr>
+<tr>
+<td><code>chore</code></td>
+<td>Maintenance tasks</td>
+<td><code>chore(deps): update dependencies</code></td>
+</tr>
+<tr>
+<td><code>revert</code></td>
+<td>Revert previous commit</td>
+<td><code>revert: undo previous feature</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="default-scopes">Default Scopes<a class="headerlink" href="#default-scopes" title="Permanent link">&para;</a></h3>
+<p>Each project type includes relevant default scopes:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">CDK App</label><label for="__tabbed_1_2">CDK Library</label><label for="__tabbed_1_3">CDK8s Projects</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li><code>stack</code> - CloudFormation stacks</li>
+<li><code>construct</code> - CDK constructs</li>
+<li><code>config</code> - Configuration changes</li>
+<li><code>infra</code> - Infrastructure components</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><code>construct</code> - Library constructs</li>
+<li><code>api</code> - Public API changes</li>
+<li><code>examples</code> - Usage examples</li>
+<li><code>config</code> - Configuration</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><code>manifest</code> - Kubernetes manifests</li>
+<li><code>chart</code> - Helm charts</li>
+<li><code>config</code> - Configuration</li>
+<li><code>docs</code> - Documentation</li>
+</ul>
+</div>
+</div>
+</div>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<h3 id="basic-commit-workflow">Basic Commit Workflow<a class="headerlink" href="#basic-commit-workflow" title="Permanent link">&para;</a></h3>
+<p>Instead of using <code>git commit</code>, use the interactive commit command:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Stage your changes</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Use interactive commit</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>yarn<span class="w"> </span>commit
+</span></code></pre></div>
+<h3 id="interactive-prompt-example">Interactive Prompt Example<a class="headerlink" href="#interactive-prompt-example" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>yarn<span class="w"> </span>commit
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>?<span class="w"> </span>Select<span class="w"> </span>the<span class="w"> </span><span class="nb">type</span><span class="w"> </span>of<span class="w"> </span>change<span class="w"> </span>that<span class="w"> </span>you<span class="err">&#39;</span>re<span class="w"> </span>committing:<span class="w"> </span><span class="o">(</span>Use<span class="w"> </span>arrow<span class="w"> </span>keys<span class="o">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>❯<span class="w"> </span>feat:<span class="w">     </span>A<span class="w"> </span>new<span class="w"> </span>feature
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span>fix:<span class="w">      </span>A<span class="w"> </span>bug<span class="w"> </span>fix
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span>docs:<span class="w">     </span>Documentation<span class="w"> </span>only<span class="w"> </span>changes
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span>style:<span class="w">    </span>Changes<span class="w"> </span>that<span class="w"> </span><span class="k">do</span><span class="w"> </span>not<span class="w"> </span>affect<span class="w"> </span>the<span class="w"> </span>meaning<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>code
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span>refactor:<span class="w"> </span>A<span class="w"> </span>code<span class="w"> </span>change<span class="w"> </span>that<span class="w"> </span>neither<span class="w"> </span>fixes<span class="w"> </span>a<span class="w"> </span>bug<span class="w"> </span>nor<span class="w"> </span>adds<span class="w"> </span>a<span class="w"> </span>feature
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span>perf:<span class="w">     </span>A<span class="w"> </span>code<span class="w"> </span>change<span class="w"> </span>that<span class="w"> </span>improves<span class="w"> </span>performance
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span>test:<span class="w">     </span>Adding<span class="w"> </span>missing<span class="w"> </span>tests<span class="w"> </span>or<span class="w"> </span>correcting<span class="w"> </span>existing<span class="w"> </span>tests
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>?<span class="w"> </span>What<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>scope<span class="w"> </span>of<span class="w"> </span>this<span class="w"> </span>change<span class="w"> </span><span class="o">(</span>e.g.<span class="w"> </span>component<span class="w"> </span>or<span class="w"> </span>file<span class="w"> </span>name<span class="o">)</span>:<span class="w"> </span><span class="o">(</span>press<span class="w"> </span>enter<span class="w"> </span>to<span class="w"> </span>skip<span class="o">)</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w"> </span>api
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>?<span class="w"> </span>Write<span class="w"> </span>a<span class="w"> </span>short,<span class="w"> </span>imperative<span class="w"> </span>tense<span class="w"> </span>description<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>change<span class="w"> </span><span class="o">(</span>max<span class="w"> </span><span class="m">72</span><span class="w"> </span>chars<span class="o">)</span>:
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w"> </span>add<span class="w"> </span>user<span class="w"> </span>authentication<span class="w"> </span>endpoint
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>?<span class="w"> </span>Provide<span class="w"> </span>a<span class="w"> </span>longer<span class="w"> </span>description<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>change:<span class="w"> </span><span class="o">(</span>press<span class="w"> </span>enter<span class="w"> </span>to<span class="w"> </span>skip<span class="o">)</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w"> </span>Implement<span class="w"> </span>JWT-based<span class="w"> </span>authentication<span class="w"> </span>with<span class="w"> </span>login<span class="w"> </span>and<span class="w"> </span><span class="nb">logout</span><span class="w"> </span>endpoints
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>?<span class="w"> </span>Are<span class="w"> </span>there<span class="w"> </span>any<span class="w"> </span>breaking<span class="w"> </span>changes?<span class="w"> </span><span class="o">(</span>y/N<span class="o">)</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>?<span class="w"> </span>Does<span class="w"> </span>this<span class="w"> </span>change<span class="w"> </span>affect<span class="w"> </span>any<span class="w"> </span>open<span class="w"> </span>issues?<span class="w"> </span><span class="o">(</span>y/N<span class="o">)</span>
+</span></code></pre></div>
+<p><strong>Result:</strong> <code>feat(api): add user authentication endpoint</code></p>
+<h2 id="customization">Customization<a class="headerlink" href="#customization" title="Permanent link">&para;</a></h2>
+<h3 id="adding-custom-scopes">Adding Custom Scopes<a class="headerlink" href="#adding-custom-scopes" title="Permanent link">&para;</a></h3>
+<p>You can add project-specific scopes programmatically:</p>
+<div class="language-typescript highlight"><span class="filename">.projenrc.ts</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">CdkApp</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@jttc/projen-project-types&#39;</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">CdkApp</span><span class="p">({</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;my-cdk-app&#39;</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nx">cdkVersion</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2.1.0&#39;</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nx">defaultReleaseBranch</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;main&#39;</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">});</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1">// Add custom scopes for your project</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="nx">project</span><span class="p">.</span><span class="nx">commitzent</span><span class="o">?</span><span class="p">.</span><span class="nx">addScope</span><span class="p">({</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;database&#39;</span><span class="w"> </span><span class="p">});</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nx">project</span><span class="p">.</span><span class="nx">commitzent</span><span class="o">?</span><span class="p">.</span><span class="nx">addScope</span><span class="p">({</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;auth&#39;</span><span class="w"> </span><span class="p">});</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="hll"><span class="nx">project</span><span class="p">.</span><span class="nx">commitzent</span><span class="o">?</span><span class="p">.</span><span class="nx">addScope</span><span class="p">({</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ui&#39;</span><span class="w"> </span><span class="p">});</span>
+</span></span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="hll">
+</span></span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="hll"><span class="nx">project</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span>
+</span></span></code></pre></div>
+<h3 id="disabling-commitzent">Disabling Commitzent<a class="headerlink" href="#disabling-commitzent" title="Permanent link">&para;</a></h3>
+<p>If you prefer not to use conventional commits, you can disable the component:</p>
+<div class="language-typescript highlight"><span class="filename">.projenrc.ts</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">CdkLibrary</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@jttc/projen-project-types&#39;</span><span class="p">;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">CdkLibrary</span><span class="p">({</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;my-library&#39;</span><span class="p">,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="c1">// ... other options</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="hll"><span class="w">  </span><span class="nx">commitzent</span><span class="o">:</span><span class="w"> </span><span class="kt">false</span><span class="p">,</span><span class="w"> </span><span class="c1">// Disable conventional commits</span>
+</span></span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">});</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="nx">project</span><span class="p">.</span><span class="nx">synth</span><span class="p">();</span>
+</span></code></pre></div>
+<p>When disabled:
+- ❌ No Commitizen dependencies are installed
+- ❌ No <code>.czrc</code> or <code>.cz-config.js</code> files are generated
+- ❌ No <code>commit</code> script in package.json
+- ✅ Regular <code>git commit</code> workflow is preserved</p>
+<h2 id="generated-files">Generated Files<a class="headerlink" href="#generated-files" title="Permanent link">&para;</a></h2>
+<h3 id="czrc"><code>.czrc</code><a class="headerlink" href="#czrc" title="Permanent link">&para;</a></h3>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./node_modules/cz-customizable&quot;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="cz-configjs-example-for-cdk-app"><code>.cz-config.js</code> (example for CDK App)<a class="headerlink" href="#cz-configjs-example-for-cdk-app" title="Permanent link">&para;</a></h3>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nx">types</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;feat&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;feat:     A new feature&#39;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;fix&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;fix:      A bug fix&#39;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="c1">// ... more types</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="p">],</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="nx">scopes</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;stack&#39;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;construct&#39;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;config&#39;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;infra&#39;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="c1">// ... custom scopes</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="p">],</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">  </span><span class="nx">messages</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Select the type of change that you&#39;re committing:&quot;</span><span class="p">,</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="nx">scope</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;What is the scope of this change (e.g. component or file name):&#39;</span><span class="p">,</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="nx">customScope</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Denote the SCOPE of this change:&#39;</span><span class="p">,</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="nx">subject</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Write a short, imperative tense description of the change (max 72 chars):\n&#39;</span><span class="p">,</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Provide a longer description of the change: (press enter to skip)\n&#39;</span><span class="p">,</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="nx">breaking</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Are there any breaking changes? (y/N)&#39;</span><span class="p">,</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span><span class="nx">footer</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Does this change affect any open issues? (y/N)&#39;</span><span class="p">,</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">    </span><span class="nx">confirmCommit</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Are you sure you want to proceed with the commit above?&#39;</span><span class="p">,</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">  </span><span class="nx">allowBreakingChanges</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;feat&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;fix&#39;</span><span class="p">],</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">  </span><span class="nx">skipQuestions</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">  </span><span class="nx">subjectLimit</span><span class="o">:</span><span class="w"> </span><span class="mf">72</span><span class="p">,</span>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="p">};</span>
+</span></code></pre></div>
+<h2 id="packagejson-integration">Package.json Integration<a class="headerlink" href="#packagejson-integration" title="Permanent link">&para;</a></h2>
+<p>The component automatically adds the commit script to your package.json:</p>
+<div class="language-json highlight"><span class="filename">package.json</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="nt">&quot;commit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx projen commit&quot;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="nt">&quot;devDependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nt">&quot;commitizen&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;latest&quot;</span><span class="p">,</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="nt">&quot;cz-customizable&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;latest&quot;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="commit-message-guidelines">Commit Message Guidelines<a class="headerlink" href="#commit-message-guidelines" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Use imperative mood</strong>: "add feature" not "added feature"</li>
+<li><strong>Keep subject line under 72 characters</strong></li>
+<li><strong>Provide context in scope</strong>: use meaningful scope names</li>
+<li><strong>Include issue numbers</strong> when applicable</li>
+<li><strong>Mark breaking changes</strong> clearly</li>
+</ol>
+<h3 id="scope-naming">Scope Naming<a class="headerlink" href="#scope-naming" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use <strong>lowercase</strong> scope names</li>
+<li>Keep scopes <strong>short and descriptive</strong></li>
+<li>Group related changes under <strong>consistent scopes</strong></li>
+<li>Avoid <strong>too many scopes</strong> - keep it simple</li>
+</ul>
+<h3 id="example-good-commits">Example Good Commits<a class="headerlink" href="#example-good-commits" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>feat<span class="o">(</span>auth<span class="o">)</span>:<span class="w"> </span>implement<span class="w"> </span>JWT<span class="w"> </span>token<span class="w"> </span>validation
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>fix<span class="o">(</span>api<span class="o">)</span>:<span class="w"> </span>handle<span class="w"> </span>null<span class="w"> </span>response<span class="w"> </span><span class="k">in</span><span class="w"> </span>user<span class="w"> </span>endpoint
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>docs<span class="o">(</span>readme<span class="o">)</span>:<span class="w"> </span>add<span class="w"> </span>deployment<span class="w"> </span>instructions
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>style<span class="o">(</span>components<span class="o">)</span>:<span class="w"> </span>apply<span class="w"> </span>consistent<span class="w"> </span>formatting
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>refactor<span class="o">(</span>utils<span class="o">)</span>:<span class="w"> </span>extract<span class="w"> </span>common<span class="w"> </span>helper<span class="w"> </span>functions
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>test<span class="o">(</span>auth<span class="o">)</span>:<span class="w"> </span>add<span class="w"> </span>integration<span class="w"> </span>tests<span class="w"> </span><span class="k">for</span><span class="w"> </span>login<span class="w"> </span>flow
+</span></code></pre></div>
+<h2 id="related-resources">Related Resources<a class="headerlink" href="#related-resources" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.conventionalcommits.org/">Conventional Commits Specification</a></li>
+<li><a href="https://commitizen.github.io/cz-cli/">Commitizen CLI Documentation</a></li>
+<li><a href="https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit">Angular Commit Guidelines</a></li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.sections", "navigation.top", "navigation.instant", "navigation.indexes", "navigation.tracking", "navigation.tabs", "content.code.annotate", "content.code.copy", "announce.dismiss"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
+</html>
