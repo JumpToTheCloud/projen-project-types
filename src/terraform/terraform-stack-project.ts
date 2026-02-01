@@ -31,6 +31,8 @@ export interface TerraformStackProjectOptions extends TerraformBaseProjectOption
 
 /**
  * Terraform stack project for managing infrastructure.
+ *
+ * @pjid terraform-stack
  */
 export class TerraformStackProject extends TerraformBaseProject {
   constructor(options: TerraformStackProjectOptions) {
