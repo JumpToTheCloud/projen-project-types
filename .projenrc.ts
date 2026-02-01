@@ -81,6 +81,7 @@ project.commitzent?.addScope({ name: 'cdk8s-library' });
 project.commitzent?.addScope({ name: 'cdk8s-app' });
 project.commitzent?.addScope({ name: 'jsii-project' });
 project.commitzent?.addScope({ name: 'monorepo' });
+project.commitzent?.addScope({ name: 'terraform-stack' });
 project.commitzent?.addScope({ name: 'cdk8s-component' });
 project.commitzent?.addScope({ name: 'commitzent-component' });
 project.commitzent?.addScope({ name: 'k3d-component' });
