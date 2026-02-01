@@ -69,6 +69,9 @@ module.exports = {
       name: 'monorepo'
     },
     {
+      name: 'terraform-stack'
+    },
+    {
       name: 'cdk8s-component'
     },
     {
