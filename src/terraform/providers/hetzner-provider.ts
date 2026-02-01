@@ -80,7 +80,6 @@ export interface HetznerProviderOptions extends TerraformProviderOptions {
    * with useEnvironmentToken: true and no alias.
    *
    * @example
-   * ```typescript
    * // Simple case - uses default configuration with HCLOUD_TOKEN env var
    * new HetznerProvider({
    *   version: '~> 1.45'
@@ -101,7 +100,6 @@ export interface HetznerProviderOptions extends TerraformProviderOptions {
    *     }
    *   ]
    * })
-   * ```
    */
   readonly providers?: HetznerProviderConfig[];
 }
@@ -173,13 +171,6 @@ export class HetznerProvider extends TerraformProvider {
     });
 
     return lines;
-  }
-
-  /**
-   * Get all provider configurations.
-   */
-  public getProviderConfigs(): HetznerProviderConfig[] {
-    return [...this.providerConfigs];
   }
 
   /**

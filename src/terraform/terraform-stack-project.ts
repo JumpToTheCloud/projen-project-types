@@ -1,5 +1,8 @@
 import { SampleFile } from 'projen';
-import { TerraformProvider } from './providers';
+import {
+  TerraformDeployGithubWorkflow,
+  TerraformPlanGithubWorkflow,
+} from './components';
 import {
   TerraformBaseProject,
   TerraformBaseProjectOptions,
@@ -10,9 +13,20 @@ import {
  */
 export interface TerraformStackProjectOptions extends TerraformBaseProjectOptions {
   /**
-   * Terraform provider configuration.
+   * Enable GitHub workflow for Terraform deployment.
+   * Creates a workflow that validates, plans, and applies Terraform changes.
+   * Only applicable for stack projects, not module projects.
+   * @default true
    */
-  readonly provider?: TerraformProvider;
+  readonly enableGitHubWorkflow?: boolean;
+
+  /**
+   * Enable GitHub workflow for Terraform plan on Pull Requests.
+   * Creates a workflow that validates and plans Terraform changes on PRs,
+   * and comments the results back to the PR.
+   * @default true
+   */
+  readonly enablePlanWorkflow?: boolean;
 }
 
 /**
@@ -78,6 +92,20 @@ export class TerraformStackProject extends TerraformBaseProject {
       if (planTask) {
         compileTask.spawn(planTask);
       }
+    }
+
+    // Add GitHub workflow if enabled
+    if (options.enableGitHubWorkflow !== false) {
+      new TerraformDeployGithubWorkflow(this, {
+        terraformVersion: options.terraformVersion,
+      });
+    }
+
+    // Add Plan workflow for PRs if enabled
+    if (options.enablePlanWorkflow !== false) {
+      new TerraformPlanGithubWorkflow(this, {
+        terraformVersion: options.terraformVersion,
+      });
     }
   }
 }

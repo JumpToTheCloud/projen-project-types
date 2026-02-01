@@ -9204,6 +9204,1878 @@ public readonly project: Project;
 ---
 
 
+### TerraformBaseProject <a name="TerraformBaseProject" id="@jttc/projen-project-types.TerraformBaseProject"></a>
+
+Base Terraform project that provides common Terraform configuration.
+
+#### Initializers <a name="Initializers" id="@jttc/projen-project-types.TerraformBaseProject.Initializer"></a>
+
+```typescript
+import { TerraformBaseProject } from '@jttc/projen-project-types'
+
+new TerraformBaseProject(options: TerraformBaseProjectOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.Initializer.parameter.options">options</a></code> | <code><a href="#@jttc/projen-project-types.TerraformBaseProjectOptions">TerraformBaseProjectOptions</a></code> | *No description.* |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="@jttc/projen-project-types.TerraformBaseProject.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#@jttc/projen-project-types.TerraformBaseProjectOptions">TerraformBaseProjectOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.addTask">addTask</a></code> | Adds a new task to this project. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.annotateGenerated">annotateGenerated</a></code> | Consider a set of files as "generated". |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.removeTask">removeTask</a></code> | Removes a task from a project. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.synth">synth</a></code> | Synthesize all project files into `outdir`. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.addProvider">addProvider</a></code> | Add a provider to this Terraform project. |
+
+---
+
+##### `toString` <a name="toString" id="@jttc/projen-project-types.TerraformBaseProject.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="@jttc/projen-project-types.TerraformBaseProject.addExcludeFromCleanup"></a>
+
+```typescript
+public addExcludeFromCleanup(globs: ...string[]): void
+```
+
+Exclude the matching files from pre-synth cleanup.
+
+Can be used when, for example, some
+source files include the projen marker and we don't want them to be erased during synth.
+
+###### `globs`<sup>Required</sup> <a name="globs" id="@jttc/projen-project-types.TerraformBaseProject.addExcludeFromCleanup.parameter.globs"></a>
+
+- *Type:* ...string[]
+
+The glob patterns to match.
+
+---
+
+##### `addGitIgnore` <a name="addGitIgnore" id="@jttc/projen-project-types.TerraformBaseProject.addGitIgnore"></a>
+
+```typescript
+public addGitIgnore(pattern: string): void
+```
+
+Adds a .gitignore pattern.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="@jttc/projen-project-types.TerraformBaseProject.addGitIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+The glob pattern to ignore.
+
+---
+
+##### `addPackageIgnore` <a name="addPackageIgnore" id="@jttc/projen-project-types.TerraformBaseProject.addPackageIgnore"></a>
+
+```typescript
+public addPackageIgnore(_pattern: string): void
+```
+
+Exclude these files from the bundled package.
+
+Implemented by project types based on the
+packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
+
+###### `_pattern`<sup>Required</sup> <a name="_pattern" id="@jttc/projen-project-types.TerraformBaseProject.addPackageIgnore.parameter._pattern"></a>
+
+- *Type:* string
+
+The glob pattern to exclude.
+
+---
+
+##### `addTask` <a name="addTask" id="@jttc/projen-project-types.TerraformBaseProject.addTask"></a>
+
+```typescript
+public addTask(name: string, props?: TaskOptions): Task
+```
+
+Adds a new task to this project.
+
+This will fail if the project already has
+a task with this name.
+
+###### `name`<sup>Required</sup> <a name="name" id="@jttc/projen-project-types.TerraformBaseProject.addTask.parameter.name"></a>
+
+- *Type:* string
+
+The task name to add.
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="@jttc/projen-project-types.TerraformBaseProject.addTask.parameter.props"></a>
+
+- *Type:* projen.TaskOptions
+
+Task properties.
+
+---
+
+##### ~~`addTip`~~ <a name="addTip" id="@jttc/projen-project-types.TerraformBaseProject.addTip"></a>
+
+```typescript
+public addTip(message: string): void
+```
+
+Prints a "tip" message during synthesis.
+
+###### `message`<sup>Required</sup> <a name="message" id="@jttc/projen-project-types.TerraformBaseProject.addTip.parameter.message"></a>
+
+- *Type:* string
+
+The message.
+
+---
+
+##### `annotateGenerated` <a name="annotateGenerated" id="@jttc/projen-project-types.TerraformBaseProject.annotateGenerated"></a>
+
+```typescript
+public annotateGenerated(_glob: string): void
+```
+
+Consider a set of files as "generated".
+
+This method is implemented by
+derived classes and used for example, to add git attributes to tell GitHub
+that certain files are generated.
+
+###### `_glob`<sup>Required</sup> <a name="_glob" id="@jttc/projen-project-types.TerraformBaseProject.annotateGenerated.parameter._glob"></a>
+
+- *Type:* string
+
+the glob pattern to match (could be a file path).
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="@jttc/projen-project-types.TerraformBaseProject.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after all components are synthesized.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="@jttc/projen-project-types.TerraformBaseProject.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before all components are synthesized.
+
+##### `removeTask` <a name="removeTask" id="@jttc/projen-project-types.TerraformBaseProject.removeTask"></a>
+
+```typescript
+public removeTask(name: string): Task
+```
+
+Removes a task from a project.
+
+###### `name`<sup>Required</sup> <a name="name" id="@jttc/projen-project-types.TerraformBaseProject.removeTask.parameter.name"></a>
+
+- *Type:* string
+
+The name of the task to remove.
+
+---
+
+##### `runTaskCommand` <a name="runTaskCommand" id="@jttc/projen-project-types.TerraformBaseProject.runTaskCommand"></a>
+
+```typescript
+public runTaskCommand(task: Task): string
+```
+
+Returns the shell command to execute in order to run a task.
+
+By default, this is `npx projen@<version> <task>`
+
+###### `task`<sup>Required</sup> <a name="task" id="@jttc/projen-project-types.TerraformBaseProject.runTaskCommand.parameter.task"></a>
+
+- *Type:* projen.Task
+
+The task for which the command is required.
+
+---
+
+##### `synth` <a name="synth" id="@jttc/projen-project-types.TerraformBaseProject.synth"></a>
+
+```typescript
+public synth(): void
+```
+
+Synthesize all project files into `outdir`.
+
+1. Call "this.preSynthesize()"
+2. Delete all generated files
+3. Synthesize all subprojects
+4. Synthesize all components of this project
+5. Call "postSynthesize()" for all components of this project
+6. Call "this.postSynthesize()"
+
+##### `tryFindFile` <a name="tryFindFile" id="@jttc/projen-project-types.TerraformBaseProject.tryFindFile"></a>
+
+```typescript
+public tryFindFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and all its subprojects.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@jttc/projen-project-types.TerraformBaseProject.tryFindFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be resolved
+from the root of _this_ project.
+
+---
+
+##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="@jttc/projen-project-types.TerraformBaseProject.tryFindJsonFile"></a>
+
+```typescript
+public tryFindJsonFile(filePath: string): JsonFile
+```
+
+Finds a json file by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@jttc/projen-project-types.TerraformBaseProject.tryFindJsonFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryFindObjectFile` <a name="tryFindObjectFile" id="@jttc/projen-project-types.TerraformBaseProject.tryFindObjectFile"></a>
+
+```typescript
+public tryFindObjectFile(filePath: string): ObjectFile
+```
+
+Finds an object file (like JsonFile, YamlFile, etc.) by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@jttc/projen-project-types.TerraformBaseProject.tryFindObjectFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryRemoveFile` <a name="tryRemoveFile" id="@jttc/projen-project-types.TerraformBaseProject.tryRemoveFile"></a>
+
+```typescript
+public tryRemoveFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and removes it.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@jttc/projen-project-types.TerraformBaseProject.tryRemoveFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be
+resolved from the root of _this_ project.
+
+---
+
+##### `addProvider` <a name="addProvider" id="@jttc/projen-project-types.TerraformBaseProject.addProvider"></a>
+
+```typescript
+public addProvider(provider: TerraformProvider): void
+```
+
+Add a provider to this Terraform project.
+
+Only one provider per project is allowed.
+
+###### `provider`<sup>Required</sup> <a name="provider" id="@jttc/projen-project-types.TerraformBaseProject.addProvider.parameter.provider"></a>
+
+- *Type:* <a href="#@jttc/projen-project-types.TerraformProvider">TerraformProvider</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.isProject">isProject</a></code> | Test whether the given construct is a project. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.of">of</a></code> | Find the closest ancestor project for given construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@jttc/projen-project-types.TerraformBaseProject.isConstruct"></a>
+
+```typescript
+import { TerraformBaseProject } from '@jttc/projen-project-types'
+
+TerraformBaseProject.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@jttc/projen-project-types.TerraformBaseProject.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isProject` <a name="isProject" id="@jttc/projen-project-types.TerraformBaseProject.isProject"></a>
+
+```typescript
+import { TerraformBaseProject } from '@jttc/projen-project-types'
+
+TerraformBaseProject.isProject(x: any)
+```
+
+Test whether the given construct is a project.
+
+###### `x`<sup>Required</sup> <a name="x" id="@jttc/projen-project-types.TerraformBaseProject.isProject.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `of` <a name="of" id="@jttc/projen-project-types.TerraformBaseProject.of"></a>
+
+```typescript
+import { TerraformBaseProject } from '@jttc/projen-project-types'
+
+TerraformBaseProject.of(construct: IConstruct)
+```
+
+Find the closest ancestor project for given construct.
+
+When given a project, this it the project itself.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@jttc/projen-project-types.TerraformBaseProject.of.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.name">name</a></code> | <code>string</code> | Project name. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.provider">provider</a></code> | <code><a href="#@jttc/projen-project-types.TerraformProvider">TerraformProvider</a></code> | Get the current provider. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@jttc/projen-project-types.TerraformBaseProject.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `buildTask`<sup>Required</sup> <a name="buildTask" id="@jttc/projen-project-types.TerraformBaseProject.property.buildTask"></a>
+
+```typescript
+public readonly buildTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="@jttc/projen-project-types.TerraformBaseProject.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+
+Whether to commit the managed files by default.
+
+---
+
+##### `compileTask`<sup>Required</sup> <a name="compileTask" id="@jttc/projen-project-types.TerraformBaseProject.property.compileTask"></a>
+
+```typescript
+public readonly compileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `components`<sup>Required</sup> <a name="components" id="@jttc/projen-project-types.TerraformBaseProject.property.components"></a>
+
+```typescript
+public readonly components: Component[];
+```
+
+- *Type:* projen.Component[]
+
+Returns all the components within this project.
+
+---
+
+##### `deps`<sup>Required</sup> <a name="deps" id="@jttc/projen-project-types.TerraformBaseProject.property.deps"></a>
+
+```typescript
+public readonly deps: Dependencies;
+```
+
+- *Type:* projen.Dependencies
+
+Project dependencies.
+
+---
+
+##### `ejected`<sup>Required</sup> <a name="ejected" id="@jttc/projen-project-types.TerraformBaseProject.property.ejected"></a>
+
+```typescript
+public readonly ejected: boolean;
+```
+
+- *Type:* boolean
+
+Whether or not the project is being ejected.
+
+---
+
+##### `files`<sup>Required</sup> <a name="files" id="@jttc/projen-project-types.TerraformBaseProject.property.files"></a>
+
+```typescript
+public readonly files: FileBase[];
+```
+
+- *Type:* projen.FileBase[]
+
+All files in this project.
+
+---
+
+##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="@jttc/projen-project-types.TerraformBaseProject.property.gitattributes"></a>
+
+```typescript
+public readonly gitattributes: GitAttributesFile;
+```
+
+- *Type:* projen.GitAttributesFile
+
+The .gitattributes file for this repository.
+
+---
+
+##### `gitignore`<sup>Required</sup> <a name="gitignore" id="@jttc/projen-project-types.TerraformBaseProject.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+.gitignore.
+
+---
+
+##### `logger`<sup>Required</sup> <a name="logger" id="@jttc/projen-project-types.TerraformBaseProject.property.logger"></a>
+
+```typescript
+public readonly logger: Logger;
+```
+
+- *Type:* projen.Logger
+
+Logging utilities.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="@jttc/projen-project-types.TerraformBaseProject.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Project name.
+
+---
+
+##### `outdir`<sup>Required</sup> <a name="outdir" id="@jttc/projen-project-types.TerraformBaseProject.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+
+Absolute output directory of this project.
+
+---
+
+##### `packageTask`<sup>Required</sup> <a name="packageTask" id="@jttc/projen-project-types.TerraformBaseProject.property.packageTask"></a>
+
+```typescript
+public readonly packageTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="@jttc/projen-project-types.TerraformBaseProject.property.postCompileTask"></a>
+
+```typescript
+public readonly postCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="@jttc/projen-project-types.TerraformBaseProject.property.preCompileTask"></a>
+
+```typescript
+public readonly preCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="@jttc/projen-project-types.TerraformBaseProject.property.projectBuild"></a>
+
+```typescript
+public readonly projectBuild: ProjectBuild;
+```
+
+- *Type:* projen.ProjectBuild
+
+Manages the build process of the project.
+
+---
+
+##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="@jttc/projen-project-types.TerraformBaseProject.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+
+The command to use in order to run the projen CLI.
+
+---
+
+##### `root`<sup>Required</sup> <a name="root" id="@jttc/projen-project-types.TerraformBaseProject.property.root"></a>
+
+```typescript
+public readonly root: Project;
+```
+
+- *Type:* projen.Project
+
+The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="@jttc/projen-project-types.TerraformBaseProject.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
+
+---
+
+##### `tasks`<sup>Required</sup> <a name="tasks" id="@jttc/projen-project-types.TerraformBaseProject.property.tasks"></a>
+
+```typescript
+public readonly tasks: Tasks;
+```
+
+- *Type:* projen.Tasks
+
+Project tasks.
+
+---
+
+##### `testTask`<sup>Required</sup> <a name="testTask" id="@jttc/projen-project-types.TerraformBaseProject.property.testTask"></a>
+
+```typescript
+public readonly testTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="@jttc/projen-project-types.TerraformBaseProject.property.defaultTask"></a>
+
+```typescript
+public readonly defaultTask: Task;
+```
+
+- *Type:* projen.Task
+
+This is the "default" task, the one that executes "projen".
+
+Undefined if
+the project is being ejected.
+
+---
+
+##### `initProject`<sup>Optional</sup> <a name="initProject" id="@jttc/projen-project-types.TerraformBaseProject.property.initProject"></a>
+
+```typescript
+public readonly initProject: InitProject;
+```
+
+- *Type:* projen.InitProject
+
+The options used when this project is bootstrapped via `projen new`.
+
+It
+includes the original set of options passed to the CLI and also the JSII
+FQN of the project type.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="@jttc/projen-project-types.TerraformBaseProject.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+A parent project.
+
+If undefined, this is the root project.
+
+---
+
+##### `provider`<sup>Optional</sup> <a name="provider" id="@jttc/projen-project-types.TerraformBaseProject.property.provider"></a>
+
+```typescript
+public readonly provider: TerraformProvider;
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.TerraformProvider">TerraformProvider</a>
+
+Get the current provider.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProject.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
+
+---
+
+##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="@jttc/projen-project-types.TerraformBaseProject.property.DEFAULT_TASK"></a>
+
+```typescript
+public readonly DEFAULT_TASK: string;
+```
+
+- *Type:* string
+
+The name of the default task (the task executed when `projen` is run without arguments).
+
+Normally
+this task should synthesize the project files.
+
+---
+
+### TerraformDeployGithubWorkflow <a name="TerraformDeployGithubWorkflow" id="@jttc/projen-project-types.TerraformDeployGithubWorkflow"></a>
+
+GitHub workflow component for Terraform deployment. Creates a workflow that validates, plans, and applies Terraform changes.
+
+This component is designed for Terraform stack projects that need deployment,
+not for module projects that need release workflows.
+
+#### Initializers <a name="Initializers" id="@jttc/projen-project-types.TerraformDeployGithubWorkflow.Initializer"></a>
+
+```typescript
+import { TerraformDeployGithubWorkflow } from '@jttc/projen-project-types'
+
+new TerraformDeployGithubWorkflow(project: Project, options?: TerraformDeployGithubWorkflowOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformDeployGithubWorkflow.Initializer.parameter.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.TerraformDeployGithubWorkflow.Initializer.parameter.options">options</a></code> | <code><a href="#@jttc/projen-project-types.TerraformDeployGithubWorkflowOptions">TerraformDeployGithubWorkflowOptions</a></code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@jttc/projen-project-types.TerraformDeployGithubWorkflow.Initializer.parameter.project"></a>
+
+- *Type:* projen.Project
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="@jttc/projen-project-types.TerraformDeployGithubWorkflow.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#@jttc/projen-project-types.TerraformDeployGithubWorkflowOptions">TerraformDeployGithubWorkflowOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformDeployGithubWorkflow.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@jttc/projen-project-types.TerraformDeployGithubWorkflow.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#@jttc/projen-project-types.TerraformDeployGithubWorkflow.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#@jttc/projen-project-types.TerraformDeployGithubWorkflow.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+
+---
+
+##### `toString` <a name="toString" id="@jttc/projen-project-types.TerraformDeployGithubWorkflow.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `postSynthesize` <a name="postSynthesize" id="@jttc/projen-project-types.TerraformDeployGithubWorkflow.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="@jttc/projen-project-types.TerraformDeployGithubWorkflow.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `synthesize` <a name="synthesize" id="@jttc/projen-project-types.TerraformDeployGithubWorkflow.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformDeployGithubWorkflow.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@jttc/projen-project-types.TerraformDeployGithubWorkflow.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@jttc/projen-project-types.TerraformDeployGithubWorkflow.isConstruct"></a>
+
+```typescript
+import { TerraformDeployGithubWorkflow } from '@jttc/projen-project-types'
+
+TerraformDeployGithubWorkflow.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@jttc/projen-project-types.TerraformDeployGithubWorkflow.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isComponent` <a name="isComponent" id="@jttc/projen-project-types.TerraformDeployGithubWorkflow.isComponent"></a>
+
+```typescript
+import { TerraformDeployGithubWorkflow } from '@jttc/projen-project-types'
+
+TerraformDeployGithubWorkflow.isComponent(x: any)
+```
+
+Test whether the given construct is a component.
+
+###### `x`<sup>Required</sup> <a name="x" id="@jttc/projen-project-types.TerraformDeployGithubWorkflow.isComponent.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformDeployGithubWorkflow.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@jttc/projen-project-types.TerraformDeployGithubWorkflow.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@jttc/projen-project-types.TerraformDeployGithubWorkflow.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@jttc/projen-project-types.TerraformDeployGithubWorkflow.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
+
+---
+
+
+### TerraformPlanGithubWorkflow <a name="TerraformPlanGithubWorkflow" id="@jttc/projen-project-types.TerraformPlanGithubWorkflow"></a>
+
+GitHub workflow component for Terraform plan on Pull Requests.
+
+Creates a workflow that validates, plans Terraform changes and comments results on PRs.
+
+This component is designed for Terraform stack projects to show plan results
+in Pull Requests without actually applying changes.
+
+#### Initializers <a name="Initializers" id="@jttc/projen-project-types.TerraformPlanGithubWorkflow.Initializer"></a>
+
+```typescript
+import { TerraformPlanGithubWorkflow } from '@jttc/projen-project-types'
+
+new TerraformPlanGithubWorkflow(project: Project, options?: TerraformPlanGithubWorkflowOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformPlanGithubWorkflow.Initializer.parameter.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.TerraformPlanGithubWorkflow.Initializer.parameter.options">options</a></code> | <code><a href="#@jttc/projen-project-types.TerraformPlanGithubWorkflowOptions">TerraformPlanGithubWorkflowOptions</a></code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@jttc/projen-project-types.TerraformPlanGithubWorkflow.Initializer.parameter.project"></a>
+
+- *Type:* projen.Project
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="@jttc/projen-project-types.TerraformPlanGithubWorkflow.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#@jttc/projen-project-types.TerraformPlanGithubWorkflowOptions">TerraformPlanGithubWorkflowOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformPlanGithubWorkflow.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@jttc/projen-project-types.TerraformPlanGithubWorkflow.postSynthesize">postSynthesize</a></code> | Called after synthesis. |
+| <code><a href="#@jttc/projen-project-types.TerraformPlanGithubWorkflow.preSynthesize">preSynthesize</a></code> | Called before synthesis. |
+| <code><a href="#@jttc/projen-project-types.TerraformPlanGithubWorkflow.synthesize">synthesize</a></code> | Synthesizes files to the project output directory. |
+
+---
+
+##### `toString` <a name="toString" id="@jttc/projen-project-types.TerraformPlanGithubWorkflow.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `postSynthesize` <a name="postSynthesize" id="@jttc/projen-project-types.TerraformPlanGithubWorkflow.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after synthesis.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="@jttc/projen-project-types.TerraformPlanGithubWorkflow.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before synthesis.
+
+##### `synthesize` <a name="synthesize" id="@jttc/projen-project-types.TerraformPlanGithubWorkflow.synthesize"></a>
+
+```typescript
+public synthesize(): void
+```
+
+Synthesizes files to the project output directory.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformPlanGithubWorkflow.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@jttc/projen-project-types.TerraformPlanGithubWorkflow.isComponent">isComponent</a></code> | Test whether the given construct is a component. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@jttc/projen-project-types.TerraformPlanGithubWorkflow.isConstruct"></a>
+
+```typescript
+import { TerraformPlanGithubWorkflow } from '@jttc/projen-project-types'
+
+TerraformPlanGithubWorkflow.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@jttc/projen-project-types.TerraformPlanGithubWorkflow.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isComponent` <a name="isComponent" id="@jttc/projen-project-types.TerraformPlanGithubWorkflow.isComponent"></a>
+
+```typescript
+import { TerraformPlanGithubWorkflow } from '@jttc/projen-project-types'
+
+TerraformPlanGithubWorkflow.isComponent(x: any)
+```
+
+Test whether the given construct is a component.
+
+###### `x`<sup>Required</sup> <a name="x" id="@jttc/projen-project-types.TerraformPlanGithubWorkflow.isComponent.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformPlanGithubWorkflow.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@jttc/projen-project-types.TerraformPlanGithubWorkflow.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@jttc/projen-project-types.TerraformPlanGithubWorkflow.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="@jttc/projen-project-types.TerraformPlanGithubWorkflow.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
+
+---
+
+
+### TerraformStackProject <a name="TerraformStackProject" id="@jttc/projen-project-types.TerraformStackProject"></a>
+
+Terraform stack project for managing infrastructure.
+
+#### Initializers <a name="Initializers" id="@jttc/projen-project-types.TerraformStackProject.Initializer"></a>
+
+```typescript
+import { TerraformStackProject } from '@jttc/projen-project-types'
+
+new TerraformStackProject(options: TerraformStackProjectOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.Initializer.parameter.options">options</a></code> | <code><a href="#@jttc/projen-project-types.TerraformStackProjectOptions">TerraformStackProjectOptions</a></code> | *No description.* |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="@jttc/projen-project-types.TerraformStackProject.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#@jttc/projen-project-types.TerraformStackProjectOptions">TerraformStackProjectOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.addExcludeFromCleanup">addExcludeFromCleanup</a></code> | Exclude the matching files from pre-synth cleanup. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.addGitIgnore">addGitIgnore</a></code> | Adds a .gitignore pattern. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.addPackageIgnore">addPackageIgnore</a></code> | Exclude these files from the bundled package. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.addTask">addTask</a></code> | Adds a new task to this project. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.addTip">addTip</a></code> | Prints a "tip" message during synthesis. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.annotateGenerated">annotateGenerated</a></code> | Consider a set of files as "generated". |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.postSynthesize">postSynthesize</a></code> | Called after all components are synthesized. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.preSynthesize">preSynthesize</a></code> | Called before all components are synthesized. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.removeTask">removeTask</a></code> | Removes a task from a project. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.runTaskCommand">runTaskCommand</a></code> | Returns the shell command to execute in order to run a task. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.synth">synth</a></code> | Synthesize all project files into `outdir`. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.tryFindFile">tryFindFile</a></code> | Finds a file at the specified relative path within this project and all its subprojects. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.tryFindJsonFile">tryFindJsonFile</a></code> | Finds a json file by name. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.tryFindObjectFile">tryFindObjectFile</a></code> | Finds an object file (like JsonFile, YamlFile, etc.) by name. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.tryRemoveFile">tryRemoveFile</a></code> | Finds a file at the specified relative path within this project and removes it. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.addProvider">addProvider</a></code> | Add a provider to this Terraform project. |
+
+---
+
+##### `toString` <a name="toString" id="@jttc/projen-project-types.TerraformStackProject.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `addExcludeFromCleanup` <a name="addExcludeFromCleanup" id="@jttc/projen-project-types.TerraformStackProject.addExcludeFromCleanup"></a>
+
+```typescript
+public addExcludeFromCleanup(globs: ...string[]): void
+```
+
+Exclude the matching files from pre-synth cleanup.
+
+Can be used when, for example, some
+source files include the projen marker and we don't want them to be erased during synth.
+
+###### `globs`<sup>Required</sup> <a name="globs" id="@jttc/projen-project-types.TerraformStackProject.addExcludeFromCleanup.parameter.globs"></a>
+
+- *Type:* ...string[]
+
+The glob patterns to match.
+
+---
+
+##### `addGitIgnore` <a name="addGitIgnore" id="@jttc/projen-project-types.TerraformStackProject.addGitIgnore"></a>
+
+```typescript
+public addGitIgnore(pattern: string): void
+```
+
+Adds a .gitignore pattern.
+
+###### `pattern`<sup>Required</sup> <a name="pattern" id="@jttc/projen-project-types.TerraformStackProject.addGitIgnore.parameter.pattern"></a>
+
+- *Type:* string
+
+The glob pattern to ignore.
+
+---
+
+##### `addPackageIgnore` <a name="addPackageIgnore" id="@jttc/projen-project-types.TerraformStackProject.addPackageIgnore"></a>
+
+```typescript
+public addPackageIgnore(_pattern: string): void
+```
+
+Exclude these files from the bundled package.
+
+Implemented by project types based on the
+packaging mechanism. For example, `NodeProject` delegates this to `.npmignore`.
+
+###### `_pattern`<sup>Required</sup> <a name="_pattern" id="@jttc/projen-project-types.TerraformStackProject.addPackageIgnore.parameter._pattern"></a>
+
+- *Type:* string
+
+The glob pattern to exclude.
+
+---
+
+##### `addTask` <a name="addTask" id="@jttc/projen-project-types.TerraformStackProject.addTask"></a>
+
+```typescript
+public addTask(name: string, props?: TaskOptions): Task
+```
+
+Adds a new task to this project.
+
+This will fail if the project already has
+a task with this name.
+
+###### `name`<sup>Required</sup> <a name="name" id="@jttc/projen-project-types.TerraformStackProject.addTask.parameter.name"></a>
+
+- *Type:* string
+
+The task name to add.
+
+---
+
+###### `props`<sup>Optional</sup> <a name="props" id="@jttc/projen-project-types.TerraformStackProject.addTask.parameter.props"></a>
+
+- *Type:* projen.TaskOptions
+
+Task properties.
+
+---
+
+##### ~~`addTip`~~ <a name="addTip" id="@jttc/projen-project-types.TerraformStackProject.addTip"></a>
+
+```typescript
+public addTip(message: string): void
+```
+
+Prints a "tip" message during synthesis.
+
+###### `message`<sup>Required</sup> <a name="message" id="@jttc/projen-project-types.TerraformStackProject.addTip.parameter.message"></a>
+
+- *Type:* string
+
+The message.
+
+---
+
+##### `annotateGenerated` <a name="annotateGenerated" id="@jttc/projen-project-types.TerraformStackProject.annotateGenerated"></a>
+
+```typescript
+public annotateGenerated(_glob: string): void
+```
+
+Consider a set of files as "generated".
+
+This method is implemented by
+derived classes and used for example, to add git attributes to tell GitHub
+that certain files are generated.
+
+###### `_glob`<sup>Required</sup> <a name="_glob" id="@jttc/projen-project-types.TerraformStackProject.annotateGenerated.parameter._glob"></a>
+
+- *Type:* string
+
+the glob pattern to match (could be a file path).
+
+---
+
+##### `postSynthesize` <a name="postSynthesize" id="@jttc/projen-project-types.TerraformStackProject.postSynthesize"></a>
+
+```typescript
+public postSynthesize(): void
+```
+
+Called after all components are synthesized.
+
+Order is *not* guaranteed.
+
+##### `preSynthesize` <a name="preSynthesize" id="@jttc/projen-project-types.TerraformStackProject.preSynthesize"></a>
+
+```typescript
+public preSynthesize(): void
+```
+
+Called before all components are synthesized.
+
+##### `removeTask` <a name="removeTask" id="@jttc/projen-project-types.TerraformStackProject.removeTask"></a>
+
+```typescript
+public removeTask(name: string): Task
+```
+
+Removes a task from a project.
+
+###### `name`<sup>Required</sup> <a name="name" id="@jttc/projen-project-types.TerraformStackProject.removeTask.parameter.name"></a>
+
+- *Type:* string
+
+The name of the task to remove.
+
+---
+
+##### `runTaskCommand` <a name="runTaskCommand" id="@jttc/projen-project-types.TerraformStackProject.runTaskCommand"></a>
+
+```typescript
+public runTaskCommand(task: Task): string
+```
+
+Returns the shell command to execute in order to run a task.
+
+By default, this is `npx projen@<version> <task>`
+
+###### `task`<sup>Required</sup> <a name="task" id="@jttc/projen-project-types.TerraformStackProject.runTaskCommand.parameter.task"></a>
+
+- *Type:* projen.Task
+
+The task for which the command is required.
+
+---
+
+##### `synth` <a name="synth" id="@jttc/projen-project-types.TerraformStackProject.synth"></a>
+
+```typescript
+public synth(): void
+```
+
+Synthesize all project files into `outdir`.
+
+1. Call "this.preSynthesize()"
+2. Delete all generated files
+3. Synthesize all subprojects
+4. Synthesize all components of this project
+5. Call "postSynthesize()" for all components of this project
+6. Call "this.postSynthesize()"
+
+##### `tryFindFile` <a name="tryFindFile" id="@jttc/projen-project-types.TerraformStackProject.tryFindFile"></a>
+
+```typescript
+public tryFindFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and all its subprojects.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@jttc/projen-project-types.TerraformStackProject.tryFindFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be resolved
+from the root of _this_ project.
+
+---
+
+##### ~~`tryFindJsonFile`~~ <a name="tryFindJsonFile" id="@jttc/projen-project-types.TerraformStackProject.tryFindJsonFile"></a>
+
+```typescript
+public tryFindJsonFile(filePath: string): JsonFile
+```
+
+Finds a json file by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@jttc/projen-project-types.TerraformStackProject.tryFindJsonFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryFindObjectFile` <a name="tryFindObjectFile" id="@jttc/projen-project-types.TerraformStackProject.tryFindObjectFile"></a>
+
+```typescript
+public tryFindObjectFile(filePath: string): ObjectFile
+```
+
+Finds an object file (like JsonFile, YamlFile, etc.) by name.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@jttc/projen-project-types.TerraformStackProject.tryFindObjectFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+---
+
+##### `tryRemoveFile` <a name="tryRemoveFile" id="@jttc/projen-project-types.TerraformStackProject.tryRemoveFile"></a>
+
+```typescript
+public tryRemoveFile(filePath: string): FileBase
+```
+
+Finds a file at the specified relative path within this project and removes it.
+
+###### `filePath`<sup>Required</sup> <a name="filePath" id="@jttc/projen-project-types.TerraformStackProject.tryRemoveFile.parameter.filePath"></a>
+
+- *Type:* string
+
+The file path.
+
+If this path is relative, it will be
+resolved from the root of _this_ project.
+
+---
+
+##### `addProvider` <a name="addProvider" id="@jttc/projen-project-types.TerraformStackProject.addProvider"></a>
+
+```typescript
+public addProvider(provider: TerraformProvider): void
+```
+
+Add a provider to this Terraform project.
+
+Only one provider per project is allowed.
+
+###### `provider`<sup>Required</sup> <a name="provider" id="@jttc/projen-project-types.TerraformStackProject.addProvider.parameter.provider"></a>
+
+- *Type:* <a href="#@jttc/projen-project-types.TerraformProvider">TerraformProvider</a>
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.isProject">isProject</a></code> | Test whether the given construct is a project. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.of">of</a></code> | Find the closest ancestor project for given construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@jttc/projen-project-types.TerraformStackProject.isConstruct"></a>
+
+```typescript
+import { TerraformStackProject } from '@jttc/projen-project-types'
+
+TerraformStackProject.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@jttc/projen-project-types.TerraformStackProject.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isProject` <a name="isProject" id="@jttc/projen-project-types.TerraformStackProject.isProject"></a>
+
+```typescript
+import { TerraformStackProject } from '@jttc/projen-project-types'
+
+TerraformStackProject.isProject(x: any)
+```
+
+Test whether the given construct is a project.
+
+###### `x`<sup>Required</sup> <a name="x" id="@jttc/projen-project-types.TerraformStackProject.isProject.parameter.x"></a>
+
+- *Type:* any
+
+---
+
+##### `of` <a name="of" id="@jttc/projen-project-types.TerraformStackProject.of"></a>
+
+```typescript
+import { TerraformStackProject } from '@jttc/projen-project-types'
+
+TerraformStackProject.of(construct: IConstruct)
+```
+
+Find the closest ancestor project for given construct.
+
+When given a project, this it the project itself.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="@jttc/projen-project-types.TerraformStackProject.of.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.ejected">ejected</a></code> | <code>boolean</code> | Whether or not the project is being ejected. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.files">files</a></code> | <code>projen.FileBase[]</code> | All files in this project. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.gitattributes">gitattributes</a></code> | <code>projen.GitAttributesFile</code> | The .gitattributes file for this repository. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.gitignore">gitignore</a></code> | <code>projen.IgnoreFile</code> | .gitignore. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.logger">logger</a></code> | <code>projen.Logger</code> | Logging utilities. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.name">name</a></code> | <code>string</code> | Project name. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.outdir">outdir</a></code> | <code>string</code> | Absolute output directory of this project. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.packageTask">packageTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.postCompileTask">postCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.preCompileTask">preCompileTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.projectBuild">projectBuild</a></code> | <code>projen.ProjectBuild</code> | Manages the build process of the project. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.projenCommand">projenCommand</a></code> | <code>string</code> | The command to use in order to run the projen CLI. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.root">root</a></code> | <code>projen.Project</code> | The root project. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.subprojects">subprojects</a></code> | <code>projen.Project[]</code> | Returns all the subprojects within this project. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.tasks">tasks</a></code> | <code>projen.Tasks</code> | Project tasks. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.testTask">testTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.defaultTask">defaultTask</a></code> | <code>projen.Task</code> | This is the "default" task, the one that executes "projen". |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.initProject">initProject</a></code> | <code>projen.InitProject</code> | The options used when this project is bootstrapped via `projen new`. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.parent">parent</a></code> | <code>projen.Project</code> | A parent project. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.provider">provider</a></code> | <code><a href="#@jttc/projen-project-types.TerraformProvider">TerraformProvider</a></code> | Get the current provider. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@jttc/projen-project-types.TerraformStackProject.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `buildTask`<sup>Required</sup> <a name="buildTask" id="@jttc/projen-project-types.TerraformStackProject.property.buildTask"></a>
+
+```typescript
+public readonly buildTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="@jttc/projen-project-types.TerraformStackProject.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+
+Whether to commit the managed files by default.
+
+---
+
+##### `compileTask`<sup>Required</sup> <a name="compileTask" id="@jttc/projen-project-types.TerraformStackProject.property.compileTask"></a>
+
+```typescript
+public readonly compileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `components`<sup>Required</sup> <a name="components" id="@jttc/projen-project-types.TerraformStackProject.property.components"></a>
+
+```typescript
+public readonly components: Component[];
+```
+
+- *Type:* projen.Component[]
+
+Returns all the components within this project.
+
+---
+
+##### `deps`<sup>Required</sup> <a name="deps" id="@jttc/projen-project-types.TerraformStackProject.property.deps"></a>
+
+```typescript
+public readonly deps: Dependencies;
+```
+
+- *Type:* projen.Dependencies
+
+Project dependencies.
+
+---
+
+##### `ejected`<sup>Required</sup> <a name="ejected" id="@jttc/projen-project-types.TerraformStackProject.property.ejected"></a>
+
+```typescript
+public readonly ejected: boolean;
+```
+
+- *Type:* boolean
+
+Whether or not the project is being ejected.
+
+---
+
+##### `files`<sup>Required</sup> <a name="files" id="@jttc/projen-project-types.TerraformStackProject.property.files"></a>
+
+```typescript
+public readonly files: FileBase[];
+```
+
+- *Type:* projen.FileBase[]
+
+All files in this project.
+
+---
+
+##### `gitattributes`<sup>Required</sup> <a name="gitattributes" id="@jttc/projen-project-types.TerraformStackProject.property.gitattributes"></a>
+
+```typescript
+public readonly gitattributes: GitAttributesFile;
+```
+
+- *Type:* projen.GitAttributesFile
+
+The .gitattributes file for this repository.
+
+---
+
+##### `gitignore`<sup>Required</sup> <a name="gitignore" id="@jttc/projen-project-types.TerraformStackProject.property.gitignore"></a>
+
+```typescript
+public readonly gitignore: IgnoreFile;
+```
+
+- *Type:* projen.IgnoreFile
+
+.gitignore.
+
+---
+
+##### `logger`<sup>Required</sup> <a name="logger" id="@jttc/projen-project-types.TerraformStackProject.property.logger"></a>
+
+```typescript
+public readonly logger: Logger;
+```
+
+- *Type:* projen.Logger
+
+Logging utilities.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="@jttc/projen-project-types.TerraformStackProject.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Project name.
+
+---
+
+##### `outdir`<sup>Required</sup> <a name="outdir" id="@jttc/projen-project-types.TerraformStackProject.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+
+Absolute output directory of this project.
+
+---
+
+##### `packageTask`<sup>Required</sup> <a name="packageTask" id="@jttc/projen-project-types.TerraformStackProject.property.packageTask"></a>
+
+```typescript
+public readonly packageTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `postCompileTask`<sup>Required</sup> <a name="postCompileTask" id="@jttc/projen-project-types.TerraformStackProject.property.postCompileTask"></a>
+
+```typescript
+public readonly postCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `preCompileTask`<sup>Required</sup> <a name="preCompileTask" id="@jttc/projen-project-types.TerraformStackProject.property.preCompileTask"></a>
+
+```typescript
+public readonly preCompileTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `projectBuild`<sup>Required</sup> <a name="projectBuild" id="@jttc/projen-project-types.TerraformStackProject.property.projectBuild"></a>
+
+```typescript
+public readonly projectBuild: ProjectBuild;
+```
+
+- *Type:* projen.ProjectBuild
+
+Manages the build process of the project.
+
+---
+
+##### `projenCommand`<sup>Required</sup> <a name="projenCommand" id="@jttc/projen-project-types.TerraformStackProject.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+
+The command to use in order to run the projen CLI.
+
+---
+
+##### `root`<sup>Required</sup> <a name="root" id="@jttc/projen-project-types.TerraformStackProject.property.root"></a>
+
+```typescript
+public readonly root: Project;
+```
+
+- *Type:* projen.Project
+
+The root project.
+
+---
+
+##### `subprojects`<sup>Required</sup> <a name="subprojects" id="@jttc/projen-project-types.TerraformStackProject.property.subprojects"></a>
+
+```typescript
+public readonly subprojects: Project[];
+```
+
+- *Type:* projen.Project[]
+
+Returns all the subprojects within this project.
+
+---
+
+##### `tasks`<sup>Required</sup> <a name="tasks" id="@jttc/projen-project-types.TerraformStackProject.property.tasks"></a>
+
+```typescript
+public readonly tasks: Tasks;
+```
+
+- *Type:* projen.Tasks
+
+Project tasks.
+
+---
+
+##### `testTask`<sup>Required</sup> <a name="testTask" id="@jttc/projen-project-types.TerraformStackProject.property.testTask"></a>
+
+```typescript
+public readonly testTask: Task;
+```
+
+- *Type:* projen.Task
+
+---
+
+##### `defaultTask`<sup>Optional</sup> <a name="defaultTask" id="@jttc/projen-project-types.TerraformStackProject.property.defaultTask"></a>
+
+```typescript
+public readonly defaultTask: Task;
+```
+
+- *Type:* projen.Task
+
+This is the "default" task, the one that executes "projen".
+
+Undefined if
+the project is being ejected.
+
+---
+
+##### `initProject`<sup>Optional</sup> <a name="initProject" id="@jttc/projen-project-types.TerraformStackProject.property.initProject"></a>
+
+```typescript
+public readonly initProject: InitProject;
+```
+
+- *Type:* projen.InitProject
+
+The options used when this project is bootstrapped via `projen new`.
+
+It
+includes the original set of options passed to the CLI and also the JSII
+FQN of the project type.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="@jttc/projen-project-types.TerraformStackProject.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+A parent project.
+
+If undefined, this is the root project.
+
+---
+
+##### `provider`<sup>Optional</sup> <a name="provider" id="@jttc/projen-project-types.TerraformStackProject.property.provider"></a>
+
+```typescript
+public readonly provider: TerraformProvider;
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.TerraformProvider">TerraformProvider</a>
+
+Get the current provider.
+
+---
+
+#### Constants <a name="Constants" id="Constants"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProject.property.DEFAULT_TASK">DEFAULT_TASK</a></code> | <code>string</code> | The name of the default task (the task executed when `projen` is run without arguments). |
+
+---
+
+##### `DEFAULT_TASK`<sup>Required</sup> <a name="DEFAULT_TASK" id="@jttc/projen-project-types.TerraformStackProject.property.DEFAULT_TASK"></a>
+
+```typescript
+public readonly DEFAULT_TASK: string;
+```
+
+- *Type:* string
+
+The name of the default task (the task executed when `projen` is run without arguments).
+
+Normally
+this task should synthesize the project files.
+
+---
+
 ## Structs <a name="Structs" id="Structs"></a>
 
 ### Affected <a name="Affected" id="@jttc/projen-project-types.Affected"></a>
@@ -21059,6 +22931,228 @@ public readonly commitzent: Commitzent;
 
 ---
 
+### HetznerProviderConfig <a name="HetznerProviderConfig" id="@jttc/projen-project-types.HetznerProviderConfig"></a>
+
+Configuration for a specific Hetzner Cloud provider instance.
+
+#### Initializer <a name="Initializer" id="@jttc/projen-project-types.HetznerProviderConfig.Initializer"></a>
+
+```typescript
+import { HetznerProviderConfig } from '@jttc/projen-project-types'
+
+const hetznerProviderConfig: HetznerProviderConfig = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.HetznerProviderConfig.property.alias">alias</a></code> | <code>string</code> | Provider alias for multiple configurations. |
+| <code><a href="#@jttc/projen-project-types.HetznerProviderConfig.property.endpoint">endpoint</a></code> | <code>string</code> | Hetzner Cloud API endpoint. |
+| <code><a href="#@jttc/projen-project-types.HetznerProviderConfig.property.endpointHetzner">endpointHetzner</a></code> | <code>string</code> | Hetzner API endpoint (for Hetzner services, not Hetzner Cloud). |
+| <code><a href="#@jttc/projen-project-types.HetznerProviderConfig.property.pollFunction">pollFunction</a></code> | <code><a href="#@jttc/projen-project-types.HetznerPollFunction">HetznerPollFunction</a></code> | Configures the type of function to be used during polling. |
+| <code><a href="#@jttc/projen-project-types.HetznerProviderConfig.property.pollInterval">pollInterval</a></code> | <code>string</code> | Configures the interval in which actions are polled by the client. |
+| <code><a href="#@jttc/projen-project-types.HetznerProviderConfig.property.token">token</a></code> | <code>string</code> | Hetzner Cloud API token (can be set via HCLOUD_TOKEN env var). |
+| <code><a href="#@jttc/projen-project-types.HetznerProviderConfig.property.useEnvironmentToken">useEnvironmentToken</a></code> | <code>boolean</code> | Use HCLOUD_TOKEN environment variable for authentication. |
+
+---
+
+##### `alias`<sup>Optional</sup> <a name="alias" id="@jttc/projen-project-types.HetznerProviderConfig.property.alias"></a>
+
+```typescript
+public readonly alias: string;
+```
+
+- *Type:* string
+
+Provider alias for multiple configurations.
+
+---
+
+##### `endpoint`<sup>Optional</sup> <a name="endpoint" id="@jttc/projen-project-types.HetznerProviderConfig.property.endpoint"></a>
+
+```typescript
+public readonly endpoint: string;
+```
+
+- *Type:* string
+- *Default:* "https://api.hetzner.cloud/v1"
+
+Hetzner Cloud API endpoint.
+
+---
+
+##### `endpointHetzner`<sup>Optional</sup> <a name="endpointHetzner" id="@jttc/projen-project-types.HetznerProviderConfig.property.endpointHetzner"></a>
+
+```typescript
+public readonly endpointHetzner: string;
+```
+
+- *Type:* string
+- *Default:* "https://api.hetzner.com/v1"
+
+Hetzner API endpoint (for Hetzner services, not Hetzner Cloud).
+
+---
+
+##### `pollFunction`<sup>Optional</sup> <a name="pollFunction" id="@jttc/projen-project-types.HetznerProviderConfig.property.pollFunction"></a>
+
+```typescript
+public readonly pollFunction: HetznerPollFunction;
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.HetznerPollFunction">HetznerPollFunction</a>
+- *Default:* "exponential"
+
+Configures the type of function to be used during polling.
+
+---
+
+##### `pollInterval`<sup>Optional</sup> <a name="pollInterval" id="@jttc/projen-project-types.HetznerProviderConfig.property.pollInterval"></a>
+
+```typescript
+public readonly pollInterval: string;
+```
+
+- *Type:* string
+- *Default:* "500ms"
+
+Configures the interval in which actions are polled by the client.
+
+---
+
+*Example*
+
+```typescript
+"1s", "2000ms"
+```
+
+
+##### `token`<sup>Optional</sup> <a name="token" id="@jttc/projen-project-types.HetznerProviderConfig.property.token"></a>
+
+```typescript
+public readonly token: string;
+```
+
+- *Type:* string
+
+Hetzner Cloud API token (can be set via HCLOUD_TOKEN env var).
+
+Required unless useEnvironmentToken is true or set via environment variable.
+
+---
+
+##### `useEnvironmentToken`<sup>Optional</sup> <a name="useEnvironmentToken" id="@jttc/projen-project-types.HetznerProviderConfig.property.useEnvironmentToken"></a>
+
+```typescript
+public readonly useEnvironmentToken: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Use HCLOUD_TOKEN environment variable for authentication.
+
+When true, the token will be read from HCLOUD_TOKEN environment variable
+and no explicit token configuration will be generated in the provider block.
+This is useful for CI/CD pipelines and different environments.
+
+---
+
+### HetznerProviderOptions <a name="HetznerProviderOptions" id="@jttc/projen-project-types.HetznerProviderOptions"></a>
+
+Options for Hetzner Terraform provider.
+
+#### Initializer <a name="Initializer" id="@jttc/projen-project-types.HetznerProviderOptions.Initializer"></a>
+
+```typescript
+import { HetznerProviderOptions } from '@jttc/projen-project-types'
+
+const hetznerProviderOptions: HetznerProviderOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.HetznerProviderOptions.property.alias">alias</a></code> | <code>string</code> | Provider alias (optional). |
+| <code><a href="#@jttc/projen-project-types.HetznerProviderOptions.property.version">version</a></code> | <code>string</code> | Provider version constraint. |
+| <code><a href="#@jttc/projen-project-types.HetznerProviderOptions.property.providers">providers</a></code> | <code><a href="#@jttc/projen-project-types.HetznerProviderConfig">HetznerProviderConfig</a>[]</code> | Array of provider configurations for multiple instances/projects. Each configuration can have its own alias, token, and settings. |
+
+---
+
+##### `alias`<sup>Optional</sup> <a name="alias" id="@jttc/projen-project-types.HetznerProviderOptions.property.alias"></a>
+
+```typescript
+public readonly alias: string;
+```
+
+- *Type:* string
+
+Provider alias (optional).
+
+---
+
+##### `version`<sup>Optional</sup> <a name="version" id="@jttc/projen-project-types.HetznerProviderOptions.property.version"></a>
+
+```typescript
+public readonly version: string;
+```
+
+- *Type:* string
+
+Provider version constraint.
+
+---
+
+*Example*
+
+```typescript
+"~> 5.0"
+```
+
+
+##### `providers`<sup>Optional</sup> <a name="providers" id="@jttc/projen-project-types.HetznerProviderOptions.property.providers"></a>
+
+```typescript
+public readonly providers: HetznerProviderConfig[];
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.HetznerProviderConfig">HetznerProviderConfig</a>[]
+
+Array of provider configurations for multiple instances/projects. Each configuration can have its own alias, token, and settings.
+
+If empty or not provided, a default configuration will be created
+with useEnvironmentToken: true and no alias.
+
+---
+
+*Example*
+
+```typescript
+// Simple case - uses default configuration with HCLOUD_TOKEN env var
+new HetznerProvider({
+  version: '~> 1.45'
+})
+
+// Multiple configurations
+new HetznerProvider({
+  version: '~> 1.45',
+  providers: [
+    {
+      alias: 'dns',
+      token: 'dns-project-token',
+      useEnvironmentToken: false
+    },
+    {
+      alias: 'staging',
+      useEnvironmentToken: true
+    }
+  ]
+})
+```
+
+
 ### K3dConfig <a name="K3dConfig" id="@jttc/projen-project-types.K3dConfig"></a>
 
 #### Initializer <a name="Initializer" id="@jttc/projen-project-types.K3dConfig.Initializer"></a>
@@ -24599,6 +26693,638 @@ Path to resolve the runner.
 
 ---
 
+### TerraformBaseProjectOptions <a name="TerraformBaseProjectOptions" id="@jttc/projen-project-types.TerraformBaseProjectOptions"></a>
+
+Options for Terraform base project.
+
+#### Initializer <a name="Initializer" id="@jttc/projen-project-types.TerraformBaseProjectOptions.Initializer"></a>
+
+```typescript
+import { TerraformBaseProjectOptions } from '@jttc/projen-project-types'
+
+const terraformBaseProjectOptions: TerraformBaseProjectOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProjectOptions.property.name">name</a></code> | <code>string</code> | This is the name of your project. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProjectOptions.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProjectOptions.property.gitIgnoreOptions">gitIgnoreOptions</a></code> | <code>projen.IgnoreFileOptions</code> | Configuration options for .gitignore file. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProjectOptions.property.gitOptions">gitOptions</a></code> | <code>projen.GitOptions</code> | Configuration options for git. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProjectOptions.property.logging">logging</a></code> | <code>projen.LoggerOptions</code> | Configure logging options such as verbosity. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProjectOptions.property.outdir">outdir</a></code> | <code>string</code> | The root directory of the project. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProjectOptions.property.parent">parent</a></code> | <code>projen.Project</code> | The parent project, if this project is part of a bigger project. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProjectOptions.property.projenCommand">projenCommand</a></code> | <code>string</code> | The shell command to use in order to run the projen CLI. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProjectOptions.property.projenrcJson">projenrcJson</a></code> | <code>boolean</code> | Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProjectOptions.property.projenrcJsonOptions">projenrcJsonOptions</a></code> | <code>projen.ProjenrcJsonOptions</code> | Options for .projenrc.json. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProjectOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProjectOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProjectOptions.property.provider">provider</a></code> | <code><a href="#@jttc/projen-project-types.TerraformProvider">TerraformProvider</a></code> | Terraform provider configuration. |
+| <code><a href="#@jttc/projen-project-types.TerraformBaseProjectOptions.property.terraformVersion">terraformVersion</a></code> | <code>string</code> | Minimum required Terraform version. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="@jttc/projen-project-types.TerraformBaseProjectOptions.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+- *Default:* $BASEDIR
+
+This is the name of your project.
+
+---
+
+##### `commitGenerated`<sup>Optional</sup> <a name="commitGenerated" id="@jttc/projen-project-types.TerraformBaseProjectOptions.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to commit the managed files by default.
+
+---
+
+##### `gitIgnoreOptions`<sup>Optional</sup> <a name="gitIgnoreOptions" id="@jttc/projen-project-types.TerraformBaseProjectOptions.property.gitIgnoreOptions"></a>
+
+```typescript
+public readonly gitIgnoreOptions: IgnoreFileOptions;
+```
+
+- *Type:* projen.IgnoreFileOptions
+
+Configuration options for .gitignore file.
+
+---
+
+##### `gitOptions`<sup>Optional</sup> <a name="gitOptions" id="@jttc/projen-project-types.TerraformBaseProjectOptions.property.gitOptions"></a>
+
+```typescript
+public readonly gitOptions: GitOptions;
+```
+
+- *Type:* projen.GitOptions
+
+Configuration options for git.
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="@jttc/projen-project-types.TerraformBaseProjectOptions.property.logging"></a>
+
+```typescript
+public readonly logging: LoggerOptions;
+```
+
+- *Type:* projen.LoggerOptions
+- *Default:* {}
+
+Configure logging options such as verbosity.
+
+---
+
+##### `outdir`<sup>Optional</sup> <a name="outdir" id="@jttc/projen-project-types.TerraformBaseProjectOptions.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+- *Default:* "."
+
+The root directory of the project.
+
+Relative to this directory, all files are synthesized.
+
+If this project has a parent, this directory is relative to the parent
+directory and it cannot be the same as the parent or any of it's other
+subprojects.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="@jttc/projen-project-types.TerraformBaseProjectOptions.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+The parent project, if this project is part of a bigger project.
+
+---
+
+##### `projenCommand`<sup>Optional</sup> <a name="projenCommand" id="@jttc/projen-project-types.TerraformBaseProjectOptions.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+- *Default:* "npx projen"
+
+The shell command to use in order to run the projen CLI.
+
+Can be used to customize in special environments.
+
+---
+
+##### `projenrcJson`<sup>Optional</sup> <a name="projenrcJson" id="@jttc/projen-project-types.TerraformBaseProjectOptions.property.projenrcJson"></a>
+
+```typescript
+public readonly projenrcJson: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation.
+
+---
+
+##### `projenrcJsonOptions`<sup>Optional</sup> <a name="projenrcJsonOptions" id="@jttc/projen-project-types.TerraformBaseProjectOptions.property.projenrcJsonOptions"></a>
+
+```typescript
+public readonly projenrcJsonOptions: ProjenrcJsonOptions;
+```
+
+- *Type:* projen.ProjenrcJsonOptions
+- *Default:* default options
+
+Options for .projenrc.json.
+
+---
+
+##### `renovatebot`<sup>Optional</sup> <a name="renovatebot" id="@jttc/projen-project-types.TerraformBaseProjectOptions.property.renovatebot"></a>
+
+```typescript
+public readonly renovatebot: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use renovatebot to handle dependency upgrades.
+
+---
+
+##### `renovatebotOptions`<sup>Optional</sup> <a name="renovatebotOptions" id="@jttc/projen-project-types.TerraformBaseProjectOptions.property.renovatebotOptions"></a>
+
+```typescript
+public readonly renovatebotOptions: RenovatebotOptions;
+```
+
+- *Type:* projen.RenovatebotOptions
+- *Default:* default options
+
+Options for renovatebot.
+
+---
+
+##### `provider`<sup>Optional</sup> <a name="provider" id="@jttc/projen-project-types.TerraformBaseProjectOptions.property.provider"></a>
+
+```typescript
+public readonly provider: TerraformProvider;
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.TerraformProvider">TerraformProvider</a>
+
+Terraform provider configuration.
+
+---
+
+##### `terraformVersion`<sup>Optional</sup> <a name="terraformVersion" id="@jttc/projen-project-types.TerraformBaseProjectOptions.property.terraformVersion"></a>
+
+```typescript
+public readonly terraformVersion: string;
+```
+
+- *Type:* string
+- *Default:* "1.6.0"
+
+Minimum required Terraform version.
+
+---
+
+### TerraformDeployGithubWorkflowOptions <a name="TerraformDeployGithubWorkflowOptions" id="@jttc/projen-project-types.TerraformDeployGithubWorkflowOptions"></a>
+
+Options for TerraformDeployGithubWorkflow component.
+
+#### Initializer <a name="Initializer" id="@jttc/projen-project-types.TerraformDeployGithubWorkflowOptions.Initializer"></a>
+
+```typescript
+import { TerraformDeployGithubWorkflowOptions } from '@jttc/projen-project-types'
+
+const terraformDeployGithubWorkflowOptions: TerraformDeployGithubWorkflowOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformDeployGithubWorkflowOptions.property.terraformVersion">terraformVersion</a></code> | <code>string</code> | Terraform version to use in the workflow. |
+| <code><a href="#@jttc/projen-project-types.TerraformDeployGithubWorkflowOptions.property.workflowName">workflowName</a></code> | <code>string</code> | Name of the workflow. |
+
+---
+
+##### `terraformVersion`<sup>Optional</sup> <a name="terraformVersion" id="@jttc/projen-project-types.TerraformDeployGithubWorkflowOptions.property.terraformVersion"></a>
+
+```typescript
+public readonly terraformVersion: string;
+```
+
+- *Type:* string
+- *Default:* "1.6.0"
+
+Terraform version to use in the workflow.
+
+---
+
+##### `workflowName`<sup>Optional</sup> <a name="workflowName" id="@jttc/projen-project-types.TerraformDeployGithubWorkflowOptions.property.workflowName"></a>
+
+```typescript
+public readonly workflowName: string;
+```
+
+- *Type:* string
+- *Default:* "terraform-deploy"
+
+Name of the workflow.
+
+---
+
+### TerraformPlanGithubWorkflowOptions <a name="TerraformPlanGithubWorkflowOptions" id="@jttc/projen-project-types.TerraformPlanGithubWorkflowOptions"></a>
+
+Options for TerraformPlanGithubWorkflow component.
+
+#### Initializer <a name="Initializer" id="@jttc/projen-project-types.TerraformPlanGithubWorkflowOptions.Initializer"></a>
+
+```typescript
+import { TerraformPlanGithubWorkflowOptions } from '@jttc/projen-project-types'
+
+const terraformPlanGithubWorkflowOptions: TerraformPlanGithubWorkflowOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformPlanGithubWorkflowOptions.property.terraformVersion">terraformVersion</a></code> | <code>string</code> | Terraform version to use in the workflow. |
+| <code><a href="#@jttc/projen-project-types.TerraformPlanGithubWorkflowOptions.property.workflowName">workflowName</a></code> | <code>string</code> | Name of the workflow. |
+| <code><a href="#@jttc/projen-project-types.TerraformPlanGithubWorkflowOptions.property.workingDirectory">workingDirectory</a></code> | <code>string</code> | Working directory for Terraform commands. |
+
+---
+
+##### `terraformVersion`<sup>Optional</sup> <a name="terraformVersion" id="@jttc/projen-project-types.TerraformPlanGithubWorkflowOptions.property.terraformVersion"></a>
+
+```typescript
+public readonly terraformVersion: string;
+```
+
+- *Type:* string
+- *Default:* "1.6.0"
+
+Terraform version to use in the workflow.
+
+---
+
+##### `workflowName`<sup>Optional</sup> <a name="workflowName" id="@jttc/projen-project-types.TerraformPlanGithubWorkflowOptions.property.workflowName"></a>
+
+```typescript
+public readonly workflowName: string;
+```
+
+- *Type:* string
+- *Default:* "terraform-plan"
+
+Name of the workflow.
+
+---
+
+##### `workingDirectory`<sup>Optional</sup> <a name="workingDirectory" id="@jttc/projen-project-types.TerraformPlanGithubWorkflowOptions.property.workingDirectory"></a>
+
+```typescript
+public readonly workingDirectory: string;
+```
+
+- *Type:* string
+- *Default:* "."
+
+Working directory for Terraform commands.
+
+---
+
+### TerraformProviderOptions <a name="TerraformProviderOptions" id="@jttc/projen-project-types.TerraformProviderOptions"></a>
+
+Base options for Terraform providers.
+
+#### Initializer <a name="Initializer" id="@jttc/projen-project-types.TerraformProviderOptions.Initializer"></a>
+
+```typescript
+import { TerraformProviderOptions } from '@jttc/projen-project-types'
+
+const terraformProviderOptions: TerraformProviderOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformProviderOptions.property.alias">alias</a></code> | <code>string</code> | Provider alias (optional). |
+| <code><a href="#@jttc/projen-project-types.TerraformProviderOptions.property.version">version</a></code> | <code>string</code> | Provider version constraint. |
+
+---
+
+##### `alias`<sup>Optional</sup> <a name="alias" id="@jttc/projen-project-types.TerraformProviderOptions.property.alias"></a>
+
+```typescript
+public readonly alias: string;
+```
+
+- *Type:* string
+
+Provider alias (optional).
+
+---
+
+##### `version`<sup>Optional</sup> <a name="version" id="@jttc/projen-project-types.TerraformProviderOptions.property.version"></a>
+
+```typescript
+public readonly version: string;
+```
+
+- *Type:* string
+
+Provider version constraint.
+
+---
+
+*Example*
+
+```typescript
+"~> 5.0"
+```
+
+
+### TerraformStackProjectOptions <a name="TerraformStackProjectOptions" id="@jttc/projen-project-types.TerraformStackProjectOptions"></a>
+
+Options for Terraform stack project.
+
+#### Initializer <a name="Initializer" id="@jttc/projen-project-types.TerraformStackProjectOptions.Initializer"></a>
+
+```typescript
+import { TerraformStackProjectOptions } from '@jttc/projen-project-types'
+
+const terraformStackProjectOptions: TerraformStackProjectOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProjectOptions.property.name">name</a></code> | <code>string</code> | This is the name of your project. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProjectOptions.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProjectOptions.property.gitIgnoreOptions">gitIgnoreOptions</a></code> | <code>projen.IgnoreFileOptions</code> | Configuration options for .gitignore file. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProjectOptions.property.gitOptions">gitOptions</a></code> | <code>projen.GitOptions</code> | Configuration options for git. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProjectOptions.property.logging">logging</a></code> | <code>projen.LoggerOptions</code> | Configure logging options such as verbosity. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProjectOptions.property.outdir">outdir</a></code> | <code>string</code> | The root directory of the project. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProjectOptions.property.parent">parent</a></code> | <code>projen.Project</code> | The parent project, if this project is part of a bigger project. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProjectOptions.property.projenCommand">projenCommand</a></code> | <code>string</code> | The shell command to use in order to run the projen CLI. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProjectOptions.property.projenrcJson">projenrcJson</a></code> | <code>boolean</code> | Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProjectOptions.property.projenrcJsonOptions">projenrcJsonOptions</a></code> | <code>projen.ProjenrcJsonOptions</code> | Options for .projenrc.json. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProjectOptions.property.renovatebot">renovatebot</a></code> | <code>boolean</code> | Use renovatebot to handle dependency upgrades. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProjectOptions.property.renovatebotOptions">renovatebotOptions</a></code> | <code>projen.RenovatebotOptions</code> | Options for renovatebot. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProjectOptions.property.provider">provider</a></code> | <code><a href="#@jttc/projen-project-types.TerraformProvider">TerraformProvider</a></code> | Terraform provider configuration. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProjectOptions.property.terraformVersion">terraformVersion</a></code> | <code>string</code> | Minimum required Terraform version. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProjectOptions.property.enableGitHubWorkflow">enableGitHubWorkflow</a></code> | <code>boolean</code> | Enable GitHub workflow for Terraform deployment. |
+| <code><a href="#@jttc/projen-project-types.TerraformStackProjectOptions.property.enablePlanWorkflow">enablePlanWorkflow</a></code> | <code>boolean</code> | Enable GitHub workflow for Terraform plan on Pull Requests. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="@jttc/projen-project-types.TerraformStackProjectOptions.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+- *Default:* $BASEDIR
+
+This is the name of your project.
+
+---
+
+##### `commitGenerated`<sup>Optional</sup> <a name="commitGenerated" id="@jttc/projen-project-types.TerraformStackProjectOptions.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Whether to commit the managed files by default.
+
+---
+
+##### `gitIgnoreOptions`<sup>Optional</sup> <a name="gitIgnoreOptions" id="@jttc/projen-project-types.TerraformStackProjectOptions.property.gitIgnoreOptions"></a>
+
+```typescript
+public readonly gitIgnoreOptions: IgnoreFileOptions;
+```
+
+- *Type:* projen.IgnoreFileOptions
+
+Configuration options for .gitignore file.
+
+---
+
+##### `gitOptions`<sup>Optional</sup> <a name="gitOptions" id="@jttc/projen-project-types.TerraformStackProjectOptions.property.gitOptions"></a>
+
+```typescript
+public readonly gitOptions: GitOptions;
+```
+
+- *Type:* projen.GitOptions
+
+Configuration options for git.
+
+---
+
+##### `logging`<sup>Optional</sup> <a name="logging" id="@jttc/projen-project-types.TerraformStackProjectOptions.property.logging"></a>
+
+```typescript
+public readonly logging: LoggerOptions;
+```
+
+- *Type:* projen.LoggerOptions
+- *Default:* {}
+
+Configure logging options such as verbosity.
+
+---
+
+##### `outdir`<sup>Optional</sup> <a name="outdir" id="@jttc/projen-project-types.TerraformStackProjectOptions.property.outdir"></a>
+
+```typescript
+public readonly outdir: string;
+```
+
+- *Type:* string
+- *Default:* "."
+
+The root directory of the project.
+
+Relative to this directory, all files are synthesized.
+
+If this project has a parent, this directory is relative to the parent
+directory and it cannot be the same as the parent or any of it's other
+subprojects.
+
+---
+
+##### `parent`<sup>Optional</sup> <a name="parent" id="@jttc/projen-project-types.TerraformStackProjectOptions.property.parent"></a>
+
+```typescript
+public readonly parent: Project;
+```
+
+- *Type:* projen.Project
+
+The parent project, if this project is part of a bigger project.
+
+---
+
+##### `projenCommand`<sup>Optional</sup> <a name="projenCommand" id="@jttc/projen-project-types.TerraformStackProjectOptions.property.projenCommand"></a>
+
+```typescript
+public readonly projenCommand: string;
+```
+
+- *Type:* string
+- *Default:* "npx projen"
+
+The shell command to use in order to run the projen CLI.
+
+Can be used to customize in special environments.
+
+---
+
+##### `projenrcJson`<sup>Optional</sup> <a name="projenrcJson" id="@jttc/projen-project-types.TerraformStackProjectOptions.property.projenrcJson"></a>
+
+```typescript
+public readonly projenrcJson: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Generate (once) .projenrc.json (in JSON). Set to `false` in order to disable .projenrc.json generation.
+
+---
+
+##### `projenrcJsonOptions`<sup>Optional</sup> <a name="projenrcJsonOptions" id="@jttc/projen-project-types.TerraformStackProjectOptions.property.projenrcJsonOptions"></a>
+
+```typescript
+public readonly projenrcJsonOptions: ProjenrcJsonOptions;
+```
+
+- *Type:* projen.ProjenrcJsonOptions
+- *Default:* default options
+
+Options for .projenrc.json.
+
+---
+
+##### `renovatebot`<sup>Optional</sup> <a name="renovatebot" id="@jttc/projen-project-types.TerraformStackProjectOptions.property.renovatebot"></a>
+
+```typescript
+public readonly renovatebot: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Use renovatebot to handle dependency upgrades.
+
+---
+
+##### `renovatebotOptions`<sup>Optional</sup> <a name="renovatebotOptions" id="@jttc/projen-project-types.TerraformStackProjectOptions.property.renovatebotOptions"></a>
+
+```typescript
+public readonly renovatebotOptions: RenovatebotOptions;
+```
+
+- *Type:* projen.RenovatebotOptions
+- *Default:* default options
+
+Options for renovatebot.
+
+---
+
+##### `provider`<sup>Optional</sup> <a name="provider" id="@jttc/projen-project-types.TerraformStackProjectOptions.property.provider"></a>
+
+```typescript
+public readonly provider: TerraformProvider;
+```
+
+- *Type:* <a href="#@jttc/projen-project-types.TerraformProvider">TerraformProvider</a>
+
+Terraform provider configuration.
+
+---
+
+##### `terraformVersion`<sup>Optional</sup> <a name="terraformVersion" id="@jttc/projen-project-types.TerraformStackProjectOptions.property.terraformVersion"></a>
+
+```typescript
+public readonly terraformVersion: string;
+```
+
+- *Type:* string
+- *Default:* "1.6.0"
+
+Minimum required Terraform version.
+
+---
+
+##### `enableGitHubWorkflow`<sup>Optional</sup> <a name="enableGitHubWorkflow" id="@jttc/projen-project-types.TerraformStackProjectOptions.property.enableGitHubWorkflow"></a>
+
+```typescript
+public readonly enableGitHubWorkflow: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable GitHub workflow for Terraform deployment.
+
+Creates a workflow that validates, plans, and applies Terraform changes.
+Only applicable for stack projects, not module projects.
+
+---
+
+##### `enablePlanWorkflow`<sup>Optional</sup> <a name="enablePlanWorkflow" id="@jttc/projen-project-types.TerraformStackProjectOptions.property.enablePlanWorkflow"></a>
+
+```typescript
+public readonly enablePlanWorkflow: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enable GitHub workflow for Terraform plan on Pull Requests.
+
+Creates a workflow that validates and plans Terraform changes on PRs,
+and comments the results back to the PR.
+
+---
+
 ### TypeScriptProjectWithGlobalOptions <a name="TypeScriptProjectWithGlobalOptions" id="@jttc/projen-project-types.TypeScriptProjectWithGlobalOptions"></a>
 
 TypeScript project options that include global project options.
@@ -27179,6 +29905,188 @@ Project options that may include existing configurations.
 
 
 
+### HetznerProvider <a name="HetznerProvider" id="@jttc/projen-project-types.HetznerProvider"></a>
+
+Hetzner Cloud Terraform provider configuration.
+
+#### Initializers <a name="Initializers" id="@jttc/projen-project-types.HetznerProvider.Initializer"></a>
+
+```typescript
+import { HetznerProvider } from '@jttc/projen-project-types'
+
+new HetznerProvider(options: HetznerProviderOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.HetznerProvider.Initializer.parameter.options">options</a></code> | <code><a href="#@jttc/projen-project-types.HetznerProviderOptions">HetznerProviderOptions</a></code> | *No description.* |
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="@jttc/projen-project-types.HetznerProvider.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#@jttc/projen-project-types.HetznerProviderOptions">HetznerProviderOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@jttc/projen-project-types.HetznerProvider.generateProviderBlock">generateProviderBlock</a></code> | Generate the provider configuration block. |
+| <code><a href="#@jttc/projen-project-types.HetznerProvider.name">name</a></code> | Get the provider name. |
+| <code><a href="#@jttc/projen-project-types.HetznerProvider.providerAlias">providerAlias</a></code> | Get the provider alias for the required_providers block. |
+| <code><a href="#@jttc/projen-project-types.HetznerProvider.providerSource">providerSource</a></code> | Get the provider source (e.g., "hashicorp/aws"). |
+| <code><a href="#@jttc/projen-project-types.HetznerProvider.versionConstraint">versionConstraint</a></code> | Get the version constraint. |
+| <code><a href="#@jttc/projen-project-types.HetznerProvider.addProviderConfig">addProviderConfig</a></code> | Add a new provider configuration. |
+
+---
+
+##### `generateProviderBlock` <a name="generateProviderBlock" id="@jttc/projen-project-types.HetznerProvider.generateProviderBlock"></a>
+
+```typescript
+public generateProviderBlock(): string[]
+```
+
+Generate the provider configuration block.
+
+##### `name` <a name="name" id="@jttc/projen-project-types.HetznerProvider.name"></a>
+
+```typescript
+public name(): string
+```
+
+Get the provider name.
+
+##### `providerAlias` <a name="providerAlias" id="@jttc/projen-project-types.HetznerProvider.providerAlias"></a>
+
+```typescript
+public providerAlias(): string
+```
+
+Get the provider alias for the required_providers block.
+
+##### `providerSource` <a name="providerSource" id="@jttc/projen-project-types.HetznerProvider.providerSource"></a>
+
+```typescript
+public providerSource(): string
+```
+
+Get the provider source (e.g., "hashicorp/aws").
+
+##### `versionConstraint` <a name="versionConstraint" id="@jttc/projen-project-types.HetznerProvider.versionConstraint"></a>
+
+```typescript
+public versionConstraint(): string
+```
+
+Get the version constraint.
+
+##### `addProviderConfig` <a name="addProviderConfig" id="@jttc/projen-project-types.HetznerProvider.addProviderConfig"></a>
+
+```typescript
+public addProviderConfig(config: HetznerProviderConfig): void
+```
+
+Add a new provider configuration.
+
+###### `config`<sup>Required</sup> <a name="config" id="@jttc/projen-project-types.HetznerProvider.addProviderConfig.parameter.config"></a>
+
+- *Type:* <a href="#@jttc/projen-project-types.HetznerProviderConfig">HetznerProviderConfig</a>
+
+---
+
+
+
+
+### TerraformProvider <a name="TerraformProvider" id="@jttc/projen-project-types.TerraformProvider"></a>
+
+Base class for Terraform provider configurations.
+
+This is a strategy class that holds configuration, not a Projen component.
+
+#### Initializers <a name="Initializers" id="@jttc/projen-project-types.TerraformProvider.Initializer"></a>
+
+```typescript
+import { TerraformProvider } from '@jttc/projen-project-types'
+
+new TerraformProvider(providerName: string, options?: TerraformProviderOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformProvider.Initializer.parameter.providerName">providerName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@jttc/projen-project-types.TerraformProvider.Initializer.parameter.options">options</a></code> | <code><a href="#@jttc/projen-project-types.TerraformProviderOptions">TerraformProviderOptions</a></code> | *No description.* |
+
+---
+
+##### `providerName`<sup>Required</sup> <a name="providerName" id="@jttc/projen-project-types.TerraformProvider.Initializer.parameter.providerName"></a>
+
+- *Type:* string
+
+---
+
+##### `options`<sup>Optional</sup> <a name="options" id="@jttc/projen-project-types.TerraformProvider.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#@jttc/projen-project-types.TerraformProviderOptions">TerraformProviderOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@jttc/projen-project-types.TerraformProvider.generateProviderBlock">generateProviderBlock</a></code> | Generate the provider configuration block. |
+| <code><a href="#@jttc/projen-project-types.TerraformProvider.name">name</a></code> | Get the provider name. |
+| <code><a href="#@jttc/projen-project-types.TerraformProvider.providerAlias">providerAlias</a></code> | Get the provider alias for the required_providers block. |
+| <code><a href="#@jttc/projen-project-types.TerraformProvider.providerSource">providerSource</a></code> | Get the provider source (e.g., "hashicorp/aws"). |
+| <code><a href="#@jttc/projen-project-types.TerraformProvider.versionConstraint">versionConstraint</a></code> | Get the version constraint. |
+
+---
+
+##### `generateProviderBlock` <a name="generateProviderBlock" id="@jttc/projen-project-types.TerraformProvider.generateProviderBlock"></a>
+
+```typescript
+public generateProviderBlock(): string[]
+```
+
+Generate the provider configuration block.
+
+##### `name` <a name="name" id="@jttc/projen-project-types.TerraformProvider.name"></a>
+
+```typescript
+public name(): string
+```
+
+Get the provider name.
+
+##### `providerAlias` <a name="providerAlias" id="@jttc/projen-project-types.TerraformProvider.providerAlias"></a>
+
+```typescript
+public providerAlias(): string
+```
+
+Get the provider alias for the required_providers block.
+
+##### `providerSource` <a name="providerSource" id="@jttc/projen-project-types.TerraformProvider.providerSource"></a>
+
+```typescript
+public providerSource(): string
+```
+
+Get the provider source (e.g., "hashicorp/aws").
+
+##### `versionConstraint` <a name="versionConstraint" id="@jttc/projen-project-types.TerraformProvider.versionConstraint"></a>
+
+```typescript
+public versionConstraint(): string
+```
+
+Get the version constraint.
+
+
+
+
 
 ## Enums <a name="Enums" id="Enums"></a>
 
@@ -27193,6 +30101,33 @@ Project options that may include existing configurations.
 ---
 
 ##### `V1_ALPHA_5` <a name="V1_ALPHA_5" id="@jttc/projen-project-types.ApiVersion.V1_ALPHA_5"></a>
+
+---
+
+
+### HetznerPollFunction <a name="HetznerPollFunction" id="@jttc/projen-project-types.HetznerPollFunction"></a>
+
+Poll function types for Hetzner Cloud provider.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@jttc/projen-project-types.HetznerPollFunction.CONSTANT">CONSTANT</a></code> | Constant polling interval. |
+| <code><a href="#@jttc/projen-project-types.HetznerPollFunction.EXPONENTIAL">EXPONENTIAL</a></code> | Exponential backoff polling. |
+
+---
+
+##### `CONSTANT` <a name="CONSTANT" id="@jttc/projen-project-types.HetznerPollFunction.CONSTANT"></a>
+
+Constant polling interval.
+
+---
+
+
+##### `EXPONENTIAL` <a name="EXPONENTIAL" id="@jttc/projen-project-types.HetznerPollFunction.EXPONENTIAL"></a>
+
+Exponential backoff polling.
 
 ---
 
