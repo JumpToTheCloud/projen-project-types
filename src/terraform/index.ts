@@ -1,4 +1,5 @@
 export * from './components';
 export * from './terraform-base-project';
 export * from './terraform-stack-project';
+export * from './terraform-module-project';
 export * from './providers';

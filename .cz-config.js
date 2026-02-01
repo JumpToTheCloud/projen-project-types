@@ -72,6 +72,9 @@ module.exports = {
       name: 'terraform-stack'
     },
     {
+      name: 'terraform-module'
+    },
+    {
       name: 'cdk8s-component'
     },
     {
