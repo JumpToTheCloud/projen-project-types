@@ -1,9 +1,9 @@
 import { TypeScriptProject } from 'projen/lib/typescript';
+import { Commitzent } from '../components';
 import { NxConfigurations } from './components/NxConfiguration';
 import { PublishRelease } from './components/publish-release';
 import { NxMonorepoOptions } from './interfaces/NxMonorepo';
 import { CommonOptionsConfig } from '../common/common-options';
-import { Commitzent } from '../components';
 
 /**
  * NX Monorepo Project
@@ -12,7 +12,6 @@ import { Commitzent } from '../components';
  */
 export class NxMonorepo extends TypeScriptProject {
   readonly commitzent?: Commitzent;
-  readonly nx: NxConfigurations;
   constructor(options: NxMonorepoOptions) {
     const opts = CommonOptionsConfig.withCommonOptionsDefaults({
       ...options,
@@ -36,7 +35,7 @@ export class NxMonorepo extends TypeScriptProject {
 
     new PublishRelease(this.github!, 'PublishRelease');
 
-    this.nx = new NxConfigurations(this, 'nx.json');
+    new NxConfigurations(this, 'nx.json');
 
     this.tasks.removeTask('release');
     this.tasks.removeTask('build');

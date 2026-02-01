@@ -7,6 +7,8 @@ import {
 import { NpmAccess, UpgradeDependenciesSchedule } from 'projen/lib/javascript';
 import { ReleaseTrigger } from 'projen/lib/release';
 import { JsiiProject } from './src/cdk/jsii-project';
+import { NxWorkspace } from './src/components/nx/nx-workspace';
+//import { NxComponent } from './src/components';
 
 const project = new JsiiProject({
   author: 'Jumpt to the Cloud',
@@ -194,5 +196,7 @@ deployDocs?.addJob('deploy-docs', {
     },
   ],
 });
+
+new NxWorkspace(project, 'NxWorkspace');
 
 project.synth();

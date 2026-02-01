@@ -1,5 +1,5 @@
-import { Component, DependencyType, JsonFile, Project } from 'projen';
-import { Nx } from './interfaces/nx';
+import { Component, DependencyType, Project } from 'projen';
+import { NxWorkspace } from './nx-workspace';
 
 /**
  * Nx versions
@@ -38,6 +38,7 @@ export interface NxComponentOptions {
 
 export class NxComponent extends Component {
   readonly nxVersion: NxVersion;
+  readonly nx: NxWorkspace;
   constructor(project: Project, id: string, options?: NxComponentOptions) {
     super(project, id);
 
@@ -52,34 +53,36 @@ export class NxComponent extends Component {
     });
     nxTask.lock();
 
-    const nxConfiguration: Nx = {
-      namedInputs: {
-        default: ['{projectRoot}/**/*', 'sharedGlobals'],
-        production: [
-          'default',
-          '!{projectRoot}/**/*.spec.ts',
-          '!{projectRoot}/**/*.test.ts',
-          '!{projectRoot}/**/*.snap',
-          '!{projectRoot}/test/**',
-          '!{projectRoot}/tests/**',
-          '!{projectRoot}/**/*.md',
-        ],
-        test: ['default'],
-        sharedGlobals: [
-          '{workspaceRoot}/nx.json',
-          '{workspaceRoot}/tsconfig.base.json',
-          '{workspaceRoot}/package.json',
-          '{workspaceRoot}/pnpm-lock.yaml',
-          '{workspaceRoot}/.projenrc.ts',
-        ],
-      },
-    };
+    this.nx = new NxWorkspace(project, 'NxWorkspace');
 
-    new JsonFile(project, 'nx.json', {
+    //const nxConfiguration: Nx = {
+    //  namedInputs: {
+    //    default: ['{projectRoot}/**/*', 'sharedGlobals'],
+    //    production: [
+    //      'default',
+    //      '!{projectRoot}/**/*.spec.ts',
+    //      '!{projectRoot}/**/*.test.ts',
+    //      '!{projectRoot}/**/*.snap',
+    //      '!{projectRoot}/test/**',
+    //      '!{projectRoot}/tests/**',
+    //      '!{projectRoot}/**/*.md',
+    //    ],
+    //    test: ['default'],
+    //    sharedGlobals: [
+    //      '{workspaceRoot}/nx.json',
+    //      '{workspaceRoot}/tsconfig.base.json',
+    //      '{workspaceRoot}/package.json',
+    //      '{workspaceRoot}/pnpm-lock.yaml',
+    //      '{workspaceRoot}/.projenrc.ts',
+    //    ],
+    //  },
+    //};
+
+    /* new JsonFile(project, 'nx.json', {
       obj: {
         $schema: './node_modules/nx/schemas/nx-schema.json',
         ...nxConfiguration,
       },
-    });
+    }); */
   }
 }
