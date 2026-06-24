@@ -112,6 +112,7 @@ deployDocs?.on({
 });
 
 project.addGitIgnore('site');
+project.addGitIgnore('.claude/settings.local.json');
 
 project.prettier?.addIgnorePattern('*.md');
 
